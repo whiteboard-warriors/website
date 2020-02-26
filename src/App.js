@@ -1,16 +1,13 @@
 import React from 'react';
 
 // components
+import NavBar from './components/layout/NavBar';
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-    return (
-        <div>
-            <h1>whiteboard warriors</h1>
-        </div>
-    );
+    return <NavBar />;
 }
 
 export default App;

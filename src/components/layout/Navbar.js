@@ -1,53 +1,33 @@
 import React from 'react';
+// bootstrap
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
 
-const Navbar = () => {
+const NavBar = () => {
     return (
-        <div>
-            <nav>
-                <div className='nav-wrapper'>
-                    <a href='#!' className='brand-logo'>
-                        Logo
-                    </a>
-                    <a
-                        href='#'
-                        data-target='mobile-demo'
-                        className='sidenav-trigger'
-                    >
-                        <i className='material-icons'>menu</i>
-                    </a>
-                    <ul className='right hide-on-med-and-down'>
-                        <li>
-                            <a href='sass.html'>Sass</a>
-                        </li>
-                        <li>
-                            <a href='badges.html'>Components</a>
-                        </li>
-                        <li>
-                            <a href='collapsible.html'>Javascript</a>
-                        </li>
-                        <li>
-                            <a href='mobile.html'>Mobile</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <ul className='sidenav' id='mobile-demo'>
-                <li>
-                    <a href='sass.html'>Sass</a>
-                </li>
-                <li>
-                    <a href='badges.html'>Components</a>
-                </li>
-                <li>
-                    <a href='collapsible.html'>Javascript</a>
-                </li>
-                <li>
-                    <a href='mobile.html'>Mobile</a>
-                </li>
-            </ul>
-        </div>
+        <Navbar bg='light' variant='light'>
+            <Container>
+                <Navbar.Brand href='#home'>{'{WW}'}</Navbar.Brand>
+                <Nav className='mr-auto'>
+                    <Nav.Link href='#home'>Home</Nav.Link>
+                    <Nav.Link href='#features'>Features</Nav.Link>
+                    <Nav.Link href='#pricing'>Pricing</Nav.Link>
+                </Nav>
+                <Form inline>
+                    <FormControl
+                        type='text'
+                        placeholder='Search'
+                        className='mr-sm-2'
+                    />
+                    <Button variant='outline-primary'>Search</Button>
+                </Form>
+            </Container>
+        </Navbar>
     );
 };
 
-export default Navbar;
+export default NavBar;
