@@ -1,0 +1,11 @@
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const CREATE_BLOG = 'CREATE_BLOG';
+export const GET_BLOGS = 'GET_BLOGS';
+export const UPDATE_BLOG = 'UPDATE_BLOG';
+export const DELETE_BLOG = 'DELETE_BLOG';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const GET_COMMENTS = 'GET_COMMENTS';
+export const DELETE_COMMENTS = 'DELETE_COMMENTS';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const BLOG_ERROR = 'BLOG_ERROR';
