@@ -11,11 +11,12 @@ const NavBar = () => {
     return (
         <Navbar bg='light' variant='light'>
             <Container>
-                <Navbar.Brand href='#home'>{'{WW}'}</Navbar.Brand>
+                {/* <Navbar.Brand href='#home'>{'{WW}'}</Navbar.Brand> */}
                 <Nav className='mr-auto'>
-                    <Nav.Link href='#home'>Home</Nav.Link>
-                    <Nav.Link href='#features'>Features</Nav.Link>
-                    <Nav.Link href='#pricing'>Pricing</Nav.Link>
+                    <Nav.Link href='/about'>About</Nav.Link>
+                    <Nav.Link href='/meetups'>Meetups</Nav.Link>
+                    <Nav.Link href='/jobs'>Jobs</Nav.Link>
+                    <Nav.Link href='/resources'>Resources</Nav.Link>
                 </Nav>
                 <Form inline>
                     <FormControl
