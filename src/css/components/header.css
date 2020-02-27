@@ -1,0 +1,9 @@
+.jumbotron,
+.jumbotron-fluid {
+    background-image: linear-gradient(
+        to right,
+        var(--orange-dark),
+        var(--orange-light),
+        var(--orange-dark)
+    );
+}
