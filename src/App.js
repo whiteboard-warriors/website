@@ -12,7 +12,7 @@ import Landing from './components/pages/Landing';
 import NavBar from './components/layout/NavBar';
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './App.scss';
 // images
 // import logo from './img/logo/ww_logo./svg';
 import wireframe from './img/wireframes/wireframe_1.png';
