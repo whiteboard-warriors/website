@@ -6,4 +6,9 @@
         var(--orange-light),
         var(--orange-dark)
     );
+    padding-bottom: 7rem;
+}
+
+.img-fluid {
+    margin-top: -7rem;
 }

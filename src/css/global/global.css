@@ -1,0 +1,11 @@
+/* buttons  */
+.btn-primary,
+.btn-outline-primary:hover {
+    color: var(--white);
+    background-color: var(--orange-dark);
+    border-color: var(--orange-dark);
+}
+.btn-outline-primary {
+    color: var(--orange-dark);
+    border-color: var(--orange-dark);
+}
