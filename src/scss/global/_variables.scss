@@ -1,10 +1,9 @@
-:root {
-    --black: #221e20;
-    --dark-grey: #505253;
-    --light-grey: #717375;
-    --orange-dark: #fa6500;
-    --orange-light: #fb8f5f;
-    --gree-bright: #11f922;
-    --white: #f5f5f5;
-    --shade: #cecece;
-}
+// color variables
+$black: #221e20 !default;
+$grey-dark: #505253 !default;
+$grey: #717375 !default;
+$grey-light: #cecece !default;
+$orange-dark: #fa6500 !default;
+$orange-light: #fb8f5f !default;
+$gree-bright: #11f922 !default;
+$white: #f5f5f5 !default;

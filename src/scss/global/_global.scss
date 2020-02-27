@@ -1,11 +1,11 @@
 /* buttons  */
 .btn-primary,
 .btn-outline-primary:hover {
-    color: var(--white);
-    background-color: var(--orange-dark);
-    border-color: var(--orange-dark);
+    color: $white;
+    background-color: $orange-dark;
+    border-color: $orange-dark;
 }
 .btn-outline-primary {
-    color: var(--orange-dark);
-    border-color: var(--orange-dark);
+    color: $orange-dark;
+    border-color: $orange-dark;
 }

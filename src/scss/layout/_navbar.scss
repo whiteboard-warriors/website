@@ -2,6 +2,9 @@
     padding: 1.5rem 0.5rem;
 }
 .nav-link {
-    color: var(--black) !important;
+    color: $black !important;
     margin-right: 1rem;
+    &:hover {
+        color: $grey !important;
+    }
 }

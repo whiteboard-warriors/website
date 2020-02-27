@@ -2,9 +2,9 @@
 .jumbotron-fluid {
     background-image: linear-gradient(
         to right,
-        var(--orange-dark),
-        var(--orange-light),
-        var(--orange-dark)
+        $orange-dark,
+        $orange-light,
+        $orange-dark
     );
     padding-bottom: 7rem;
 }
