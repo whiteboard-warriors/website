@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 // bootstrap
 import Container from 'react-bootstrap/Container';
@@ -10,33 +10,38 @@ import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
     return (
-        <Navbar bg='light' variant='light'>
-            <Container>
-                {/* <Navbar.Brand href='#home'>{'{WW}'}</Navbar.Brand> */}
-                <Nav className='mr-auto'>
-                    <Nav.Link>
-                        <Link to='/about'>About</Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                        <Link to='/meetups'>Meetups</Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                        <Link to='/jobs'>Jobs</Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                        <Link to='/Resources'>Resources</Link>
-                    </Nav.Link>
-                </Nav>
-                <Form inline>
-                    <FormControl
-                        type='text'
-                        placeholder='Search'
-                        className='mr-sm-2'
-                    />
-                    <Button variant='outline-primary'>Search</Button>
-                </Form>
-            </Container>
-        </Navbar>
+        <Fragment>
+            <Navbar bg='light' variant='light'>
+                <Container>
+                    {/* <Navbar.Brand href='#home'>{'{WW}'}</Navbar.Brand> */}
+                    <Nav className='mr-auto'>
+                        <Link className='nav-link' to='/'>
+                            Home
+                        </Link>
+                        <Link className='nav-link' to='/about'>
+                            About
+                        </Link>
+                        <Link className='nav-link' to='/meetups'>
+                            Meetups
+                        </Link>
+                        <Link className='nav-link' to='/jobs'>
+                            Jobs
+                        </Link>
+                        <Link className='nav-link' to='/resources'>
+                            Resources
+                        </Link>
+                    </Nav>
+                    <Form inline>
+                        <FormControl
+                            type='text'
+                            placeholder='Search'
+                            className='mr-sm-2'
+                        />
+                        <Button variant='outline-primary'>Search</Button>
+                    </Form>
+                </Container>
+            </Navbar>
+        </Fragment>
     );
 };
 

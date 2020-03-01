@@ -20,8 +20,8 @@ import './App.scss';
 function App() {
     return (
         <Fragment>
-            <NavBar></NavBar>
             <Router>
+                <NavBar></NavBar>
                 <Switch>
                     <Route exact path='/' component={Landing} />
                 </Switch>
