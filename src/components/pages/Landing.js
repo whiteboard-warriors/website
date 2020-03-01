@@ -9,6 +9,10 @@ const Landing = () => {
     return (
         <div>
             <Header></Header>
+            <div className='p-5 m-5 text-center'>
+                <h1 className='p-4 m-4 text-center'>Content </h1>
+            </div>
+
             <Footer></Footer>
         </div>
     );

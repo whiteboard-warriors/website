@@ -8,6 +8,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import Image from 'react-bootstrap/Image';
 // pages
 import Landing from './components/pages/Landing';
+import About from './components/pages/About';
+import Meetups from './components/pages/Meetups';
+import Jobs from './components/pages/Jobs';
+import Resources from './components/pages/Resources';
 // components
 import NavBar from './components/layout/NavBar';
 // css
@@ -24,6 +28,10 @@ function App() {
                 <NavBar></NavBar>
                 <Switch>
                     <Route exact path='/' component={Landing} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/meetups' component={Meetups} />
+                    <Route exact path='/jobs' component={Jobs} />
+                    <Route exact path='/resources' component={Resources} />
                 </Switch>
             </Router>
         </Fragment>
