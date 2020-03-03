@@ -1,88 +1,24 @@
+import axios from 'axios';
+import setAuthToken from '../utils/setAuthToken';
+
 import {
+    SET_LOADING,
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     RESET_PASSWORD,
-    RESET_PASSWORD_FAIL
+    RESET_PASSWORD_FAIL,
+    VERIFY_EMAIL,
+    VERIFY_EMAIL_FAIL,
+    LOGOUT,
+    CLEAR_ERRORS
 } from './types';
 
-// Get techs from server
-export const getTechs = () => async dispatch => {
-    try {
-        setLoading();
+// Logout
 
-        const res = await fetch('/techs');
-        const data = await res.json();
-
-        dispatch({
-            type: GET_TECHS,
-            payload: data
-        });
-    } catch (err) {
-        dispatch({
-            type: TECHS_ERROR,
-            payload: err.response.statusText
-        });
-    }
-};
-
-// Add tech to server
-export const addTech = tech => async dispatch => {
-    try {
-        setLoading();
-
-        const res = await fetch('/techs', {
-            method: 'POST',
-            body: JSON.stringify(tech),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        const data = await res.json();
-
-        dispatch({
-            type: ADD_TECH,
-            payload: data
-        });
-    } catch (err) {
-        dispatch({
-            type: TECHS_ERROR,
-            payload: err.response.statusText
-        });
-    }
-};
-
-// Delete tech from server
-export const deleteTech = id => async dispatch => {
-    try {
-        setLoading();
-
-        await fetch(`/techs/${id}`, {
-            method: 'DELETE'
-        });
-
-        dispatch({
-            type: DELETE_TECH,
-            payload: id
-        });
-    } catch (err) {
-        dispatch({
-            type: TECHS_ERROR,
-            payload: err.response.statusText
-        });
-    }
-};
-
-// Set loading to true
-export const setLoading = () => {
-    return {
-        type: SET_LOADING
-    };
-};
-
-// Load User
+// Load user
 export const loadUser = async () => {
     if (localStorage.token) {
         setAuthToken(localStorage.token);
@@ -100,8 +36,8 @@ export const loadUser = async () => {
     }
 };
 
-// Register User
-export const register = async formData => {
+// Login user
+export const login = () => async formData => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -109,31 +45,8 @@ export const register = async formData => {
     };
 
     try {
-        const res = await axios.post('/api/users', formData, config);
-
-        dispatch({
-            type: REGISTER_SUCCESS,
-            payload: res.data
-        });
-
-        loadUser();
-    } catch (err) {
-        dispatch({
-            type: REGISTER_FAIL,
-            payload: err.response.data.msg
-        });
-    }
-};
-// Login User
-export const login = async formData => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-
-    try {
-        const res = await axios.post('/api/auth', formData, config);
+        setLoading();
+        const res = await axios.post('/login-path', formData, config);
 
         dispatch({
             type: LOGIN_SUCCESS,
@@ -144,7 +57,78 @@ export const login = async formData => {
     } catch (err) {
         dispatch({
             type: LOGIN_FAIL,
-            payload: err.response.data.msg
+            payload: err.response.data.msg // test to verify the right payload is being sent.
+        });
+    }
+};
+
+// Register User
+export const register = async formData => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    try {
+        const res = await axios.post('/register-path', formData, config);
+
+        dispatch({
+            type: REGISTER_SUCCESS,
+            payload: res.data
+        });
+
+        loadUser();
+    } catch (err) {
+        dispatch({
+            type: REGISTER_FAIL,
+            payload: err.response.data.msg // verify correct source
+        });
+    }
+};
+
+// Verify email
+export const verifyEmail = async email => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    try {
+        const res = await axios.get('/verify-email-path', email, config);
+
+        dispatch({
+            type: VERIFY_EMAIL,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: VERIFY_EMAIL_FAIL,
+            payload: err.response.data.msg // verify correct source
+        });
+    }
+};
+
+// Reset password
+export const resetPassword = async (id, password) => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    try {
+        const res = await axios.patch('/reset-path', { id, password }, config);
+
+        dispatch({
+            type: RESET_PASSWORD,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: RESET_PASSWORD_FAIL,
+            payload: err.response.data.msg // verify correct source
         });
     }
 };
@@ -154,3 +138,38 @@ export const logout = () => dispatch({ type: LOGOUT });
 
 // Clear Errors
 export const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+
+// Set loading to true
+export const setLoading = () => {
+    return {
+        type: SET_LOADING
+    };
+};
+
+// // Login User
+// export const login = async formData => {
+//     const config = {
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     };
+
+//     try {
+//         const res = await axios.post('/api/auth', formData, config);
+
+//         dispatch({
+//             type: LOGIN_SUCCESS,
+//             payload: res.data
+//         });
+
+//         loadUser();
+//     } catch (err) {
+//         dispatch({
+//             type: LOGIN_FAIL,
+//             payload: err.response.data.msg
+//         });
+//     }
+// };
+
+// // Clear Errors
+// export const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
