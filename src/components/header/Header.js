@@ -15,7 +15,10 @@ const Header = () => {
             <Jumbotron fluid>
                 <Container>
                     <Row>
-                        <Col md={{ span: 4, offset: 4 }}>
+                        <Col
+                            sm={{ span: 4, offset: 4 }}
+                            xs={{ span: 6, offset: 3 }}
+                        >
                             <Image src={logo} fluid />
                         </Col>
                     </Row>
