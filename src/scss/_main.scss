@@ -1,0 +1,9 @@
+// global
+@import './global/variables.scss';
+@import './global/reset.scss';
+@import './global/global.scss';
+// layout
+@import './layout/navbar.scss';
+@import './layout/footer.scss';
+//components
+@import './/components/header.scss';
