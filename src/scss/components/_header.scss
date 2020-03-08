@@ -1,0 +1,15 @@
+.jumbotron,
+.jumbotron-fluid {
+    background-image: linear-gradient(
+        to right,
+        $orange-dark,
+        $orange-light,
+        $orange-dark
+    );
+    padding-bottom: 7rem;
+}
+
+.img-fluid {
+    margin-top: -7rem;
+    width: 1/5vh;
+}
