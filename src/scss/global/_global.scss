@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+	@include sans-font;
+}
+
 /* buttons  */
 .btn-primary,
 .btn-outline-primary:hover {
-    color: $white;
-    background-color: $orange-dark;
-    border-color: $orange-dark;
+	color: $white;
+	background-color: $orange-dark;
+	border-color: $orange-dark;
 }
 .btn-outline-primary {
-    color: $orange-dark;
-    border-color: $orange-dark;
+	color: $orange-dark;
+	border-color: $orange-dark;
 }

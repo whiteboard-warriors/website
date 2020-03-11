@@ -1,0 +1,32 @@
+.page-header > {
+	.jumbotron {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		text-align: center;
+	}
+
+	.jumbotron img {
+		max-height: 650px;
+		width: auto;
+	}
+
+	// trick jumbotron img by pulling it up until we
+	// get dynamically sized images
+	.jumbotron > {
+		.img-fluid {
+			margin-top: -11rem;
+		}
+	}
+}
+
+.entry-header {
+	text-align: center;
+}
+
+.entry-header h1 {
+	color: $grey-dark;
+	font-weight: 200;
+	line-height: 1.3;
+	margin: 0 0 0.5em;
+	font-size: 48px;
+}

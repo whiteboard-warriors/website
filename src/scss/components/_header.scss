@@ -1,15 +1,18 @@
-.jumbotron,
-.jumbotron-fluid {
-    background-image: linear-gradient(
-        to right,
-        $orange-dark,
-        $orange-light,
-        $orange-dark
-    );
-    padding-bottom: 7rem;
+.landing-header-wrapper {
+	background-image: linear-gradient(
+		to right,
+		$orange-dark,
+		$orange-light,
+		$orange-dark
+	);
+	padding-bottom: 7rem;
+}
+
+.page-header-wrapper {
+	background-color: $grey-hero-background;
 }
 
 .img-fluid {
-    margin-top: -7rem;
-    width: 1/5vh;
+	margin-top: -7rem;
+	width: 1/5vh;
 }
