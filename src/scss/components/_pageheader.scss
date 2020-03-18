@@ -1,8 +1,10 @@
 .page-header > {
-	.jumbotron {
+	.jumbotron.jumbotron-fluid {
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 		text-align: center;
+		background-color: $grey-hero-background;
+		background-image: none;
 	}
 
 	.jumbotron img {

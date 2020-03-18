@@ -1,4 +1,4 @@
-.landing-header-wrapper {
+.jumbotron.jumbotron-fluid {
 	background-image: linear-gradient(
 		to right,
 		$orange-dark,
@@ -6,6 +6,13 @@
 		$orange-dark
 	);
 	padding-bottom: 7rem;
+}
+
+.page-header > {
+	.jumbotron.jumbotron-fluid {
+		background-color: $grey-hero-background;
+		padding-bottom: 7rem;
+	}
 }
 
 .page-header-wrapper {
