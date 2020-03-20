@@ -14,7 +14,7 @@ import Meetups from './components/pages/Meetups'
 import Jobs from './components/pages/Jobs'
 import Resources from './components/pages/Resources'
 // components
-import NavBar from './components/layout/Navbar'
+import NavBar from './components/NavBar'
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css'
