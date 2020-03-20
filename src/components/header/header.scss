@@ -1,0 +1,50 @@
+@import '../../scss/main';
+
+@media screen and (min-width: 576px) {
+	.jumbotron.jumbotron-fluid {
+		height: 200px;
+		padding: 3em 0 2em;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.jumbotron.jumbotron-fluid {
+		height: 200px;
+		padding: 3em 0 2em;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.jumbotron.jumbotron-fluid {
+		height: 260px;
+		padding: 3em 0 2em;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.jumbotron.jumbotron-fluid {
+		height: 260px;
+		padding: 3em 0 2em;
+	}
+}
+
+.jumbotron.jumbotron-fluid {
+	background-image: linear-gradient(
+		to right,
+		$orange-dark,
+		$orange-light,
+		$orange-dark
+	);
+}
+
+.page-header > {
+	.jumbotron.jumbotron-fluid {
+		background-color: $grey-hero-background;
+		padding-bottom: 7rem;
+	}
+}
+
+.img-fluid {
+	margin-top: -7rem;
+	width: 1/5vh;
+}
