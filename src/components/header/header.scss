@@ -1,23 +1,33 @@
 @import '../../scss/main';
 
 .masthead-logo {
-	margin-top: -7rem;
+	margin-top: -6rem;
+	width: 240px;
+}
+
+.jumbotron.jumbotron-fluid {
+	background-image: linear-gradient(
+		to right,
+		$orange-dark,
+		$orange-light,
+		$orange-dark
+	);
+	height: 200px;
 }
 
 @media screen and (min-width: 576px) {
 	.jumbotron.jumbotron-fluid {
-		height: 200px;
 		padding: 3em 0 2em;
 	}
 
 	.masthead-logo {
+		margin-top: -7rem;
 		width: 240px;
 	}
 }
 
 @media screen and (min-width: 768px) {
 	.jumbotron.jumbotron-fluid {
-		height: 200px;
 		padding: 3em 0 2em;
 	}
 
@@ -39,27 +49,10 @@
 
 @media screen and (min-width: 1024px) {
 	.jumbotron.jumbotron-fluid {
-		height: 260px;
 		padding: 3em 0 2em;
 	}
 
 	.masthead-logo {
 		width: 290px;
-	}
-}
-
-.jumbotron.jumbotron-fluid {
-	background-image: linear-gradient(
-		to right,
-		$orange-dark,
-		$orange-light,
-		$orange-dark
-	);
-}
-
-.page-header > {
-	.jumbotron.jumbotron-fluid {
-		background-color: $grey-hero-background;
-		padding-bottom: 7rem;
 	}
 }
