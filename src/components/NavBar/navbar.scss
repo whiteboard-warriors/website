@@ -1,15 +1,15 @@
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-	.navbar {
-		padding: 0.5rem 1rem !important;
-		height: 73.5px;
-	}
+@import '../../scss/main';
+
+.navbar {
+	padding: 1.5rem 0.5rem !important;
+	height: 73.5px !important;
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-	.navbar {
-		padding: 0.5rem 1rem !important;
-		height: 73.5px;
+.nav-link {
+	color: $black !important;
+	margin-right: 1rem;
+	&:hover {
+		color: $grey !important;
 	}
 }
