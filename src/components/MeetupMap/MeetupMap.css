@@ -1,0 +1,8 @@
+.map-wrapper {
+	text-align: center;
+}
+
+.map-container {
+	position: relative;
+	display: inline-block;
+}

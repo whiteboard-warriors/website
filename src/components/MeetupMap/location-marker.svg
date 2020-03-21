@@ -1,0 +1,221 @@
+<svg id="Location1" image-rendering="auto" baseProfile="basic" version="1.1" x="0px" y="0px" width="50" height="50" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Scene-1-copy" overflow="visible">
+        <g id="Symbol-37" transform="translate(80.55 16.1)">
+            <path fill="rgba(255,119,0)" stroke="none" d="M233.35 13.25Q202.15 0 167.95 0 133.8 0 102.6 13.25 72.45 25.95 49.25 49.25 25.95 72.55 13.25 102.7 0 133.9 0 168.1 0 244.75 71.75 347.5 108.1 399.35 148.1 439.8 156.3 447.9 167.95 447.9 179.5 447.9 187.75 439.8 227.85 399.35 264.05 347.5 335.95 244.75 335.95 168.1 335.95 133.9 322.7 102.7 310 72.55 286.7 49.25 263.5 25.95 233.35 13.25M167.95 84.1Q184 84.1 197.85 89.35 214.95 95.45 228.85 109.35 253.65 134.15 253.65 169.1 253.65 204.2 228.85 228.85 204.1 253.65 169.1 253.65 152.2 253.8 136.65 247.4 121.1 240.85 109.25 229 99 218.75 92.85 205.8 91.45 203.05 90.25 200.2 83.85 184.65 84 168.1 84 133.35 108.55 108.65 133.25 84.1 167.95 84.1Z" test="Symbol 37"/>
+            <path fill="#FFF" stroke="none" d="M197.85 89.35Q184.45 84.55 169.1 84.55 134.05 84.55 109.35 109.35 84.55 134.15 84.55 169.1 84.45 186 90.95 201.55 91.85 203.7 92.85 205.8 99 218.75 109.25 229 121.1 240.85 136.65 247.4 152.2 253.8 169.1 253.65 204.1 253.65 228.85 228.85 253.65 204.2 253.65 169.1 253.65 134.15 228.85 109.35 214.95 95.45 197.85 89.35Z" test="Symbol 37"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-36" transform="translate(98.5 34)">
+                <path id="Layer36_0_1_STROKES" stroke="#FFCB05" stroke-opacity="0" stroke-width=".1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 151.2Q0 88.7 44.35 44.35 88.5 0 151.2 0 213.8 0 258.05 44.35 302.4 88.7 302.4 151.2 302.4 214 258.05 258.1 213.8 302.45 151.2 302.45 120.95 302.7 93.15 291.25 65.35 279.55 44.15 258.35 22.85 237.05 11.4 209.25 -.2 181.45 0 151.2Z" test="Symbol 36"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.971;1" values="none;inline;inline"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-35" transform="translate(98.5 34)">
+                <path id="Layer35_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".2" stroke-width=".1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 151.2Q0 88.7 44.35 44.35 88.5 0 151.2 0 213.8 0 258.05 44.35 302.4 88.7 302.4 151.2 302.4 214 258.05 258.1 213.8 302.45 151.2 302.45 120.95 302.7 93.15 291.25 65.35 279.55 44.15 258.35 22.85 237.05 11.4 209.25 -.2 181.45 0 151.2Z" test="Symbol 35"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.943;.971;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-34" transform="translate(98.5 34)">
+                <path id="Layer34_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".4" stroke-width=".1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 151.2Q0 88.7 44.35 44.35 88.5 0 151.2 0 213.8 0 258.05 44.35 302.4 88.7 302.4 151.2 302.4 214 258.05 258.1 213.8 302.45 151.2 302.45 120.95 302.7 93.15 291.25 65.35 279.55 44.15 258.35 22.85 237.05 11.4 209.25 -.2 181.45 0 151.2Z" test="Symbol 34"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.914;.943;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-33" transform="translate(98.5 34)">
+                <path id="Layer33_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".6" stroke-width=".1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 151.2Q0 88.7 44.35 44.35 88.5 0 151.2 0 213.8 0 258.05 44.35 302.4 88.7 302.4 151.2 302.4 214 258.05 258.1 213.8 302.45 151.2 302.45 120.95 302.7 93.15 291.25 65.35 279.55 44.15 258.35 22.85 237.05 11.4 209.25 -.2 181.45 0 151.2Z" test="Symbol 33"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.886;.914;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-32" transform="translate(98.5 34)">
+                <path id="Layer32_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".8" stroke-width=".1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 151.2Q0 88.7 44.35 44.35 88.5 0 151.2 0 213.8 0 258.05 44.35 302.4 88.7 302.4 151.2 302.4 214 258.05 258.1 213.8 302.45 151.2 302.45 120.95 302.7 93.15 291.25 65.35 279.55 44.15 258.35 22.85 237.05 11.4 209.25 -.2 181.45 0 151.2Z" test="Symbol 32"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.857;.886;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-31" transform="translate(98.5 34)">
+                <path id="Layer31_0_1_STROKES" stroke="#FFCB05" stroke-width=".1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 151.2Q0 88.7 44.35 44.35 88.5 0 151.2 0 213.8 0 258.05 44.35 302.4 88.7 302.4 151.2 302.4 214 258.05 258.1 213.8 302.45 151.2 302.45 120.95 302.7 93.15 291.25 65.35 279.55 44.15 258.35 22.85 237.05 11.4 209.25 -.2 181.45 0 151.2Z" test="Symbol 31"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.829;.857;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-30" transform="translate(101.85 37.35)">
+                <path id="Layer30_0_1_STROKES" stroke="#FFCB05" stroke-width="1.1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 147.85Q0 86.75 43.35 43.35 86.55 0 147.85 0 209.05 0 252.35 43.35 295.7 86.75 295.7 147.85 295.7 209.25 252.35 252.4 209.05 295.75 147.85 295.75 118.25 296 91.1 284.8 63.9 273.35 43.15 252.65 22.35 231.8 11.15 204.6 -.2 177.45 0 147.85Z" test="Symbol 30"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.8;.829;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-29" transform="translate(105.15 40.65)">
+                <path id="Layer29_0_1_STROKES" stroke="#FFCB05" stroke-width="2.1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 144.55Q0 84.8 42.4 42.4 84.6 0 144.55 0 204.4 0 246.7 42.4 289.1 84.8 289.1 144.55 289.1 204.6 246.7 246.75 204.4 289.15 144.55 289.15 115.65 289.35 89.05 278.4 62.5 267.25 42.2 246.95 21.85 226.6 10.9 200.05 -.2 173.45 0 144.55Z" test="Symbol 29"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.771;.8;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-28" transform="translate(108.5 44)">
+                <path id="Layer28_0_1_STROKES" stroke="#FFCB05" stroke-width="3.1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 141.2Q0 82.85 41.4 41.4 82.65 0 141.2 0 199.65 0 241 41.4 282.4 82.85 282.4 141.2 282.4 199.85 241 241.05 199.65 282.45 141.2 282.45 112.95 282.7 87 272 61 261.05 41.2 241.25 21.35 221.35 10.65 195.4 -.2 169.45 0 141.2Z" test="Symbol 28"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.743;.771;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-27" transform="translate(111.8 47.35)">
+                <path id="Layer27_0_1_STROKES" stroke="#FFCB05" stroke-width="4.09" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 137.85Q0 80.85 40.45 40.4 80.7 0 137.9 0 194.95 0 235.3 40.4 275.75 80.85 275.75 137.85 275.75 195.1 235.3 235.3 194.95 275.75 137.9 275.75 110.3 276 84.95 265.55 59.6 254.9 40.3 235.55 20.85 216.15 10.4 190.8 -.15 165.45 0 137.85Z" test="Symbol 27"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.714;.743;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-26" transform="translate(115.15 50.65)">
+                <path id="Layer26_0_1_STROKES" stroke="#FFCB05" stroke-width="5.09" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 134.55Q0 78.95 39.45 39.5 78.75 0 134.55 0 190.25 0 229.6 39.5 269.1 78.95 269.1 134.55 269.1 190.45 229.6 229.65 190.25 269.15 134.55 269.15 107.65 269.35 82.9 259.15 58.15 248.75 39.3 229.9 20.35 210.95 10.15 186.2 -.15 161.45 0 134.55Z" test="Symbol 26"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.686;.714;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-25" transform="translate(118.5 54)">
+                <path id="Layer25_0_1_STROKES" stroke="#FFCB05" stroke-width="6.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 131.2Q0 76.95 38.45 38.5 76.8 0 131.2 0 185.5 0 223.9 38.5 262.4 76.95 262.4 131.2 262.4 185.7 223.9 223.95 185.5 262.45 131.2 262.45 104.95 262.65 80.8 252.7 56.7 242.55 38.3 224.15 19.8 205.7 9.9 181.55 -.2 157.45 0 131.2Z" test="Symbol 25"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.657;.686;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-24" transform="translate(121.8 57.35)">
+                <path id="Layer24_0_1_STROKES" stroke="#FFCB05" stroke-width="7.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 127.85Q0 75 37.5 37.5 74.85 0 127.9 0 180.8 0 218.25 37.5 255.75 75 255.75 127.85 255.75 180.95 218.25 218.25 180.8 255.75 127.9 255.75 102.3 255.95 78.8 246.3 55.3 236.4 37.35 218.45 19.35 200.45 9.65 176.95 -.15 153.45 0 127.85Z" test="Symbol 24"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.629;.657;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-23" transform="translate(125.15 60.65)">
+                <path id="Layer23_0_1_STROKES" stroke="#FFCB05" stroke-width="8.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 124.55Q0 73.05 36.5 36.55 72.9 0 124.55 0 176.1 0 212.55 36.55 249.05 73.05 249.05 124.55 249.05 176.25 212.55 212.6 176.1 249.1 124.55 249.1 99.6 249.35 76.7 239.9 53.8 230.25 36.35 212.8 18.8 195.25 9.4 172.35 -.15 149.45 0 124.55Z" test="Symbol 23"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.6;.629;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-22" transform="translate(128.45 64)">
+                <path id="Layer22_0_1_STROKES" stroke="#FFCB05" stroke-width="9.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 121.2Q0 71.1 35.55 35.55 70.95 0 121.25 0 171.4 0 206.9 35.55 242.45 71.1 242.45 121.2 242.45 171.55 206.9 206.9 171.4 242.45 121.25 242.45 97 242.65 74.7 233.45 52.4 224.1 35.4 207.1 18.35 190 9.15 167.75 -.15 145.45 0 121.2Z" test="Symbol 22"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.571;.6;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-21" transform="translate(131.8 67.35)">
+                <path id="Layer21_0_1_STROKES" stroke="#FFCB05" stroke-width="10.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 117.85Q0 69.15 34.6 34.55 69 0 117.9 0 166.7 0 201.2 34.55 235.75 69.15 235.75 117.85 235.75 166.8 201.2 201.2 166.7 235.75 117.9 235.75 94.3 235.95 72.65 227.05 50.95 217.9 34.45 201.4 17.85 184.8 8.9 163.1 -.15 141.45 0 117.85Z" test="Symbol 21"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.543;.571;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-20" transform="translate(135.15 70.65)">
+                <path id="Layer20_0_1_STROKES" stroke="#FFCB05" stroke-width="11.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 114.55Q0 67.2 33.6 33.6 67.05 0 114.5 0 161.95 0 195.45 33.6 229.05 67.2 229.05 114.55 229.05 162.1 195.45 195.5 161.95 229.1 114.5 229.1 91.6 229.3 70.55 220.65 49.5 211.75 33.45 195.7 17.3 179.6 8.65 158.5 -.15 137.45 0 114.55Z" test="Symbol 20"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.514;.543;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-19" transform="translate(138.45 74)">
+                <path id="Layer19_0_1_STROKES" stroke="#FFCB05" stroke-width="12.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 111.2Q0 65.25 32.65 32.6 65.1 0 111.2 0 157.25 0 189.8 32.6 222.45 65.25 222.45 111.2 222.45 157.4 189.8 189.8 157.25 222.45 111.2 222.45 89 222.6 68.55 214.2 48.1 205.6 32.5 190 16.85 174.35 8.4 153.9 -.15 133.45 0 111.2Z" test="Symbol 19"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.486;.514;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-18" transform="translate(141.8 77.3)">
+                <path id="Layer18_0_1_STROKES" stroke="#FFCB05" stroke-width="13.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 107.9Q0 63.3 31.65 31.65 63.15 0 107.85 0 152.55 0 184.1 31.65 215.75 63.3 215.75 107.9 215.75 152.7 184.1 184.15 152.55 215.8 107.85 215.8 86.3 216 66.45 207.8 46.6 199.45 31.5 184.35 16.3 169.15 8.15 149.3 -.15 129.45 0 107.9Z" test="Symbol 18"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.457;.486;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-17" transform="translate(145.1 80.65)">
+                <path id="Layer17_0_1_STROKES" stroke="#FFCB05" stroke-width="14.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 104.55Q0 61.35 30.7 30.65 61.2 0 104.55 0 147.85 0 178.45 30.65 209.1 61.35 209.1 104.55 209.1 147.95 178.45 178.45 147.85 209.1 104.55 209.1 83.65 209.3 64.45 201.4 45.2 193.3 30.55 178.65 15.85 163.9 7.9 144.7 -.1 125.45 0 104.55Z" test="Symbol 17"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.429;.457;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-16" transform="translate(148.45 84)">
+                <path id="Layer16_0_1_STROKES" stroke="#FFCB05" stroke-width="15.05" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 101.2Q0 59.35 29.7 29.7 59.25 0 101.2 0 143.1 0 172.75 29.7 202.45 59.35 202.45 101.2 202.45 143.25 172.75 172.75 143.1 202.45 101.2 202.45 81 202.6 62.35 194.95 43.75 187.1 29.55 172.9 15.3 158.65 7.65 140.05 -.1 121.45 0 101.2Z" test="Symbol 16"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.4;.429;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-15" transform="translate(151.8 87.3)">
+                <path id="Layer15_0_1_STROKES" stroke="#FFCB05" stroke-width="16" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 97.9Q0 57.45 28.7 28.75 57.3 0 97.85 0 138.4 0 167.05 28.75 195.75 57.45 195.75 97.9 195.75 138.55 167.05 167.1 138.4 195.8 97.85 195.8 78.3 195.95 60.3 188.55 42.3 180.95 28.55 167.25 14.8 153.45 7.4 135.45 -.15 117.45 0 97.9Z" test="Symbol 15"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.371;.4;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-14" transform="translate(155.1 90.65)">
+                <path id="Layer14_0_1_STROKES" stroke="#FFCB05" stroke-width="17" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 94.55Q0 55.45 27.75 27.75 55.35 0 94.55 0 133.7 0 161.35 27.75 189.1 55.45 189.1 94.55 189.1 133.8 161.35 161.35 133.7 189.1 94.55 189.1 75.65 189.25 58.25 182.1 40.9 174.8 27.65 161.55 14.3 148.25 7.15 130.85 -.1 113.45 0 94.55Z" test="Symbol 14"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.343;.371;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-13" transform="translate(158.45 94)">
+                <path id="Layer13_0_1_STROKES" stroke="#FFCB05" stroke-width="18" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 91.2Q0 53.5 26.75 26.75 53.4 0 91.2 0 128.95 0 155.65 26.75 182.4 53.5 182.4 91.2 182.4 129.05 155.65 155.65 128.95 182.4 91.2 182.4 72.95 182.6 56.2 175.7 39.4 168.6 26.65 155.85 13.8 143 6.9 126.2 -.1 109.45 0 91.2Z" test="Symbol 13"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.314;.343;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-12" transform="translate(161.75 97.3)">
+                <path id="Layer12_0_1_STROKES" stroke="#FFCB05" stroke-width="19" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 87.9Q0 51.55 25.8 25.8 51.45 0 87.9 0 124.3 0 150 25.8 175.8 51.55 175.8 87.9 175.8 124.4 150 150 124.3 175.8 87.9 175.8 70.35 175.95 54.15 169.3 38 162.5 25.7 150.15 13.3 137.8 6.65 121.65 -.1 105.45 0 87.9Z" test="Symbol 12"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.286;.314;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-11" transform="translate(165.1 100.65)">
+                <path id="Layer11_0_1_STROKES" stroke="#FFCB05" stroke-width="20" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M84.55 169.1Q119.55 169.1 144.3 144.3 169.1 119.65 169.1 84.55 169.1 49.6 144.3 24.8 119.55 0 84.55 0 49.5 0 24.8 24.8 0 49.6 0 84.55 -.1 101.45 6.4 117 12.8 132.55 24.7 144.45 36.55 156.3 52.1 162.85 67.65 169.25 84.55 169.1Z" test="Symbol 11"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.257;.286;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-10" transform="translate(165.1 100.65)">
+                <path id="Layer10_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".890" stroke-width="17.8" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 10"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.229;.257;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-9" transform="translate(165.1 100.65)">
+                <path id="Layer9_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".776" stroke-width="15.6" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 9"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.2;.229;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-8" transform="translate(165.1 100.65)">
+                <path id="Layer8_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".666" stroke-width="13.35" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 8"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.171;.2;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-7" transform="translate(165.1 100.65)">
+                <path id="Layer7_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".556" stroke-width="11.15" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 7"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.143;.171;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-6" transform="translate(165.1 100.65)">
+                <path id="Layer6_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".443" stroke-width="8.94" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 6"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.114;.143;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-5" transform="translate(165.1 100.65)">
+                <path id="Layer5_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".333" stroke-width="6.75" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 5"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.086;.114;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-4" transform="translate(165.1 100.65)">
+                <path id="Layer4_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".223" stroke-width="4.5" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 4"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.057;.086;1" values="none;inline;none;none"/>
+        </g>
+        <g display="none">
+            <g id="Symbol-3" transform="translate(165.1 100.65)">
+                <path id="Layer3_0_1_STROKES" stroke="#FFCB05" stroke-opacity=".109" stroke-width="2.29" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M0 84.55Q0 49.6 24.8 24.8 49.5 0 84.55 0 119.55 0 144.3 24.8 169.1 49.6 169.1 84.55 169.1 119.65 144.3 144.3 119.55 169.1 84.55 169.1 67.65 169.25 52.1 162.85 36.55 156.3 24.7 144.45 12.8 132.55 6.4 117 -.1 101.45 0 84.55Z" test="Symbol 3"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.029;.057;1" values="none;inline;none;none"/>
+        </g>
+        <g>
+            <g id="Symbol-2" transform="translate(165.1 100.65)">
+                <path id="Layer2_0_1_STROKES" stroke="#FFCB05" stroke-opacity="0" stroke-width=".1" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" fill="none" d="M84.55 169.1Q119.55 169.1 144.3 144.3 169.1 119.65 169.1 84.55 169.1 49.6 144.3 24.8 119.55 0 84.55 0 49.5 0 24.8 24.8 0 49.6 0 84.55 -.1 101.45 6.4 117 12.8 132.55 24.7 144.45 36.55 156.3 52.1 162.85 67.65 169.25 84.55 169.1Z" test="Symbol 2"/>
+            </g>
+            <animate attributeName="display" repeatCount="indefinite" dur="1.458s" keyTimes="0;.029;1" values="inline;none;none"/>
+        </g>
+        <g id="Symbol-1" transform="translate(163.4 98.4)">
+            <path fill="#FFF" stroke="none" d="M146.3 25.1Q121.2 0 85.7 0 50.2 0 25.1 25.1 0 50.2 0 85.7 0 121.2 25.1 146.3 50.2 171.4 85.7 171.4 121.2 171.4 146.3 146.3 171.4 121.2 171.4 85.7 171.4 50.2 146.3 25.1Z" test="Symbol 1"/>
+        </g>
+    </g>
+</svg>
