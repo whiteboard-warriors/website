@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Header from '../Header'
 import Footer from '../layout/Footer'
-import MeetupMap from '../meetup-map/MeetupMap'
+import MeetupMap from '../MeetupMap'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'

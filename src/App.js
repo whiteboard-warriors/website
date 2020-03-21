@@ -8,17 +8,18 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import Col from 'react-bootstrap/Col';
 // import Image from 'react-bootstrap/Image';
 // pages
-import Landing from './components/pages/Landing'
-import About from './components/pages/About'
-import Meetups from './components/pages/Meetups'
-import Jobs from './components/pages/Jobs'
-import Resources from './components/pages/Resources'
+import Landing from './components/scenes/Landing'
+import About from './components/scenes/About'
+import Meetups from './components/scenes/Meetups'
+import Jobs from './components/scenes/Jobs'
+import Resources from './components/scenes/Resources'
 // components
 import NavBar from './components/NavBar'
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss'
+
 // images
 class App extends Component {
 	render() {

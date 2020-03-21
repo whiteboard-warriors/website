@@ -20,8 +20,12 @@ const Header = () => {
 							sm={{ span: 6, offset: 3 }}
 							xs={{ span: 6, offset: 3 }}
 							md={{ span: 4, offset: 4 }}
+							lg={{ span: 4, offset: 4 }}
+							xl={{ span: 4, offset: 4 }}
 						>
-							<Image src={logo} fluid />
+							<div>
+								<Image className="masthead-logo" src={logo} />
+							</div>
 						</Col>
 					</Row>
 				</Container>
