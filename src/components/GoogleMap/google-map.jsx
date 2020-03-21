@@ -9,7 +9,7 @@ function MapView(props) {
       defaultZoom={props.zoom}
       center={props.center}
       defaultOptions={{
-        mapTypeControl: true,
+        mapTypeControl: false,
         fullscreenControl: false,
         streetViewControl: false
       }}>
@@ -22,7 +22,6 @@ function MapView(props) {
           </div>
         </InfoWindow>
       }
-      {circle}
     </GoogleMap>
   );
 }
