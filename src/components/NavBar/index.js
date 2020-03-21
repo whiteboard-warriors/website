@@ -1,29 +1,29 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 // bootstrap
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 // import Form from 'react-bootstrap/Form'
 // import FormControl from 'react-bootstrap/FormControl'
 // import Button from 'reaAct-bootstrap/Button'
-import './navbar.scss';
+import './navbar.scss'
 
 const NavBar = () => {
 	return (
 		<Fragment>
-			<Navbar bg='light' variant='light' expand='md'>
-				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Collapse id='basic-navbar-nav'>
+			<Navbar expand="md">
+				<Navbar.Toggle aria-controls="basic-navbar-nav" />
+				<Navbar.Collapse id="basic-navbar-nav">
 					<Container>
-						<Nav className='mr-auto'>
-							<Link className='nav-link' to='/'>
+						<Nav className="mr-auto">
+							<Link className="nav-link" to="/">
 								Home
 							</Link>
-							<Link className='nav-link' to='/about'>
+							<Link className="nav-link" to="/about">
 								About
 							</Link>
-							<Link className='nav-link' to='/meetups'>
+							<Link className="nav-link" to="/meetups">
 								Meetups
 							</Link>
 							{/* <Link className='nav-link' to='/jobs'>
@@ -45,7 +45,7 @@ const NavBar = () => {
 				</Navbar.Collapse>
 			</Navbar>
 		</Fragment>
-	);
-};
+	)
+}
 
-export default NavBar;
+export default NavBar
