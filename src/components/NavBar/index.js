@@ -4,15 +4,12 @@ import { Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-// import Form from 'react-bootstrap/Form'
-// import FormControl from 'react-bootstrap/FormControl'
-// import Button from 'reaAct-bootstrap/Button'
 import './navbar.scss'
 
 const NavBar = () => {
 	return (
 		<Fragment>
-			<Navbar expand="md">
+			<Navbar bg="light" variant="light" expand="md">
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Container>
