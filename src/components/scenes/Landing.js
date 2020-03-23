@@ -1,21 +1,24 @@
-import React, { Fragment } from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
-// bootstrap
-// import Container from 'react-bootstrap/Container';
-// import Col from 'react-bootstrap/Col';
+import React, { Fragment } from 'react'
+import Header from '../Header'
+import Footer from '../Footer'
+import Container from 'react-bootstrap/Container'
+import ArticleListing from '../ArticleListing'
+import Row from 'react-bootstrap/Row'
 
 const Landing = () => {
 	return (
 		<Fragment>
 			<Header></Header>
-			<div className='p-5 m-5 text-center'>
-				<h1 className='p-4 m-4 text-center'>Content </h1>
+			<div className="list">
+				<Container>
+					<Row>
+						<ArticleListing></ArticleListing>
+					</Row>
+				</Container>
 			</div>
-
 			<Footer></Footer>
 		</Fragment>
-	);
-};
+	)
+}
 
-export default Landing;
+export default Landing
