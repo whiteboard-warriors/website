@@ -2,6 +2,23 @@
 
 body {
 	@include sans-font;
+	background-color: rgb(239, 239, 237);
+	-webkit-font-smoothing: antialiased;
+	color: #4a4a4a;
+}
+
+a,
+a:focus,
+a:visited {
+	color: #24a0ed;
+	transition: color 0.2s linear, background 0.2s linear, text-shadow 0.2s linear;
+	-o-transition: color 0.2s linear, background 0.2s linear,
+		text-shadow 0.2s linear;
+	-moz-transition: color 0.2s linear, background 0.2s linear,
+		text-shadow 0.2s linear;
+	-webkit-transition: color 0.2s linear, background 0.2s linear,
+		text-shadow 0.2s linear;
+	text-decoration: none !important;
 }
 
 /* buttons  */
