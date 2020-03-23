@@ -1,8 +1,13 @@
+// Large devices (desktops, 992px and up)
 @import '../../scss/main';
 
 .navbar {
 	padding: 1.5rem 0.5rem !important;
+	background: #fff !important;
+	border-bottom: 1px solid #ccccca;
+	border-top: 1px solid #ccccca;
 }
+
 .nav-link {
 	color: $black !important;
 	margin-right: 1rem;

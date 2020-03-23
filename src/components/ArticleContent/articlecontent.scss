@@ -1,0 +1,37 @@
+article.article-wrapper {
+	// border-radius: 4px;
+	// border-color: #d3d6da;
+	// box-shadow: 0 4px 10px rgba(128, 128, 128, 0.1);
+	// overflow: hidden;
+}
+
+header.article-header {
+	text-align: center;
+}
+
+.article-header .article-title {
+	font-size: 1.5rem;
+	font-weight: 200;
+	line-height: 1.3;
+	margin: 0 0 0.5em;
+}
+
+.article-meta {
+	border-top: 2px solid #efefed;
+	line-height: 2em;
+	margin-bottom: 1.25em;
+	padding-top: 0.5em;
+	position: relative;
+}
+
+@media screen and (min-width: 768px) {
+	.article-header .article-title {
+		font-size: 2rem;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.article-header .article-title {
+		font-size: 3rem;
+	}
+}
