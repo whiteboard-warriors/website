@@ -15,7 +15,7 @@ const Header = () => {
     <Fragment>
       <header>
         <Jumbotron fluid>
-          <Container className='header-container'>
+          <Container>
             <Row>
               <Col
                 sm={{ span: 6, offset: 3 }}
