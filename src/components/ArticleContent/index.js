@@ -8,12 +8,12 @@ const ArticleContent = () => {
 	return (
 		<Fragment>
 			<article className='article-wrapper'>
-				<header class='article-header'>
+				<header className='article-header'>
 					<h1 className='article-title'>About Whiteboard Warriors</h1>
 				</header>
 				<Container>
 					<div className='article-meta'></div>
-					<div class='article-content'>
+					<div className='article-content'>
 						<span>
 							Lorem ipsum dolor sit amet, consectetur adipiscing
 							elit, sed do eiusmod tempor incididunt ut labore et
