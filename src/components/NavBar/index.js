@@ -64,7 +64,7 @@ export default function NavBar(props) {
 		<Navbar bg="light" expand="lg">
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav className="mr-auto">
+				<Nav>
 					<Link className="nav-link" to="/">
 						<i className="navbar-icon fas fa-user-ninja"></i>
 						Home
@@ -74,20 +74,18 @@ export default function NavBar(props) {
 						id="basic-nav-dropdown"
 						onMouseEnter={() => setOpenState(true)}
 						onMouseLeave={() => setOpenState(false)}
-						show={openState}
-					>
-						<i clasName="navbar-icon fab fa-meetup"></i>
-						<NavDropdown.Item>
+						show={openState}>
+						<NavDropdown.Item as="div">
 							<Link className="nav-link" to="/meetups">
-								<i className="navbar-icon fas fa-umbrella-beach"></i>
-								Orange County, CA
+								<i className="navbar-icon fas fa-microchip"></i>
+								Palo Alto, CA
 							</Link>
 						</NavDropdown.Item>
 						<NavDropdown.Divider />
-						<NavDropdown.Item>
+						<NavDropdown.Item as="div">
 							<Link className="nav-link" to="/meetups">
-								<i class="navbar-icon fas fa-microchip"></i>
-								Palo Alto, CA
+								<i className="navbar-icon fas fa-umbrella-beach"></i>
+								Orange County, CA
 							</Link>
 						</NavDropdown.Item>
 					</NavDropdown>
