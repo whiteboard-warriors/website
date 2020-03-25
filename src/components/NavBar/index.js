@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 // bootstrap
-import Container from 'react-bootstrap/Container'
+// import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import Button from 'react-bootstrap/Button'
+// import Form from 'react-bootstrap/Form'
+// import FormControl from 'react-bootstrap/FormControl'
+// import Button from 'react-bootstrap/Button'
 import './navbar.scss'
 
 // const NavBar = () => {
@@ -54,43 +54,57 @@ import './navbar.scss'
 export default function NavBar(props) {
 	const [openState, setOpenState] = useState(false)
 
+	const dropDownTitle = (
+		<Fragment>
+			<i className="navbar-icon fab fa-meetup"></i>
+			Meetups
+		</Fragment>
+	)
 	return (
 		<Navbar bg="light" expand="lg">
-			<Link className="nav-link" to="/">
-				Home
-			</Link>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="mr-auto">
+					<Link className="nav-link" to="/">
+						<i className="navbar-icon fas fa-user-ninja"></i>
+						Home
+					</Link>
 					<NavDropdown
-						title="Meetups"
+						title={dropDownTitle}
 						id="basic-nav-dropdown"
 						onMouseEnter={() => setOpenState(true)}
 						onMouseLeave={() => setOpenState(false)}
-						show={openState}>
+						show={openState}
+					>
+						<i clasName="navbar-icon fab fa-meetup"></i>
 						<NavDropdown.Item>
 							<Link className="nav-link" to="/meetups">
+								<i className="navbar-icon fas fa-umbrella-beach"></i>
 								Orange County, CA
 							</Link>
 						</NavDropdown.Item>
 						<NavDropdown.Divider />
 						<NavDropdown.Item>
 							<Link className="nav-link" to="/meetups">
+								<i class="navbar-icon fas fa-microchip"></i>
 								Palo Alto, CA
 							</Link>
 						</NavDropdown.Item>
 					</NavDropdown>
 					<Link className="nav-link" to="/jobs">
+						<i className="navbar-icon fas fa-briefcase"></i>
 						Jobs
 					</Link>
 					<Link className="nav-link" to="/resources">
+						<i className="navbar-icon fas fa-globe"></i>
 						Resources
 					</Link>
 					<Link className="nav-link" to="/about">
+						<i className="navbar-icon fas fa-info-circle"></i>
 						About Us
 					</Link>
 				</Nav>
-			</Navbar.Collapse>
-		</Navbar>
+			</Navbar.Collapse >
+		</Navbar >
 	)
 }
