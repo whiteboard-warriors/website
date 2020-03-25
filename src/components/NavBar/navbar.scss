@@ -9,11 +9,11 @@
 }
 
 .nav-link {
-  color: $black !important;
-  margin-right: 1rem;
-  &:hover {
-    color: $grey !important;
-  }
+	color: $black !important;
+    margin-right: 1rem;
+    &:hover {
+      color: $grey !important;
+    }
 }
 
 @media screen and (min-width: 768px) {
