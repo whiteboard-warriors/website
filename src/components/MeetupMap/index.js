@@ -11,11 +11,13 @@ class MeetupMap extends React.Component {
 			pins: [
 				{
 					top: '240px',
-					left: '25px'
+					left: '25px',
+					name: "Palo Alto"
 				},
 				{
 					top: '575px',
-					left: '200px'
+					left: '200px',
+					name: "Orange County"
 				}
 			]
 		}
@@ -55,7 +57,7 @@ class MeetupMap extends React.Component {
 				<div className="map-container" style={{ width: this.state.width }}>
 					<img src={californiaMap} alt="California Map" />
 					{this.state.pins.map(pin => (
-						<div style={{ position: 'absolute', top: pin.top, left: pin.left }}>
+						<div key={pin.name} style={{ position: 'absolute', top: pin.top, left: pin.left }}>
 							<img src={location} alt="Location Tag" />
 						</div>
 					))}

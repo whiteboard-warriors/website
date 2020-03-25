@@ -16,4 +16,12 @@
 	}
 }
 
+.navbar-icon {
+	margin-right: 0.3rem;
+}
+
+.nav-link:hover .navbar-icon {
+	color: $orange-dark;
+}
+
 // testing
