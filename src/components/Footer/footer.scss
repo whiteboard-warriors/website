@@ -1,23 +1,58 @@
 @import '../../scss/main';
 
 .footer {
-	color: $white;
-	background-image: linear-gradient(
-		to right,
-		$grey-dark,
-		lighten($grey-dark, 20%),
-		$grey-dark
-	);
+	color: $black;
+	background-color: $background-gray;
+	border-top: 1px solid $grey-light;
 	.footer-top {
-		padding: 2rem 0;
+		padding: 2rem 0 1rem 0;
 	}
 	.footer-bottom {
-		padding: 1.2rem 0;
-		background-image: linear-gradient(
-			to right,
-			$black,
-			lighten($black, 10%),
-			$black
-		);
+		padding: 1rem 0;
+		background-color: $background-gray;
+	}
+	.footer-social {
+		h5 {
+			float: left;
+		}
+		ul {
+		display: block;
+		list-style: none;
+		float: right;
+		}
+		li {
+			display: inline-block;
+			position: relative;
+			margin-left: 1em;
+		}
+		a {
+			color: $black;
+			text-decoration: none;
+		}
+		.box-overlay {
+			color: white;
+		}
+	}
+	.footer-links {
+		ul {
+			text-align: center;
+			padding-left: 0;
+			margin-left: auto;
+			margin-right: auto;
+			list-style: none;
+		}
+		li {
+			padding: 5px 0px;
+			&:first-child {
+				padding: 0px 0px 5px 0px;
+			}
+			&:last-child {
+				padding: 5px 0px 0px 0px
+			}
+		}
+		a {
+			text-decoration: none;
+			color: $black;
+		}
 	}
 }
