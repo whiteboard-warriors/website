@@ -43,13 +43,20 @@ export default function NavBar(props) {
 							<NavDropdown title={aboutTitle} id='basic-nav-dropdown'>
 								<NavDropdown.Item as='div'>
 									<Link className='nav-link' to='/about'>
+										<i className='navbar-icon fas fa-info'></i>
+										Our Story
+									</Link>
+								</NavDropdown.Item>
+								<NavDropdown.Divider />
+								<NavDropdown.Item as='div'>
+									<Link className='nav-link' to='/testimonials'>
 										<i className='navbar-icon fas fa-bullhorn'></i>
 										Testimonials
 									</Link>
 								</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item as='div'>
-									<Link className='nav-link' to='/about'>
+									<Link className='nav-link' to='/nonprofit'>
 										<i className='navbar-icon fas fa-users'></i>
 										Non-Profit
 									</Link>

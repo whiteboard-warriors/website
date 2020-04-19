@@ -13,6 +13,9 @@ import About from './components/scenes/About'
 import Meetups from './components/scenes/Meetups'
 import Jobs from './components/scenes/Jobs'
 import Resources from './components/scenes/Resources'
+import Testimonials from './components/scenes/Testimonials'
+import NonProfit from './components/scenes/NonProfit'
+
 // components
 import NavBar from './components/NavBar'
 import Volunteer from './components/scenes/Volunteer'
@@ -36,6 +39,9 @@ class App extends Component {
 						<Route exact path='/jobs' component={withTracker(Jobs)} />
 						<Route exact path='/resources' component={withTracker(Resources)} />
 						<Route exact path='/volunteer' component={withTracker(Volunteer)} />
+						<Route exact path='/testimonials' component={withTracker(Testimonials)} />
+						<Route exact path='/nonprofit' component={withTracker(NonProfit)} />
+						<Route exact path='/501c3' component={withTracker(NonProfit)} />
 					</Switch>
 				</Router>
 			</Fragment>
