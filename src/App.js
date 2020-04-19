@@ -15,6 +15,8 @@ import Jobs from './components/scenes/Jobs'
 import Resources from './components/scenes/Resources'
 // components
 import NavBar from './components/NavBar'
+import Volunteer from './components/scenes/Volunteer'
+import withTracker from './withTracker'
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -28,11 +30,12 @@ class App extends Component {
 				<Router>
 					<NavBar></NavBar>
 					<Switch>
-						<Route exact path="/" component={Landing} />
-						<Route exact path="/about" component={About} />
-						<Route exact path="/meetups" component={Meetups} />
-						<Route exact path="/jobs" component={Jobs} />
-						<Route exact path="/resources" component={Resources} />
+						<Route exact path='/' component={withTracker(Landing)} />
+						<Route exact path='/about' component={withTracker(About)} />
+						<Route exact path='/meetups' component={withTracker(Meetups)} />
+						<Route exact path='/jobs' component={withTracker(Jobs)} />
+						<Route exact path='/resources' component={withTracker(Resources)} />
+						<Route exact path='/volunteer' component={withTracker(Volunteer)} />
 					</Switch>
 				</Router>
 			</Fragment>

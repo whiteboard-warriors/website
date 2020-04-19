@@ -5,18 +5,37 @@ import MeetupMap from '../MeetupMap'
 import Container from 'react-bootstrap/Container'
 // import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Meetup from '../../img/icon/Meetup.svg'
+import meetups from './meetups.scss'
 
 const Meetups = () => {
 	return (
 		<Fragment>
 			<Header></Header>
-			<div className="scene-content">
+			<div className='scene-content meetups'>
 				<Container>
 					<Row>
-						<h1 className="p-5 m-5">Meetups</h1>
-						<div className="p-5 m-5 text-center">
-							<MeetupMap></MeetupMap>
-						</div>
+						<Col>
+							<h1 className='p-5 m-5'>Meetups</h1>
+							<div className='meetup-link'>
+								<a href='https://www.meetup.com/whiteboard-warriors'>
+									<img className='meetup-logo' src={Meetup}></img>
+									<span className='meetup-location-title'>Irvine, CA</span>
+								</a>
+							</div>
+							<div className='meetup-link'>
+								<a href='https://www.meetup.com/whiteboard-warriors-silicon-valley'>
+									<img className='meetup-logo' src={Meetup}></img>
+									<span className='meetup-location-title'>San Mateo, CA</span>
+								</a>
+							</div>
+						</Col>
+						<Col>
+							<div className='p-5 m-5 text-center'>
+								<MeetupMap></MeetupMap>
+							</div>
+						</Col>
 					</Row>
 				</Container>
 			</div>

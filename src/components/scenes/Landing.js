@@ -9,7 +9,7 @@ const Landing = () => {
 	return (
 		<Fragment>
 			<Header></Header>
-			<div className="list">
+			<div className='list'>
 				<Container>
 					<Row>
 						<ArticleListing></ArticleListing>
