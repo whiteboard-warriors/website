@@ -19,7 +19,7 @@ import NonProfit from './components/scenes/NonProfit'
 // components
 import NavBar from './components/NavBar'
 import Volunteer from './components/scenes/Volunteer'
-import withTracker from './withTracker'
+import withTracker from './tracker/withTracker'
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css'

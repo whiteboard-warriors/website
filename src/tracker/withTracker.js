@@ -11,7 +11,7 @@ export const withTracker = (WrappedComponent, options = {}) => {
 			...options,
 		})
 		// only track on production domain
-		if (window.location.hostname === 'whiteboardwarriors.org') {
+		if (window.location.hostname.indexOf('whiteboardwarriors.org') > -1) {
 			ReactGA.pageview(page)
 		}
 	}
