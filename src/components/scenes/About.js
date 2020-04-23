@@ -47,18 +47,19 @@ const About = () => {
 							been started to meet the evolving needs of the community during the COVID-19 pandemic.
 						</p>
 						<p>
-							<strong>To date (Spring 2020), Whiteboard Warriors has registered over 750 members in 2 Chapters, over 20-events & 500+
-							RSVPs! 🎉🎉🎉</strong>
+							<strong>
+								To date (Spring 2020), Whiteboard Warriors has registered over 750 members in 2 Chapters, over 20-events & 500+
+								RSVPs! 🎉🎉🎉
+							</strong>
 						</p>
 						<p>
-							Whiteboard Warriors has been incorporated as a 501c3 Non-Profit Corporation, and donations are tax deductible.
-							Whiteboard Warriors events{' '}
+							Whiteboard Warriors has been incorporated as a <a href='/501c3'>501c3 Non-Profit Corporation</a>, and donations are
+							tax deductible. Whiteboard Warriors events{' '}
 							<em>
-								<strong>will always be a FREE</strong>
-							</em>{' '}
-							resource for the software development community. Whiteboard Warriors goal is to always be inclusive, welcoming,
-							non-judgemental and non-discriminatory. Whiteboard Warriors events are <em>welcome to ALL regardless</em> of language
-							(Spoken or Coding 😉), and skill-level!
+								<strong>will always be a FREE resource for the software development community</strong>
+							</em>
+							. Whiteboard Warriors goal is to always be inclusive, welcoming, non-judgemental and non-discriminatory. Whiteboard
+							Warriors events are <em>welcome to ALL regardless</em> of language (Spoken or Coding 😉), and skill-level!
 						</p>
 					</Col>
 				</Row>
