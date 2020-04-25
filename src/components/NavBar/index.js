@@ -1,34 +1,34 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
-import LogIn from '../auth/log-in-modal'
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
+import LogIn from '../auth/log-in-modal';
 // bootstrap
-import Container from 'react-bootstrap/Container'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import './navbar.scss'
+import './navbar.scss';
 
 export default function NavBar(props) {
-	const [show, setShow] = useState(false)
+	const [show, setShow] = useState(false);
 	const aboutTitle = (
 		<Fragment>
 			<i className='navbar-icon fas fa-info-circle'></i>
 			About
 		</Fragment>
-	)
-	const meetupTitle = (
-		<Fragment>
-			<i className='navbar-icon fab fa-meetup'></i>
-			Meetups
-		</Fragment>
-	)
-	const resourcesTitle = (
-		<Fragment>
-			<i className='navbar-icon fas fa-globe'></i>
-			Resources
-		</Fragment>
-	)
+	);
+	// const meetupTitle = (
+	// 	<Fragment>
+	// 		<i className='navbar-icon fab fa-meetup'></i>
+	// 		Meetups
+	// 	</Fragment>
+	// )
+	// const resourcesTitle = (
+	// 	<Fragment>
+	// 		<i className='navbar-icon fas fa-globe'></i>
+	// 		Resources
+	// 	</Fragment>
+	// );
 	return (
 		<Fragment>
 			<Navbar bg='light' expand='lg' className='d-flex justify-content-lg-around'>
@@ -116,5 +116,5 @@ export default function NavBar(props) {
 			</Navbar>
 			<LogIn show={show} onHide={() => setShow(false)} />
 		</Fragment>
-	)
+	);
 }

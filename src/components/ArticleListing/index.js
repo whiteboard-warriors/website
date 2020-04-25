@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 // import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row'
@@ -11,7 +12,7 @@ const ArticleListing = () => {
 				<Container>
 					<div className='article-meta'>
 						<span className='article-topic-link'>
-							<a href='/about'>Program Info</a>
+							<Link to='/about'>Program Info</Link>
 						</span>
 					</div>
 				</Container>
