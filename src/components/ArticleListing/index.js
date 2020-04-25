@@ -22,7 +22,7 @@ const ArticleListing = () => {
 					<div className='article-wrap'>
 						<header className='article-header'>
 							<h2 className='article-title'>
-								<a href='/about'>Learn more about Whiteboard Warriors</a>
+								<Link to='/about'>Learn more about Whiteboard Warriors</Link>
 							</h2>
 						</header>
 					</div>
