@@ -16,7 +16,7 @@ const Footer = () => {
 			<footer className='footer'>
 				<Container className='footer-top'>
 					<Row>
-						<Col xs={{ span: 10, offset: 1 }} md={{ span: 4, offset: 4 }} className='footer-social'>
+						<Col xs={{ span: 8, offset: 2 }} md={{ span: 4, offset: 4 }} className='footer-social'>
 							{/* <h5 className='text-uppercase'>Follow us:</h5> */}
 							<ul>
 								<li>
@@ -25,13 +25,13 @@ const Footer = () => {
 									</a>
 								</li>
 								<li>
-									<a href='https://www.twitter.com/wbwarriorscode' target='_blank'>
-										<i className='fab fa-twitter fa-2x'></i>
+									<a href='https://www.instagram.com/whiteboardwarriors/' target='_blank'>
+										<i className='fab fa-instagram fa-2x'></i>
 									</a>
 								</li>
 								<li>
-									<a href='https://www.instagram.com/whiteboardwarriors/' target='_blank'>
-										<i className='fab fa-instagram fa-2x'></i>
+									<a href='https://www.twitter.com/wbwarriorscode' target='_blank'>
+										<i className='fab fa-twitter fa-2x'></i>
 									</a>
 								</li>
 							</ul>
