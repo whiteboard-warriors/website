@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import Footer from '../Footer';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import ArticleContent from '../ArticleContent';
+// import ArticleContent from '../ArticleContent';
 import Col from 'react-bootstrap/Col';
 
 const Volunteer = () => {
