@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
 
-import Footer from '../Footer'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import ArticleContent from '../ArticleContent'
-import Col from 'react-bootstrap/Col'
+import Footer from '../Footer';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import ArticleContent from '../ArticleContent';
+import Col from 'react-bootstrap/Col';
 
 const Volunteer = () => {
 	return (
@@ -31,9 +31,20 @@ const Volunteer = () => {
 					</Col>
 				</Row>
 			</Container>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
 			<Footer />
 		</Fragment>
-	)
-}
+	);
+};
 
-export default Volunteer
+export default Volunteer;
