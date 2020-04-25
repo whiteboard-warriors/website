@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
+import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
 // import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row'
-import './articlelisting.scss';
+import './articlelisting.scss'
 // import background from '../../img/background/about_background.svg';
 const ArticleListing = () => {
 	return (
@@ -22,14 +22,14 @@ const ArticleListing = () => {
 					<div className='article-wrap'>
 						<header className='article-header'>
 							<h2 className='article-title'>
-								<a href='about'>Learn more about Whiteboard Warriors</a>
+								<a href='/about'>Learn more about Whiteboard Warriors</a>
 							</h2>
 						</header>
 					</div>
 				</Container>
 			</article>
 		</Fragment>
-	);
-};
+	)
+}
 
-export default ArticleListing;
+export default ArticleListing
