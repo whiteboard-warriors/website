@@ -4,13 +4,13 @@
 	color: $white;
 	background-color: $grey-dark;
 	border-top: 1px solid $grey-light;
-	margin-top: 6rem !important;
+	margin-top: 5rem !important;
 
 	.footer-top {
 		padding: 2rem 0 1rem 0;
 	}
 	.footer-bottom {
-		padding: 1rem 0;
+		padding: 2rem 0;
 		background-color: $grey-dark;
 	}
 	.footer-social {
@@ -26,11 +26,11 @@
 			align-items: center;
 			// float: right;
 		}
-		li {
-			// display: inline-block;
-			// position: relative;
-			// margin-left: 1	em;
-		}
+		// li {
+		// 	display: inline-block;
+		// 	position: relative;
+		// 	margin-left: 1	em;
+		// }
 		a {
 			color: $white;
 			text-decoration: none;
@@ -66,4 +66,15 @@
 	// 	color: $white;
 	// }
 	// }
+}
+
+@media only screen and (max-width: 991px) {
+	.footer {
+		.footer-top {
+			padding: 3rem 0 2rem 0;
+		}
+		.footer-bottom {
+			padding: 2.5rem 0;
+		}
+	}
 }
