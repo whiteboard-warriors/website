@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react'
-import Header from '../Header'
-import Footer from '../Footer'
-import MeetupMap from '../MeetupMap'
-import Container from 'react-bootstrap/Container'
+import React, { Fragment } from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
+import MeetupMap from '../MeetupMap';
+import Container from 'react-bootstrap/Container';
 // import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Meetup from '../../img/icon/Meetup.svg'
-import meetups from './meetups.scss'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Meetup from '../../img/icon/Meetup.svg';
+import './style.scss';
 
 const Meetups = () => {
 	return (
@@ -20,13 +20,13 @@ const Meetups = () => {
 							<h1 className='p-5 m-5'>Meetups</h1>
 							<div className='meetup-link'>
 								<a href='https://www.meetup.com/whiteboard-warriors'>
-									<img className='meetup-logo' src={Meetup}></img>
+									<img className='meetup-logo' src={Meetup} alt='meetup logo'></img>
 									<span className='meetup-location-title'>Irvine, CA</span>
 								</a>
 							</div>
 							<div className='meetup-link'>
 								<a href='https://www.meetup.com/whiteboard-warriors-silicon-valley'>
-									<img className='meetup-logo' src={Meetup}></img>
+									<img className='meetup-logo' src={Meetup} alt='meetup logo'></img>
 									<span className='meetup-location-title'>San Mateo, CA</span>
 								</a>
 							</div>
@@ -42,7 +42,7 @@ const Meetups = () => {
 
 			<Footer />
 		</Fragment>
-	)
-}
+	);
+};
 
-export default Meetups
+export default Meetups;
