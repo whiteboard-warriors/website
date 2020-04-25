@@ -1,26 +1,26 @@
-import React from 'react'
-import californiaMap from './california-map.svg'
-import location from './location-marker.svg'
-import './MeetupMap.css'
+import React from 'react';
+import californiaMap from './california-map.svg';
+import location from './location-marker.svg';
+import './MeetupMap.css';
 
 class MeetupMap extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			width: 400,
 			pins: [
 				{
 					top: '240px',
 					left: '25px',
-					name: "Palo Alto"
+					name: 'Palo Alto',
 				},
 				{
 					top: '575px',
 					left: '200px',
-					name: "Orange County"
-				}
-			]
-		}
+					name: 'Orange County',
+				},
+			],
+		};
 	}
 
 	/**
@@ -40,31 +40,31 @@ class MeetupMap extends React.Component {
 	 * Add event listener
 	 */
 	componentDidMount() {
-		this.updateDimensions()
-		window.addEventListener('resize', this.updateDimensions.bind(this))
+		this.updateDimensions();
+		window.addEventListener('resize', this.updateDimensions.bind(this));
 	}
 
 	/**
 	 * Remove event listener
 	 */
 	componentWillUnmount() {
-		window.removeEventListener('resize', this.updateDimensions.bind(this))
+		window.removeEventListener('resize', this.updateDimensions.bind(this));
 	}
 
 	render() {
 		return (
-			<div className="map-wrapper">
-				<div className="map-container" style={{ width: this.state.width }}>
-					<img src={californiaMap} alt="California Map" />
-					{this.state.pins.map(pin => (
+			<div className='map-wrapper'>
+				<div className='map-container' style={{ width: this.state.width }}>
+					<img src={californiaMap} alt='California Map' />
+					{this.state.pins.map((pin) => (
 						<div key={pin.name} style={{ position: 'absolute', top: pin.top, left: pin.left }}>
-							<img src={location} alt="Location Tag" />
+							<img src={location} alt='Location Tag' />
 						</div>
 					))}
 				</div>
 			</div>
-		)
+		);
 	}
 }
 
-export default MeetupMap
+export default MeetupMap;
