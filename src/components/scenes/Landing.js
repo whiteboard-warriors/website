@@ -14,6 +14,9 @@ const Landing = () => {
 					<Row>
 						<ArticleListing></ArticleListing>
 					</Row>
+					<Row>
+						<ArticleListing></ArticleListing>
+					</Row>
 				</Container>
 			</div>
 			<Footer></Footer>
