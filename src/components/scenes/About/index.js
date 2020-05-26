@@ -35,7 +35,10 @@ const About = () => {
 						<p>
 							Whiteboard Warriors seeks to host regular "meet-up" events where participants are paired together and given questions
 							prompts similar to how they would be expected to interview in a real-world job interview, (only with less pressure
-							😉). A practice known as "oral-recitation".
+							<span role='img' aria-label='winking emoji'>
+								😉
+							</span>
+							). A practice known as "oral-recitation".
 						</p>
 						<p>
 							Our practice helps developers emphasis social interaction with their interviewers and peers, reduce performance
@@ -49,7 +52,11 @@ const About = () => {
 						<p>
 							<strong>
 								To date (Spring 2020), Whiteboard Warriors has registered over 750 members in 2 Chapters, over 20-events & 500+
-								RSVPs! 🎉🎉🎉
+								RSVPs!
+								<span role='img' aria-label='confetti emoji'>
+									{' '}
+									🎉🎉🎉
+								</span>
 							</strong>
 						</p>
 						<p>
@@ -59,7 +66,11 @@ const About = () => {
 								<strong>will always be a FREE resource for the software development community</strong>
 							</em>
 							. Whiteboard Warriors goal is to always be inclusive, welcoming, non-judgemental and non-discriminatory. Whiteboard
-							Warriors events are <em>welcome to ALL regardless</em> of language (Spoken or Coding 😉), and skill-level!
+							Warriors events are <em>welcome to ALL regardless</em> of language (Spoken or Coding{' '}
+							<span role='img' aria-label='winking emoji'>
+								😉
+							</span>
+							), and skill-level!
 						</p>
 					</Col>
 				</Row>
