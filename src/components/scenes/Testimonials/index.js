@@ -29,7 +29,12 @@ const Testimonials = () => {
 												<small>
 													Software Developer{' '}
 													<a href='https://www.linkedin.com/in/tyemai/'>
-														<img className='linked-in-logo' src={linkedInLogo}></img>
+														<img
+															className='linked-in-logo'
+															src={linkedInLogo}
+															alt='linkedIn logo
+														'
+														></img>
 													</a>
 												</small>
 											</h5>
