@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image';
 import './style.scss';
 
 // image
-import logo from '../../img/logo/ww_logo.svg';
+import logo from './ww_logo.svg';
 
 const Header = () => {
 	return (

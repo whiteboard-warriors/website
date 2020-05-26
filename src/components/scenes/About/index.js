@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react'
-import Container from 'react-bootstrap/Container'
+import React, { Fragment } from 'react';
+import Container from 'react-bootstrap/Container';
 
-import Header from '../Header'
-import Footer from '../Footer'
-import './scene.scss'
-import ArticleContent from '../ArticleContent'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Header from '../../Header';
+import Footer from '../../Footer';
+import './style.scss';
+// import ArticleContent from '../ArticleContent'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const About = () => {
 	return (
@@ -66,7 +66,7 @@ const About = () => {
 			</Container>
 			<Footer></Footer>
 		</Fragment>
-	)
-}
+	);
+};
 
-export default About
+export default About;
