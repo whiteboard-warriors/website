@@ -9,13 +9,32 @@
 }
 
 .jumbotron.jumbotron-fluid {
-	background-image: linear-gradient(
-		to right,
-		$orange-dark,
-		$orange-light,
-		$orange-dark
-	);
-	height: 200px;
+	background-image: linear-gradient(to right, $orange-dark, $orange-light, $orange-dark);
+	height: auto !important;
+	padding-bottom: 3.4rem !important;
+	.container {
+		h2 {
+			padding: 2rem 5%;
+			color: $white;
+			margin-top: 3rem;
+		}
+		h2,
+		button {
+			margin: 1rem 0;
+		}
+	}
+}
+.btn-header-cta {
+	border: solid 3px $white !important;
+	border-radius: 3rem !important;
+	padding: 1.5rem 2rem !important;
+	background-color: $grey-dark !important;
+	color: $orange-light !important;
+	&:hover {
+		background-color: $white !important;
+		color: $orange-dark !important;
+		border-color: $orange-dark !important;
+	}
 }
 
 @media screen and (min-width: 576px) {
