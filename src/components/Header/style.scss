@@ -6,34 +6,36 @@
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	transition: transform 1s;
+	&:hover {
+		-moz-transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		-o-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05) slow;
+		transform: scale(1.25);
+	}
 }
 
-.jumbotron.jumbotron-fluid {
+.jumbotron.jumbotron-fluid,
+.banner {
 	background-image: linear-gradient(to right, $orange-dark, $orange-light, $orange-dark);
 	height: auto !important;
 	padding-bottom: 3.4rem !important;
-	.container {
-		h2 {
-			padding: 2rem 5%;
-			color: $white;
-			margin-top: 3rem;
-		}
-		h2,
-		button {
-			margin: 1rem 0;
-		}
-	}
+	margin-bottom: 0 !important;
 }
-.btn-header-cta {
-	border: solid 3px $white !important;
-	border-radius: 3rem !important;
-	padding: 1.5rem 2rem !important;
-	background-color: $grey-dark !important;
-	color: $orange-light !important;
-	&:hover {
-		background-color: $white !important;
-		color: $orange-dark !important;
-		border-color: $orange-dark !important;
+.banner {
+	text-align: center;
+	padding-bottom: 5rem !important;
+	h2 {
+		padding: 2rem 10%;
+		color: $white;
+		margin-top: -1rem !important;
+	}
+	h2,
+	a {
+		margin: 2rem 0;
 	}
 }
 
