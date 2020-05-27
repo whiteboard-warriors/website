@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
 import './style.scss';
 
 // image
@@ -32,10 +31,6 @@ const Header = () => {
 							</div>
 						</Col>
 					</Row>
-					<h2>Software engineers of all levels coming together to sharpen their coding interview skills</h2>
-					<Button size='lg' className='btn-header-cta'>
-						Join The Meetup
-					</Button>
 				</Container>
 			</Jumbotron>
 		</Fragment>
