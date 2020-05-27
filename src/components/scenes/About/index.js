@@ -16,8 +16,8 @@ const About = () => {
 			<Header></Header>
 			<Container>
 				<Row>
-					<Col md={{ span: 8, offset: 2 }} className='about'>
-						<h1>About Whiteboard Warriors</h1>
+					<Col md={{ span: 8, offset: 2 }} className='mt4r about'>
+						<h1 className='mb4r text-center'>About Whiteboard Warriors</h1>
 						<p>
 							Whiteboard Warriors was founded in 2018 in Irvine, CA. by <a href='https://jordanbaucke.com'>Jordan Baucke</a> with
 							the goal of helping developers{' '}
