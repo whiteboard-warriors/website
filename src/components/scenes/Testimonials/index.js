@@ -18,7 +18,7 @@ const Testimonials = () => {
 			<div className='scene-content'>
 				<Container>
 					<Row>
-						<Col>
+						<Col md={{ span: 8, offset: 2 }}>
 							<div>
 								<Media>
 									<img width={128} height={128} src={TaiMaiProfile} alt='Tye Mai' className='mr-3' />

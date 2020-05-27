@@ -1,5 +1,24 @@
+@import '../../../App.scss';
+
+.media {
+	padding-top: 5rem;
+}
+
+.media-body {
+	div {
+		h5 {
+			margin-bottom: 7rem;
+		}
+		p,
+		blockquote {
+			line-height: 2rem;
+			margin-bottom: 3rem;
+		}
+	}
+}
+
 blockquote {
-	background: #f9f9f9;
+	background: white;
 	border-left: 10px solid #ccc;
 	margin: 1.5em 10px;
 	padding: 0.5em 10px;
