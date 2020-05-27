@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+
 import Container from 'react-bootstrap/Container';
 
 import Header from '../../Header';
@@ -14,7 +16,7 @@ const About = () => {
 			<Header></Header>
 			<Container>
 				<Row>
-					<Col>
+					<Col md={{ span: 8, offset: 2 }} className='about'>
 						<h1>About Whiteboard Warriors</h1>
 						<p>
 							Whiteboard Warriors was founded in 2018 in Irvine, CA. by <a href='https://jordanbaucke.com'>Jordan Baucke</a> with
@@ -60,8 +62,8 @@ const About = () => {
 							</strong>
 						</p>
 						<p>
-							Whiteboard Warriors has been incorporated as a <a href='/501c3'>501c3 Non-Profit Corporation</a>, and donations are
-							tax deductible. Whiteboard Warriors events{' '}
+							Whiteboard Warriors has been incorporated as a <Link to='/501c3'>501c3 Non-Profit Corporation</Link>, and donations
+							are tax deductible. Whiteboard Warriors events{' '}
 							<em>
 								<strong>will always be a FREE resource for the software development community</strong>
 							</em>
