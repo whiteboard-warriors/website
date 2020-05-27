@@ -18,6 +18,16 @@ a:visited {
 	text-decoration: none !important;
 }
 
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: 800;
+}
+
 /* buttons  */
 .btn-primary,
 .btn-outline-primary:hover {
@@ -28,4 +38,35 @@ a:visited {
 .btn-outline-primary {
 	color: $orange-dark;
 	border-color: $orange-dark;
+}
+
+.btn-cta-dark {
+	border: solid 3px $white !important;
+	border-radius: 3rem !important;
+
+	background-color: $grey-dark !important;
+	color: $orange-light !important;
+	&:hover {
+		background-color: $white !important;
+		color: $orange-dark !important;
+		border-color: $orange-dark !important;
+	}
+}
+.btn-cta-light {
+	border: solid 3px $orange-dark !important;
+	border-radius: 3rem !important;
+
+	background-color: $white !important;
+	color: $orange-dark !important;
+	&:hover {
+		background-color: $grey-dark !important;
+		color: $orange-light !important;
+		border-color: $orange-dark !important;
+	}
+}
+
+//	// size
+
+.btn-xl {
+	padding: 1.5rem 2rem !important;
 }
