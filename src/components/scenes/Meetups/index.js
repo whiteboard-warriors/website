@@ -14,25 +14,25 @@ const Meetups = () => {
 		<Fragment>
 			<Header></Header>
 			<div className='scene-content meetups'>
-				<Container>
+				<Container className='mt4r'>
+					<h1 className='mb5r text-center'>Meetups</h1>
 					<Row>
-						<Col>
-							<h1 className='p-5 m-5'>Meetups</h1>
+						<Col md={{ span: 4, offset: 2 }}>
 							<div className='meetup-link'>
-								<a href='https://www.meetup.com/whiteboard-warriors'>
+								<a href='https://www.meetup.com/whiteboard-warriors' target='_blank' rel='noopener noreferrer'>
 									<img className='meetup-logo' src={Meetup} alt='meetup logo'></img>
 									<span className='meetup-location-title'>Irvine, CA</span>
 								</a>
 							</div>
 							<div className='meetup-link'>
-								<a href='https://www.meetup.com/whiteboard-warriors-silicon-valley'>
+								<a href='https://www.meetup.com/whiteboard-warriors-silicon-valley' target='_blank' rel='noopener noreferrer'>
 									<img className='meetup-logo' src={Meetup} alt='meetup logo'></img>
 									<span className='meetup-location-title'>San Mateo, CA</span>
 								</a>
 							</div>
 						</Col>
-						<Col>
-							<div className='p-5 m-5 text-center'>
+						<Col md='4'>
+							<div className=' text-center'>
 								<MeetupMap></MeetupMap>
 							</div>
 						</Col>

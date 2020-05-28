@@ -71,7 +71,10 @@ h5 {
 	padding: 1.5rem 2rem !important;
 }
 
-// margin
+//////////////
+// Margin
+//////////////
+
 .m1r {
 	margin: 1rem;
 }
@@ -122,7 +125,10 @@ h5 {
 	margin-bottom: 5rem;
 }
 
-// padding
+///////////////
+// Padding
+///////////////
+
 .p1r {
 	padding: 1rem;
 }
@@ -171,4 +177,21 @@ h5 {
 }
 .pb5r {
 	padding-bottom: 5rem;
+}
+
+///////////////
+// Text
+///////////////
+
+.text-block-1 {
+	line-height: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+.text-block-2 {
+	line-height: 2rem;
+	margin-bottom: 2rem;
+}
+.text-block-3 {
+	line-height: 2.5rem;
+	margin-bottom: 2.5rem;
 }
