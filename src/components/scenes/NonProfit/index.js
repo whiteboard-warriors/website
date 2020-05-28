@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from '../../Header';
+import Footer from '../../Footer';
 // import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import './style.scss';
 
 const NonProfit = () => {
 	return (
@@ -12,10 +13,10 @@ const NonProfit = () => {
 			<Header></Header>
 			<div className='scene-content'>
 				<Container>
-					<Row>
-						<Col>
-							<h1>Whiteboard Warriors Non-Profit</h1>
-							<p>
+					<Row className='mt4r'>
+						<Col md={{ span: 8, offset: 2 }}>
+							<h1 className='text-center mb4r'>Whiteboard Warriors Non-Profit</h1>
+							<p className='text-block-2'>
 								Whiteboard Warriors is a Non-Profit Corporation under US Internal Revenue Service Code 501(c)(3). All donations
 								to Whiteboard Warriors are tax deductible.
 							</p>

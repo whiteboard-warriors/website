@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react'
-import Container from 'react-bootstrap/Container'
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
-import Header from '../Header'
-import Footer from '../Footer'
-import './scene.scss'
-import ArticleContent from '../ArticleContent'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container';
+
+import Header from '../../Header';
+import Footer from '../../Footer';
+import './style.scss';
+// import ArticleContent from '../ArticleContent'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const About = () => {
 	return (
@@ -14,8 +16,8 @@ const About = () => {
 			<Header></Header>
 			<Container>
 				<Row>
-					<Col>
-						<h1>About Whiteboard Warriors</h1>
+					<Col md={{ span: 8, offset: 2 }} className='mt4r about'>
+						<h1 className='mb4r text-center'>About Whiteboard Warriors</h1>
 						<p>
 							Whiteboard Warriors was founded in 2018 in Irvine, CA. by <a href='https://jordanbaucke.com'>Jordan Baucke</a> with
 							the goal of helping developers{' '}
@@ -35,7 +37,10 @@ const About = () => {
 						<p>
 							Whiteboard Warriors seeks to host regular "meet-up" events where participants are paired together and given questions
 							prompts similar to how they would be expected to interview in a real-world job interview, (only with less pressure
-							😉). A practice known as "oral-recitation".
+							<span role='img' aria-label='winking emoji'>
+								😉
+							</span>
+							). A practice known as "oral-recitation".
 						</p>
 						<p>
 							Our practice helps developers emphasis social interaction with their interviewers and peers, reduce performance
@@ -49,24 +54,32 @@ const About = () => {
 						<p>
 							<strong>
 								To date (Spring 2020), Whiteboard Warriors has registered over 750 members in 2 Chapters, over 20-events & 500+
-								RSVPs! 🎉🎉🎉
+								RSVPs!
+								<span role='img' aria-label='confetti emoji'>
+									{' '}
+									🎉🎉🎉
+								</span>
 							</strong>
 						</p>
 						<p>
-							Whiteboard Warriors has been incorporated as a <a href='/501c3'>501c3 Non-Profit Corporation</a>, and donations are
-							tax deductible. Whiteboard Warriors events{' '}
+							Whiteboard Warriors has been incorporated as a <Link to='/501c3'>501c3 Non-Profit Corporation</Link>, and donations
+							are tax deductible. Whiteboard Warriors events{' '}
 							<em>
 								<strong>will always be a FREE resource for the software development community</strong>
 							</em>
 							. Whiteboard Warriors goal is to always be inclusive, welcoming, non-judgemental and non-discriminatory. Whiteboard
-							Warriors events are <em>welcome to ALL regardless</em> of language (Spoken or Coding 😉), and skill-level!
+							Warriors events are <em>welcome to ALL regardless</em> of language (Spoken or Coding{' '}
+							<span role='img' aria-label='winking emoji'>
+								😉
+							</span>
+							), and skill-level!
 						</p>
 					</Col>
 				</Row>
 			</Container>
 			<Footer></Footer>
 		</Fragment>
-	)
-}
+	);
+};
 
-export default About
+export default About;

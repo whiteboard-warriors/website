@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react'
-import Header from '../Header'
-import Footer from '../Footer'
+import React, { Fragment } from 'react';
+import Header from '../../Header';
+import Footer from '../../Footer';
 // import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Media from 'react-bootstrap/Media'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Media from 'react-bootstrap/Media';
 
-import TaiMaiProfile from '../../img/testimonials/tye-mai/tye-mai.jpeg'
-import testimonoials from './testimonials.scss'
-import linkedInLogo from '../../img/icon/linkedin-icon.svg'
+import TaiMaiProfile from './img/tye-mai.jpeg';
+import './style.scss';
+import linkedInLogo from './img/linkedin-icon.svg';
 
 const Testimonials = () => {
 	return (
@@ -18,7 +18,7 @@ const Testimonials = () => {
 			<div className='scene-content'>
 				<Container>
 					<Row>
-						<Col>
+						<Col md={{ span: 8, offset: 2 }}>
 							<div>
 								<Media>
 									<img width={128} height={128} src={TaiMaiProfile} alt='Tye Mai' className='mr-3' />
@@ -29,7 +29,12 @@ const Testimonials = () => {
 												<small>
 													Software Developer{' '}
 													<a href='https://www.linkedin.com/in/tyemai/'>
-														<img className='linked-in-logo' src={linkedInLogo}></img>
+														<img
+															className='linked-in-logo'
+															src={linkedInLogo}
+															alt='linkedIn logo
+														'
+														></img>
 													</a>
 												</small>
 											</h5>
@@ -133,7 +138,7 @@ const Testimonials = () => {
 
 			<Footer />
 		</Fragment>
-	)
-}
+	);
+};
 
-export default Testimonials
+export default Testimonials;

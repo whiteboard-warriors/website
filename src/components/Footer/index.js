@@ -20,17 +20,17 @@ const Footer = () => {
 							{/* <h5 className='text-uppercase'>Follow us:</h5> */}
 							<ul>
 								<li>
-									<a href='https://www.facebook.com/whiteboardwarriors' target='_blank'>
+									<a href='https://www.facebook.com/whiteboardwarriors' target='_blank' rel='noopener noreferrer'>
 										<i className='fab fa-facebook-f fa-2x'></i>
 									</a>
 								</li>
 								<li>
-									<a href='https://www.instagram.com/whiteboardwarriors/' target='_blank'>
+									<a href='https://www.instagram.com/whiteboardwarriors/' target='_blank' rel='noopener noreferrer'>
 										<i className='fab fa-instagram fa-2x'></i>
 									</a>
 								</li>
 								<li>
-									<a href='https://www.twitter.com/wbwarriorscode' target='_blank'>
+									<a href='https://www.twitter.com/wbwarriorscode' target='_blank' rel='noopener noreferrer'>
 										<i className='fab fa-twitter fa-2x'></i>
 									</a>
 								</li>
@@ -41,17 +41,17 @@ const Footer = () => {
 								<Col xs={4} md={4}>
 									<ul>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 1
 											</a>
 										</li>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 2
 											</a>
 										</li>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 3
 											</a>
 										</li>
@@ -60,17 +60,17 @@ const Footer = () => {
 								<Col xs={4} md={4}>
 									<ul>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 1
 											</a>
 										</li>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 2
 											</a>
 										</li>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 3
 											</a>
 										</li>
@@ -79,17 +79,17 @@ const Footer = () => {
 								<Col xs={4} md={4}>
 									<ul>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 1
 											</a>
 										</li>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 2
 											</a>
 										</li>
 										<li>
-											<a href='#!' target='_blank'>
+											<a href='#!' target='_blank' rel="noopener noreferrer" >
 												Link 3
 											</a>
 										</li>
