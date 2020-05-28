@@ -7,7 +7,7 @@
 	margin-top: 5rem !important;
 
 	.footer-top {
-		padding: 2rem 0 1rem 0;
+		padding: 1.5rem 0;
 	}
 	.footer-bottom {
 		padding: 1.5rem 0;
@@ -24,6 +24,7 @@
 			justify-content: space-around;
 			padding-inline-start: 0 !important;
 			align-items: center;
+			margin: 0;
 			// float: right;
 		}
 		// li {
@@ -71,10 +72,10 @@
 @media only screen and (max-width: 991px) {
 	.footer {
 		.footer-top {
-			padding: 3rem 0 2rem 0;
+			padding: 2rem 0;
 		}
 		.footer-bottom {
-			padding: 2.5rem 0;
+			padding: 2rem 0;
 		}
 	}
 }
