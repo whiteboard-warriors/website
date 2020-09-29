@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 // bootstrap
-// import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import logo from './ww_logo.svg';
 import './style.scss';
 
 const Footer = () => {
@@ -14,93 +15,89 @@ const Footer = () => {
 	return (
 		<Fragment>
 			<footer className='footer'>
-				<Container className='footer-top'>
-					<Row>
-						<Col xs={{ span: 8, offset: 2 }} md={{ span: 4, offset: 4 }} className='footer-social'>
-							{/* <h5 className='text-uppercase'>Follow us:</h5> */}
-							<ul>
-								<li>
-									<a href='https://www.facebook.com/whiteboardwarriors' target='_blank' rel='noopener noreferrer'>
-										<i className='fab fa-facebook-f fa-2x'></i>
-									</a>
-								</li>
-								<li>
-									<a href='https://www.instagram.com/whiteboardwarriors/' target='_blank' rel='noopener noreferrer'>
-										<i className='fab fa-instagram fa-2x'></i>
-									</a>
-								</li>
-								<li>
-									<a href='https://www.twitter.com/wbwarriorscode' target='_blank' rel='noopener noreferrer'>
-										<i className='fab fa-twitter fa-2x'></i>
-									</a>
-								</li>
-							</ul>
+				<Container>
+					<Row className='footer-top'>
+						<Col md={6} className='footer-content-left'>
+							<div className='footer-title'>
+								<div className='footer-logo'>
+									<img src={logo} alt='logo' />
+								</div>
+								<h4>Whiteboard Warriors</h4>
+							</div>
+							<div className='footer-social'>
+								<h5>Follow us</h5>
+								<ul>
+									<li>
+										<a
+											href='https://www.facebook.com/whiteboardwarriors'
+											target='_blank'
+											rel='noopener noreferrer'
+										>
+											<i className='fab fa-facebook-f fa-2x'></i>
+										</a>
+									</li>
+									<li>
+										<a
+											href='https://www.instagram.com/whiteboardwarriors/'
+											target='_blank'
+											rel='noopener noreferrer'
+										>
+											<i className='fab fa-instagram fa-2x'></i>
+										</a>
+									</li>
+									<li>
+										<a
+											href='https://www.twitter.com/wbwarriorscode'
+											target='_blank'
+											rel='noopener noreferrer'
+										>
+											<i className='fab fa-twitter fa-2x'></i>
+										</a>
+									</li>
+								</ul>
+							</div>
 						</Col>
-						{/* <Col xs={8} md={8}>
-							<Row className='footer-links'>
-								<Col xs={4} md={4}>
-									<ul>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 1
-											</a>
-										</li>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 2
-											</a>
-										</li>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 3
-											</a>
-										</li>
-									</ul>
-								</Col>
-								<Col xs={4} md={4}>
-									<ul>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 1
-											</a>
-										</li>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 2
-											</a>
-										</li>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 3
-											</a>
-										</li>
-									</ul>
-								</Col>
-								<Col xs={4} md={4}>
-									<ul>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 1
-											</a>
-										</li>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 2
-											</a>
-										</li>
-										<li>
-											<a href='#!' target='_blank' rel="noopener noreferrer" >
-												Link 3
-											</a>
-										</li>
-									</ul>
-								</Col>
-							</Row>
-						</Col> */}
-						{/* <Col xs={6} md={3} className='footer-links'></Col> */}
+						<Col md={6} className='footer-content-right'>
+							<div className='footer-links'>
+								<div className='text-center'></div>
+								<h5>Organization</h5>
+								<ul>
+									<li>
+										<Link to='/about'>About</Link>
+									</li>
+									<li>
+										<a href='https://github.com/whiteboard-warriors/war-time/graphs/contributors'>
+											Contributors
+										</a>
+									</li>
+									<li>
+										<Link to='/nonprofit'>Non Profit</Link>
+									</li>
+									<li>
+										<Link to='/testimonials'>
+											Testimonials
+										</Link>
+									</li>
+								</ul>
+							</div>
+							<div className='footer-links'>
+								<h5>Get involved</h5>
+
+								<ul>
+									<li>
+										<Link to='/meetups'>Meetups</Link>
+									</li>
+									<li>
+										<Link to='/volunteer'>Volunteer</Link>
+									</li>
+								</ul>
+							</div>
+						</Col>
 					</Row>
 				</Container>
-				<section className='footer-bottom text-center'>&copy; {year} Whiteboard Warriors.</section>
+				<section className='footer-bottom text-center'>
+					&copy; {year} Whiteboard Warriors.
+				</section>
 			</footer>
 		</Fragment>
 	);
