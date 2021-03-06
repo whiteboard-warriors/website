@@ -87,6 +87,10 @@ export default function NavBar(props) {
 					</Container>
 					<Container className='d-flex justify-content-lg-end'>
 						<Nav>
+						<Link className='nav-link' to='/donate'>
+								<i className='navbar-icon fas fa-donate'></i>
+								Donate
+							</Link>
 							<Link className='nav-link' to='/volunteer'>
 								<i className='navbar-icon fas fa-hand-paper'></i>
 								Volunteer
