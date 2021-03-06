@@ -23,7 +23,7 @@ const Donate = () => {
 									Visit our{' '}
 									<a
 										target="_blank"
-										rel="noreferrer"
+										rel="noopener noreferrer"
 										href="https://www.facebook.com/whiteboardwarriors"
 									>
 										Facebook Page
