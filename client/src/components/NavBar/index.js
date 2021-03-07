@@ -1,124 +1,140 @@
-import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
-import LogIn from '../auth/log-in-modal';
+import React, { Fragment, useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 // bootstrap
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Container from 'react-bootstrap/Container'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import AuthContext from '../../context/auth/authContext';
 
-import './navbar.scss';
+import './navbar.scss'
+import LoginModal from '../LoginModal'
 
 export default function NavBar(props) {
-	const [show, setShow] = useState(false);
+	const [show, setShow] = useState(false)
+	const authContext = useContext(AuthContext);
+	const { isAuthenticated, logout, user } = authContext;
+
+	const displayModal = e => {
+		e.preventDefault();
+		setShow(true);
+	}
+
 	const aboutTitle = (
 		<Fragment>
-			<i className='navbar-icon fas fa-info-circle'></i>
+			<i className="navbar-icon fas fa-info-circle"></i>
 			About
 		</Fragment>
+	)
+
+	const authLinks = (
+		<Fragment>
+		
+			{isAuthenticated ? ( 
+				<Fragment>
+				<NavDropdown
+					title={user.firstName ? user.firstName : ''}
+					id='collasible-nav-dropdown'
+				>
+					<Link
+						data-rb-event-key='/profile'
+						className='dropdown-item'
+						to='/profile'
+					>
+						Profile
+					</Link>
+
+					<Link
+						onClick={logout}
+						className='dropdown-item'
+						to='/'
+					>
+						Log Out
+					</Link>
+				</NavDropdown>
+				<ul className='navbar-nav'>
+				<li className='nav-item avatar'>
+					<Link className='nav-link p-0' to='/profile'>
+						<img
+							src='https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg'
+							className='profile-pic rounded-circle z-depth-0'
+							alt='avatar'
+						></img>
+					</Link>
+				</li>
+			</ul>
+				</Fragment>
+			) : (
+				<Link 
+				onClick={displayModal}
+				className="nav-link" to="/">
+					<i className="navbar-icon fas fa-sign-in-alt"></i>
+					Login
+				</Link>
+			)}
+		</Fragment>
 	);
-	// const meetupTitle = (
-	// 	<Fragment>
-	// 		<i className='navbar-icon fab fa-meetup'></i>
-	// 		Meetups
-	// 	</Fragment>
-	// )
-	// const resourcesTitle = (
-	// 	<Fragment>
-	// 		<i className='navbar-icon fas fa-globe'></i>
-	// 		Resources
-	// 	</Fragment>
-	// );
+
 	return (
 		<Fragment>
-			<Navbar bg='light' expand='lg' className='d-flex justify-content-lg-around'>
-				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Collapse id='basic-navbar-nav'>
+			<Navbar
+				bg="light"
+				expand="lg"
+				className="d-flex justify-content-lg-around"
+			>
+				<Navbar.Toggle aria-controls="basic-navbar-nav" />
+				<Navbar.Collapse id="basic-navbar-nav">
 					<Container>
 						<Nav>
-							<Link className='nav-link' to='/'>
-								<i className='navbar-icon fas fa-user-ninja'></i>
+							<Link className="nav-link" to="/">
+								<i className="navbar-icon fas fa-user-ninja"></i>
 								Home
 							</Link>
-							<NavDropdown title={aboutTitle} id='basic-nav-dropdown'>
-								<NavDropdown.Item as='div'>
-									<Link className='nav-link' to='/about'>
-										<i className='navbar-icon fas fa-info'></i>
+							<NavDropdown title={aboutTitle} id="basic-nav-dropdown">
+								<NavDropdown.Item as="div">
+									<Link className="nav-link" to="/about">
+										<i className="navbar-icon fas fa-info"></i>
 										Our Story
 									</Link>
 								</NavDropdown.Item>
 								<NavDropdown.Divider />
-								<NavDropdown.Item as='div'>
-									<Link className='nav-link' to='/testimonials'>
-										<i className='navbar-icon fas fa-bullhorn'></i>
+								<NavDropdown.Item as="div">
+									<Link className="nav-link" to="/testimonials">
+										<i className="navbar-icon fas fa-bullhorn"></i>
 										Testimonials
 									</Link>
 								</NavDropdown.Item>
 								<NavDropdown.Divider />
-								<NavDropdown.Item as='div'>
-									<Link className='nav-link' to='/nonprofit'>
-										<i className='navbar-icon fas fa-users'></i>
+								<NavDropdown.Item as="div">
+									<Link className="nav-link" to="/nonprofit">
+										<i className="navbar-icon fas fa-users"></i>
 										Non-Profit
 									</Link>
 								</NavDropdown.Item>
 							</NavDropdown>
-							{/* <NavDropdown
-								title={meetupTitle}
-								id="basic-nav-dropdown">
-								<NavDropdown.Item as="div">
-									<Link className="nav-link" to="/meetups">
-										<i className="navbar-icon fas fa-microchip"></i>
-										Palo Alto, CA
-									</Link>
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item as="div">
-									<Link className="nav-link" to="/meetups">
-										<i className="navbar-icon fas fa-umbrella-beach"></i>
-										Orange County, CA
-									</Link>
-								</NavDropdown.Item>
-							</NavDropdown> */}
-							<Link className='nav-link' to='/meetups'>
-								<i className='navbar-icon fab fa-meetup'></i>
+							<Link className="nav-link" to="/meetups">
+								<i className="navbar-icon fab fa-meetup"></i>
 								Meetups
 							</Link>
 						</Nav>
 					</Container>
-					<Container className='d-flex justify-content-lg-end'>
+					<Container className="d-flex justify-content-lg-end">
 						<Nav>
-						<Link className='nav-link' to='/donate'>
-								<i className='navbar-icon fas fa-donate'></i>
+							<Link className="nav-link" to="/donate">
+								<i className="navbar-icon fas fa-donate"></i>
 								Donate
 							</Link>
-							<Link className='nav-link' to='/volunteer'>
-								<i className='navbar-icon fas fa-hand-paper'></i>
+							<Link className="nav-link" to="/volunteer">
+								<i className="navbar-icon fas fa-hand-paper"></i>
 								Volunteer
 							</Link>
-							{/* <NavDropdown title={resourcesTitle} id='basic-nav-dropdown'>
-								<NavDropdown.Item as='div'>
-									<Link className='nav-link' to='/jobs'>
-										<i className='navbar-icon fas fa-briefcase'></i>
-										Jobs
-									</Link>
-								</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item as='div'>
-									<Link className='nav-link' to='/jobs'>
-										<i className='navbar-icon fas fa-file'></i>
-										Resume Uploader
-									</Link>
-								</NavDropdown.Item>
-							</NavDropdown>
-							<span className='nav-link log-in' onClick={() => setShow(true)}>
-								<i className='navbar-icon fas fa-user'></i>
-								Sign Up/Log In
-							</span> */}
 						</Nav>
+						{ authLinks }
 					</Container>
 				</Navbar.Collapse>
 			</Navbar>
-			<LogIn show={show} onHide={() => setShow(false)} />
+
+			<LoginModal show={show} onHide={() => setShow(false)}></LoginModal>
 		</Fragment>
-	);
+	)
 }

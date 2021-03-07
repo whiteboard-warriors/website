@@ -1,12 +1,9 @@
-import React, { Fragment, Component } from 'react'
+import React, { Fragment } from 'react'
 // router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-// bootstrap
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Image from 'react-bootstrap/Image';
+import AuthState from './context/auth/AuthState'
+
 // pages
 import Landing from './components/scenes/Landing/index'
 import About from './components/scenes/About/index'
@@ -25,12 +22,14 @@ import withTracker from './tracker/withTracker'
 // css
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss'
+import LoginModal from './components/LoginModal'
 
 // images
-class App extends Component {
-	render() {
-		return (
-			<Fragment>
+export default function App() {
+
+	return (
+		<Fragment>
+			<AuthState>
 				<Router>
 					<NavBar></NavBar>
 					<Switch>
@@ -50,9 +49,7 @@ class App extends Component {
 						<Route exact path="/501c3" component={withTracker(NonProfit)} />
 					</Switch>
 				</Router>
-			</Fragment>
-		)
-	}
+			</AuthState>
+		</Fragment>
+	)
 }
-
-export default App
