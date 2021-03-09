@@ -36,7 +36,7 @@ const AuthState = (props) => {
 			localStorage.getItem('user') != null
 				? JSON.parse(localStorage.getItem('user'))
 				: {},
-		error: null,
+		authError: null,
 		forgotResetSuccess: false,
 		forgotRequestSuccess: false,
 		updateProfileSuccess: false,
@@ -201,7 +201,7 @@ const AuthState = (props) => {
 				isAuthenticated: state.isAuthenticated,
 				loading: state.loading,
 				user: state.user,
-				error: state.error,
+				authError: state.authError,
 				token: state.token,
 				forgotResetSuccess: state.forgotResetSuccess,
 				forgotRequestSuccess: state.forgotRequestSuccess,
@@ -214,7 +214,6 @@ const AuthState = (props) => {
 				clearErrors,
 				forgotPassword,
 				forgotPasswordComplete,
-				authError,
 				clearSuccess,
 			}}
 		>

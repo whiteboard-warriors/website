@@ -42,13 +42,13 @@ export default (state, action) => {
 			return {
 				...state,
 				token: null,
-				error: action.payload,
+				authError: action.payload,
 				isAuthenticated: false,
 			};
 		case LOGIN_FAIL:
 			return {
 				...state,
-				error: action.payload,
+				authError: action.payload,
 			};
 		case LOGOUT:
 			localStorage.removeItem('isAuthenticated');
@@ -62,12 +62,12 @@ export default (state, action) => {
 				user: {
 					firstName: '',
 				},
-				error: action.payload,
+				authError: action.payload,
 			};
 		case CLEAR_ERRORS:
 			return {
 				...state,
-				error: null,
+				authError: null,
 			};
 		case UPDATE_PROFILE_SUCCESS:
 			localStorage.setItem('user', JSON.stringify(action.payload));
@@ -81,11 +81,11 @@ export default (state, action) => {
 		case FORGOT_PASSWORD_SUCCESS:
 			localStorage.removeItem('isAuthenticated');
 			localStorage.removeItem('user');
-			return { ...state, error: null, forgotRequestSuccess: true };
+			return { ...state, authError: null, forgotRequestSuccess: true };
 		case FORGOT_RESET_SUCCESS:
-			return { ...state, error: null, forgotResetSuccess: true };
+			return { ...state, authError: null, forgotResetSuccess: true };
 		case FORGOT_RESET_FAIL:
-			return { ...state, error: action.payload.error };
+			return { ...state, authError: action.payload.error };
 		case CLEAR_SUCCESS:
 			return { ...state, updateProfileSuccess: false };
 		default:

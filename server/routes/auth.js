@@ -14,7 +14,9 @@ router.post('/login', async function (req, res) {
 	let user = await db.User.findOne({ email: email })
 
 	if (!user) {
-		return res.status(404).json({ emailnotfound: 'Email not found' })
+		return res.status(400).json({
+			msg: 'Invalid Credentials',
+		})
 	}
 
 	// Check password

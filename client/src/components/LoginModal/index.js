@@ -1,29 +1,27 @@
-import React, { Fragment, useContext, useState, useEffect, useRef } from 'react'
+import React, { Fragment, useContext, useState, useEffect } from 'react'
 import AuthContext from '../../context/auth/authContext'
 import AlertContext from '../../context/alert/alertContext'
 import { Modal, Button, Tabs, Tab, Col, Row, Form } from 'react-bootstrap'
 import Alert from '../Alerts'
 import './style.scss'
+import LoginForm from '../LoginForm'
 
 export default function LoginModal(props) {
 	const authContext = useContext(AuthContext)
-	const { login, error, clearErrors, isAuthenticated } = authContext
+	const { login, authError, clearErrors } = authContext
 	const alertContext = useContext(AlertContext)
 	const { setAlert } = alertContext
 	const [key, setKey] = useState('log-in')
 
 	useEffect(() => {
-		if (error === 'Invalid Credentials') {
+		if (authError === 'Invalid Credentials') {
 			setAlert(
 				"Hmmm, that didn't work please re-enter your username and password or click 'Forgot Password'",
-				'danger'
+				'danger',25000
 			)
 			clearErrors()
 		}
-
-	}, [])
-
-	const loginForm = useRef()
+	}, [authError, clearErrors, setAlert])
 
 	const [user, setUser] = useState({
 		email: '',
@@ -39,13 +37,17 @@ export default function LoginModal(props) {
 		setUser({ ...user, [e.target.name]: e.target.value })
 	}
 
-	const handleActionClick = (e) => {
-    e.preventDefault();
-		if (key === 'log-in') {
-			console.log('login')
-			login({ email, password })
-		} else {
-		}
+	// const handleActionClick = (e) => {
+		// console.log()
+		// e.preventDefault()
+		// if (key === 'log-in') {
+		// 	login({ email, password })
+		// } else {
+		// }
+	// }
+	const handleSubmit = (e) => {
+		e.preventDefault();
+    console.log("Form was submitted, now the modal can be closed");
 	}
 
 	return (
@@ -59,7 +61,8 @@ export default function LoginModal(props) {
 					<Alert />
 					<Tabs id="controlled-tab" activeKey={key} onSelect={(k) => setKey(k)}>
 						<Tab className="p-4" eventKey="log-in" title="Log In">
-							<Row>
+							<LoginForm></LoginForm>
+							{/* <Row>
 								<Col>
 									<Form className="form-custom-margin">
 										<Row>
@@ -91,14 +94,9 @@ export default function LoginModal(props) {
 												<a href="/forgot-password">Forgot Password?</a>
 											</Col>
 										</Row>
-										{/* <div className="text-center">
-							<Button variant="primary" type="submit" size="lg">
-								Sign In
-							</Button>
-						</div> */}
 									</Form>
 								</Col>
-							</Row>
+							</Row> */}
 						</Tab>
 						<Tab className="p-4" eventKey="register" title="Register"></Tab>
 					</Tabs>
@@ -108,7 +106,7 @@ export default function LoginModal(props) {
 					<Button variant="secondary" onClick={props.onHide}>
 						Close
 					</Button>
-					<Button variant="primary" onClick={handleActionClick}>
+					<Button variant="primary" type="submit"  form="myForm">
 						{key === 'log-in' ? 'Login' : 'Register'}
 					</Button>
 				</Modal.Footer>
