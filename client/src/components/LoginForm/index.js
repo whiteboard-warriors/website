@@ -1,25 +1,25 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react'
 import AuthContext from '../../context/auth/authContext'
 import AlertContext from '../../context/alert/alertContext'
-import { Col, Row, Form, Button } from 'react-bootstrap'
+import { Col, Row, Form } from 'react-bootstrap'
 
-export default function LoginForm({handleSubmit}) {
+export default function LoginForm() {
 	const authContext = useContext(AuthContext)
 	const { login, authError, clearErrors, isAuthenticated } = authContext
 	const alertContext = useContext(AlertContext)
 	const { setAlert } = alertContext
 
-	// useEffect(() => {
-	// 	if (authError === 'Invalid Credentials') {
-	// 		console.log('error')
-	// 		setAlert(
-	// 			"Hmmm, that didn't work please re-enter your username and password or click 'Forgot Password'",
-	// 			'danger'
-	// 		)
-	// 		clearErrors()
-	// 	}
-	// 	// eslint-disable-next-line
-	// }, [authError, isAuthenticated, props.history])
+	useEffect(() => {
+		if (authError === 'Invalid Credentials') {
+			console.log('error')
+			setAlert(
+				"Hmmm, that didn't work please re-enter your username and password or click 'Forgot Password'",
+				'danger'
+			)
+			clearErrors()
+		}
+		// eslint-disable-next-line
+	}, [authError, isAuthenticated])
 
 	const [user, setUser] = useState({
 		email: '',
@@ -36,21 +36,16 @@ export default function LoginForm({handleSubmit}) {
 		setUser({ ...user, [e.target.name]: e.target.value })
 	}
 
-	const handleActionClick = e => {
-		console.log('now submit the form')
-	}
-
 	/**
 	 *
 	 * @param {*} e
-	 */ 
+	 */
 	const onSubmit = (e) => {
 		e.preventDefault()
-		console.log('got submit')
-		// login({
-		// 	email,
-		// 	password,
-		// })
+		login({
+			email,
+			password,
+		})
 	}
 
 	return (
@@ -60,13 +55,13 @@ export default function LoginForm({handleSubmit}) {
 					<Form
 						onSubmit={onSubmit}
 						className="form-custom-margin"
-						id="myForm"
+						id="loginForm"
 					>
 						<Row>
 							<Col>
 								<Form.Group controlId="formEmail">
 									<Form.Control
-										type="text"
+										type="email"
 										placeholder="E-Mail"
 										name="email"
 										value={email}
@@ -91,11 +86,6 @@ export default function LoginForm({handleSubmit}) {
 								<a href="/forgot-password">Forgot Password?</a>
 							</Col>
 						</Row>
-						{/* <div className="text-center">
-							<Button variant="primary" type="submit" size="lg">
-								Sign In
-							</Button>
-						</div> */}
 					</Form>
 				</Col>
 			</Row>

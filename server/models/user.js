@@ -42,7 +42,7 @@ const UserSchema = new Schema({
 	},
 	primaryLanguage: {
 		type: String,
-		required: 'Primary language is Required',
+		// required: 'Primary language is Required',
 	},
 	secondaryLanguage: {
 		type: String,

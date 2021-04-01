@@ -37,6 +37,8 @@ const AuthState = (props) => {
 				? JSON.parse(localStorage.getItem('user'))
 				: {},
 		authError: null,
+		registrationSuccess: null,
+		registrationError: null,
 		forgotResetSuccess: false,
 		forgotRequestSuccess: false,
 		updateProfileSuccess: false,
@@ -88,6 +90,7 @@ const AuthState = (props) => {
 			})
 		}
 	}
+
 	/**
 	 * Update User Profile
 	 * @param {*} formData
@@ -185,15 +188,6 @@ const AuthState = (props) => {
 	//
 	const clearSuccess = () => dispatch({ type: CLEAR_SUCCESS })
 
-	/**
-	 *
-	 */
-	const authError = () => {
-		dispatch({
-			type: AUTH_ERROR,
-		})
-	}
-
 	return (
 		<AuthContext.Provider
 			value={{
@@ -206,6 +200,8 @@ const AuthState = (props) => {
 				forgotResetSuccess: state.forgotResetSuccess,
 				forgotRequestSuccess: state.forgotRequestSuccess,
 				updateProfileSuccess: state.updateProfileSuccess,
+				registrationError: state.registrationError,
+				registrationSuccess: state.registrationSuccess,
 				register,
 				loadUser,
 				updateUserProfile,

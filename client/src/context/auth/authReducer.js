@@ -13,47 +13,58 @@ import {
 	FORGOT_RESET_SUCCESS,
 	FORGOT_RESET_FAIL,
 	CLEAR_SUCCESS,
-} from '../types';
+} from '../types'
 
 export default (state, action) => {
 	switch (action.type) {
 		case USER_LOADED:
-			localStorage.setItem('user', JSON.stringify(action.payload));
+			localStorage.setItem('user', JSON.stringify(action.payload))
 			return {
 				...state,
 				isAuthenticated: true,
 				loading: false,
 				user: action.payload,
-			};
+			}
 		case SIGNUP_SUCCESS:
+			localStorage.setItem('token', action.payload.token)
+			localStorage.setItem('isAuthenticated', true)
+			return {
+				...state,
+				loading: false,
+				registrationSuccess: true,
+			}
 		case LOGIN_SUCCESS:
-			localStorage.setItem('token', action.payload.token);
-			localStorage.setItem('isAuthenticated', true);
+			localStorage.setItem('token', action.payload.token)
+			localStorage.setItem('isAuthenticated', true)
 			return {
 				...state,
 				isAuthenticated: true,
 				loading: false,
-			};
+			}
 		case SIGNUP_FAIL:
+			return {
+				...state,
+				registrationError: action.payload,
+			}
 		case AUTH_ERROR:
-			localStorage.removeItem('isAuthenticated');
-			localStorage.removeItem('user');
-			localStorage.removeItem('token');
+			localStorage.removeItem('isAuthenticated')
+			localStorage.removeItem('user')
+			localStorage.removeItem('token')
 			return {
 				...state,
 				token: null,
 				authError: action.payload,
 				isAuthenticated: false,
-			};
+			}
 		case LOGIN_FAIL:
 			return {
 				...state,
 				authError: action.payload,
-			};
+			}
 		case LOGOUT:
-			localStorage.removeItem('isAuthenticated');
-			localStorage.removeItem('user');
-			localStorage.removeItem('token');
+			localStorage.removeItem('isAuthenticated')
+			localStorage.removeItem('user')
+			localStorage.removeItem('token')
 			return {
 				...state,
 				token: null,
@@ -63,32 +74,34 @@ export default (state, action) => {
 					firstName: '',
 				},
 				authError: action.payload,
-			};
+			}
 		case CLEAR_ERRORS:
 			return {
 				...state,
 				authError: null,
-			};
+				registrationSuccess: null,
+				registrationError: null,
+			}
 		case UPDATE_PROFILE_SUCCESS:
-			localStorage.setItem('user', JSON.stringify(action.payload));
+			localStorage.setItem('user', JSON.stringify(action.payload))
 			return {
 				...state,
 				user: action.payload,
 				updateProfileSuccess: true,
-			};
+			}
 		case UPDATE_PROFILE_FAIL:
-			return state;
+			return state
 		case FORGOT_PASSWORD_SUCCESS:
-			localStorage.removeItem('isAuthenticated');
-			localStorage.removeItem('user');
-			return { ...state, authError: null, forgotRequestSuccess: true };
+			localStorage.removeItem('isAuthenticated')
+			localStorage.removeItem('user')
+			return { ...state, authError: null, forgotRequestSuccess: true }
 		case FORGOT_RESET_SUCCESS:
-			return { ...state, authError: null, forgotResetSuccess: true };
+			return { ...state, authError: null, forgotResetSuccess: true }
 		case FORGOT_RESET_FAIL:
-			return { ...state, authError: action.payload.error };
+			return { ...state, authError: action.payload.error }
 		case CLEAR_SUCCESS:
-			return { ...state, updateProfileSuccess: false };
+			return { ...state, updateProfileSuccess: false }
 		default:
-			return state;
+			return state
 	}
-};
+}

@@ -1,23 +1,41 @@
-import React, { Fragment, useState, useContext } from 'react'
+import React, { Fragment, useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // bootstrap
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import AuthContext from '../../context/auth/authContext';
+import AuthContext from '../../context/auth/authContext'
+import AlertContext from '../../context/alert/alertContext'
 
 import './navbar.scss'
 import LoginModal from '../LoginModal'
 
 export default function NavBar(props) {
 	const [show, setShow] = useState(false)
-	const authContext = useContext(AuthContext);
-	const { isAuthenticated, logout, user } = authContext;
+	const authContext = useContext(AuthContext)
+	const alertContext = useContext(AlertContext)
+	const { setAlert } = alertContext
+	const {
+		isAuthenticated,
+		logout,
+		user,
+		registrationSuccess,
+		clearErrors,
+	} = authContext
 
-	const displayModal = e => {
-		e.preventDefault();
-		setShow(true);
+	useEffect(() => {
+		if (registrationSuccess) {
+			setAlert('Great Success! Welcome!', 'success')
+			setShow(false)
+			clearErrors()
+		}
+		// eslint-disable-next-line
+	}, [registrationSuccess])
+
+	const displayModal = (e) => {
+		e.preventDefault()
+		setShow(true)
 	}
 
 	const aboutTitle = (
@@ -29,51 +47,44 @@ export default function NavBar(props) {
 
 	const authLinks = (
 		<Fragment>
-		
-			{isAuthenticated ? ( 
+			{isAuthenticated ? (
 				<Fragment>
-				<NavDropdown
-					title={user.firstName ? user.firstName : ''}
-					id='collasible-nav-dropdown'
-				>
-					<Link
-						data-rb-event-key='/profile'
-						className='dropdown-item'
-						to='/profile'
+					<NavDropdown
+						title={user.firstName ? user.firstName : ''}
+						id="collasible-nav-dropdown"
 					>
-						Profile
-					</Link>
+						<Link
+							data-rb-event-key="/profile"
+							className="dropdown-item"
+							to="/profile"
+						>
+							Profile
+						</Link>
 
-					<Link
-						onClick={logout}
-						className='dropdown-item'
-						to='/'
-					>
-						Log Out
-					</Link>
-				</NavDropdown>
-				<ul className='navbar-nav'>
-				<li className='nav-item avatar'>
-					<Link className='nav-link p-0' to='/profile'>
-						<img
-							src='https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg'
-							className='profile-pic rounded-circle z-depth-0'
-							alt='avatar'
-						></img>
-					</Link>
-				</li>
-			</ul>
+						<Link onClick={logout} className="dropdown-item" to="/">
+							Log Out
+						</Link>
+					</NavDropdown>
+					<ul className="navbar-nav">
+						<li className="nav-item avatar">
+							<Link className="nav-link p-0" to="/profile">
+								<img
+									src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
+									className="profile-pic rounded-circle z-depth-0"
+									alt="avatar"
+								></img>
+							</Link>
+						</li>
+					</ul>
 				</Fragment>
 			) : (
-				<Link 
-				onClick={displayModal}
-				className="nav-link" to="/">
+				<Link onClick={displayModal} className="nav-link" to="/">
 					<i className="navbar-icon fas fa-sign-in-alt"></i>
 					Login
 				</Link>
 			)}
 		</Fragment>
-	);
+	)
 
 	return (
 		<Fragment>
@@ -129,7 +140,7 @@ export default function NavBar(props) {
 								Volunteer
 							</Link>
 						</Nav>
-						{ authLinks }
+						{authLinks}
 					</Container>
 				</Navbar.Collapse>
 			</Navbar>

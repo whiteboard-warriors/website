@@ -14,6 +14,7 @@ import Resources from './components/scenes/Resources/index'
 import Testimonials from './components/scenes/Testimonials/index'
 import NonProfit from './components/scenes/NonProfit/index'
 import Donate from './components/scenes/Donate/index'
+import Profile from './components/scenes/Profile/index'
 
 // components
 import NavBar from './components/NavBar'
@@ -38,6 +39,7 @@ export default function App() {
 							<Route exact path="/donate" component={withTracker(Donate)} />
 							<Route exact path="/meetups" component={withTracker(Meetups)} />
 							<Route exact path="/jobs" component={withTracker(Jobs)} />
+							<Route exact path="/profile" component={withTracker(Profile)} />
 							<Route
 								exact
 								path="/resources"

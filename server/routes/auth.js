@@ -82,32 +82,20 @@ router.post(
 			firstName,
 			lastName,
 			email,
-			password,
-			slackUsername,
-			linkedIn,
-			primaryLanguage,
-			secondaryLanguage,
-			skillLevel,
-			admin,
+			password
 		} = req.body
 
 		try {
 			let user = await db.User.findOne({ email })
 
 			if (user) {
-				return res.status(400).json({ msg: 'User already exists' })
+				return res.status(400).json({ msg: 'Registration Error' })
 			}
 			user = new db.User({
 				firstName,
 				lastName,
 				email,
-				password,
-				slackUsername,
-				linkedIn,
-				primaryLanguage,
-				secondaryLanguage,
-				skillLevel,
-				admin,
+				password
 			})
 			// console.log('routes/auth.js - user to be saved >>> ', user);
 
