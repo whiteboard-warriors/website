@@ -25,7 +25,7 @@ deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR
+  script: rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/website
     $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
   on:
     branch: staging
@@ -35,3 +35,9 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy-key.pem
 - ssh-add deploy-key.pem
+after_deploy:
+- if [ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]; then
+    - ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website && forever start -a --uid 'website' server/index.js"
+  else
+    - ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website-staging && forever start -a --uid 'website-staging' server/index.js"
+  fi
