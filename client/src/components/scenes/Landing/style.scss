@@ -1,0 +1,45 @@
+@import '../../../App.scss';
+
+.meetups .meetup-logo {
+	width: 100px;
+}
+
+.meetups .meetup-link {
+	margin: 15px 0;
+}
+
+.meetups .meetup-location-title {
+	margin-left: 25px;
+	font-size: 2em;
+}
+.subtitle {
+	margin: 4rem 0 2.4rem 0 !important;
+}
+
+.card-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.info-card {
+	padding: 0.7rem;
+	height: 19rem;
+	max-width: 20rem;
+	border: 1px $orange-dark solid;
+	border-radius: 0.5rem;
+	margin-top: 1.6rem;
+
+	img,
+	h4,
+	p {
+		margin-top: 1rem;
+	}
+	img {
+		height: 4rem;
+	}
+	&:hover {
+		box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+	}
+}

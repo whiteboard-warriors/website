@@ -1,0 +1,40 @@
+{
+	"name": "mern",
+	"version": "1.0.0",
+	"description": "Mern Demo",
+	"main": "server.js",
+	"scripts": {
+		"start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+		"start:prod": "node server",
+		"start:dev": "concurrently \"nodemon --ignore 'client/*' server \" \"npm run client\"",
+		"client": "cd client && npm run start",
+		"seed": "node scripts/seedDB.js",
+		"install": "npm run install-client && npm run install-server",
+		"i-c": "npm run install-client",
+		"i-s": "npm run install-server",
+		"un-c": "npm run uninstall-client",
+		"un-s": "npm run uninstall-server",
+		"install-client": "cd client && npm install",
+		"install-server": "cd server && npm install",
+		"uninstall-client": "cd client && npm uninstall",
+		"uninstall-server": "cd server && npm uninstall",
+		"build": "cd client && npm run build",
+		"heroku-postbuild": "npm run build",
+		"test": ""
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"concurrently": "^4.1.0",
+		"nodemon": "^1.19.4"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.19.0",
+		"create-react-app": "^3.2.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-session": "^1.17.0",
+		"if-env": "^1.0.4"
+	}
+}

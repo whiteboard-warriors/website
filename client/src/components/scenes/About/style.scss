@@ -1,0 +1,17 @@
+@import '../../../App.scss';
+
+.single {
+	margin-bottom: 32px;
+}
+
+.list {
+	display: block;
+	margin-top: -65px;
+	margin-bottom: 32px;
+}
+.about {
+	p {
+		line-height: 2rem;
+		margin-bottom: 2rem;
+	}
+}

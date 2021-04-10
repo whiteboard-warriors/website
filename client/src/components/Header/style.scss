@@ -1,0 +1,82 @@
+@import '../../scss/main';
+
+.masthead-logo {
+	margin-top: -5rem;
+	width: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	transition: transform 1s;
+	&:hover {
+		-moz-transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		-o-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05) slow;
+		transform: scale(1.25);
+	}
+}
+
+.jumbotron.jumbotron-fluid,
+.banner {
+	background-image: linear-gradient(to right, $orange-dark, $orange-light, $orange-dark);
+	height: auto !important;
+	padding-bottom: 3.4rem !important;
+	margin-bottom: 0 !important;
+}
+.banner {
+	text-align: center;
+	padding-bottom: 5rem !important;
+	h2 {
+		padding: 2rem 10%;
+		color: $white;
+		margin-top: -1rem !important;
+	}
+	h2,
+	a {
+		margin: 2rem 0;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.jumbotron.jumbotron-fluid {
+		padding: 3em 0 2em;
+	}
+
+	.masthead-logo {
+		margin-top: -6rem;
+		width: 200px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.jumbotron.jumbotron-fluid {
+		padding: 3em 0 2em;
+	}
+
+	.masthead-logo {
+		width: 200px;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.jumbotron.jumbotron-fluid {
+		height: 260px;
+		padding: 3em 0 2em;
+	}
+
+	.masthead-logo {
+		width: 260px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.jumbotron.jumbotron-fluid {
+		padding: 3em 0 2em;
+	}
+
+	.masthead-logo {
+		width: 260px;
+	}
+}

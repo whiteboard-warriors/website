@@ -1,0 +1,42 @@
+// Large devices (desktops, 992px and up)
+@import '../../scss/main';
+
+.navbar {
+	padding: 1.5rem 0.5rem !important;
+	background: #fff !important;
+	border-bottom: 1px solid #ccccca;
+	border-top: 1px solid #ccccca;
+}
+
+.nav-link {
+	color: $black !important;
+	margin-right: 1rem;
+	&:hover {
+		color: $grey !important;
+	}
+}
+
+.navbar-icon {
+	margin-right: 0.3rem;
+}
+
+.nav-link:hover .navbar-icon {
+	color: $orange-dark;
+}
+
+.log-in {
+	cursor: pointer;
+}
+
+.nav-logo {
+	width: 3rem;
+	height: 3rem;
+	margin: 0rem;
+	padding: 0;
+}
+
+.profile-pic {
+	width: 3rem
+}
+
+// testing
