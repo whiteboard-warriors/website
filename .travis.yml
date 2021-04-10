@@ -21,11 +21,11 @@ deploy:
     $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
   on:
     branch: master
-# website staging
+# website staging, use '/' on end of $TRAVIS_BUILD_DIR to copy contents
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/website
+  script: rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/
     $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
   on:
     branch: staging
