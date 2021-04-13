@@ -37,8 +37,13 @@ app.use(
 	passport.authenticate('jwt', { session: false }),
 	require('./routes/users')
 );
+app.use(
+	'/api/jobs',
+	passport.authenticate('jwt', { session: false }),
+	require('./routes/jobs')
+);
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/jobs', require('./routes/jobs'));
+
 // Connect to the Mongo DB
 mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/war-time', {
