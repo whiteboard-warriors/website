@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
 
 	try {
 		// check to make sure user making updates has admin rights.
-		// let user = await db.User.findOne({ _id: req.user._id });
+		// let user = await db.User.findOne({ _id: req.user.id });
 		// if (user.admin !== true) {
 		// 	return res.status(401).json({
 		// 		msg: 'You are not authorized to edit this job.',
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
 		// }
 
 		const job = new db.Job({
-			createdBy: req.user._id,
+			createdBy: req.user.id,
 			company,
 			title,
 			city,
@@ -74,7 +74,7 @@ router.put('/:id', async (req, res) => {
 		if (postDate) job.postDate = new Date();
 
 		// check to make sure user making updates has job posting rights.
-		// let user = await db.User.findOne({ _id: req.user._id });
+		// let user = await db.User.findOne({ _id: req.user.id });
 		// if (user.jobPosting !== true) {
 		// 	return res.status(401).json({
 		// 		msg:
