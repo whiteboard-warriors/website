@@ -16,6 +16,20 @@ router.get('/', async (req, res) => {
 	}
 });
 
+// @route   GET /api/jobs
+// @desc    Retrieves One events
+router.get('/:id', async (req, res) => {
+	try {
+		const job = await db.Event.findOne({
+			_id: req.params.id,
+		}).populate('createdBy');
+		res.json(job);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error');
+	}
+});
+
 // @route   POST /api/jobs
 // @desc     creates a job
 router.post('/', async (req, res) => {
