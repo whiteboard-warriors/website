@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // @route   GET /api/jobs
-// @desc    Retrieves One events
+// @desc    Retrieves one job
 router.get('/:id', async (req, res) => {
 	try {
 		const job = await db.Event.findOne({
