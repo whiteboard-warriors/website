@@ -6,8 +6,8 @@ import {
 	CREATE_JOB,
 	CREATE_JOB_SUCCESS,
 	CLEAR_CREATE_JOB_FLAGS,
-	SET_CURRENT,
-	CLEAR_CURRENT,
+	SET_CURRENT_JOB,
+	CLEAR_CURRENT_JOB,
 	UPDATE_JOB_SUCCESS,
 	UPDATE_JOB,
 	FILTER_JOBS,
@@ -15,7 +15,6 @@ import {
 	CREATE_JOB_ERROR,
 	CLEAR_JOB_ERROR,
 	CLEAR_JOBS,
-	LOAD_JOB_SUCCESS,
 } from '../types';
 
 export default (state, action) => {
@@ -81,12 +80,12 @@ export default (state, action) => {
 				deleteSuccess: false,
 			};
 		}
-		case SET_CURRENT:
+		case SET_CURRENT_JOB:
 			return {
 				...state,
 				current: action.payload,
 			};
-		case CLEAR_CURRENT:
+		case CLEAR_CURRENT_JOB:
 			return {
 				...state,
 				current: null,
@@ -114,11 +113,7 @@ export default (state, action) => {
 				...state,
 				error: null,
 			};
-		case LOAD_JOB_SUCCESS:
-			return {
-				...state,
-				job: action.payload,
-			};
+
 		default:
 			return state;
 	}
