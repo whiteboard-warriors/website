@@ -10,8 +10,8 @@ import {
 	GET_JOB,
 	CREATE_JOB,
 	CREATE_JOB_SUCCESS,
-	SET_CURRENT,
-	CLEAR_CURRENT,
+	SET_CURRENT_JOB,
+	CLEAR_CURRENT_JOB,
 	UPDATE_JOB_SUCCESS,
 	UPDATE_JOB,
 	FILTER_JOBS,
@@ -149,13 +149,13 @@ const JobsState = (props) => {
 	};
 
 	// Set Current Job
-	const setCurrent = (job) => {
-		dispatch({ type: SET_CURRENT, payload: job });
+	const setCurrentJob = (job) => {
+		dispatch({ type: SET_CURRENT_JOB, payload: job });
 	};
 
 	// Clear Current Job
-	const clearCurrent = () => {
-		dispatch({ type: CLEAR_CURRENT });
+	const clearCurrentJob = () => {
+		dispatch({ type: CLEAR_CURRENT_JOB });
 	};
 
 	// Filter Jobs
@@ -186,8 +186,8 @@ const JobsState = (props) => {
 				saveSuccess: state.saveSuccess,
 				createJob,
 				clearJobs,
-				setCurrent,
-				clearCurrent,
+				setCurrentJob,
+				clearCurrentJob,
 				updateJob,
 				filterJobs,
 				clearFilter,
