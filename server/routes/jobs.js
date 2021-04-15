@@ -20,10 +20,33 @@ router.get('/', async (req, res) => {
 // @desc    Retrieves one job
 router.get('/:id', async (req, res) => {
 	try {
-		const job = await db.Event.findOne({
+		const job = await db.Job.findOne({
 			_id: req.params.id,
 		}).populate('createdBy');
 		res.json(job);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error');
+	}
+});
+
+// @route   GET /api/jobs/created-by/user/
+// @desc    Retrieves job by user who created it.
+router.get('/created-by/user/', async (req, res) => {
+	console.log('get job by created by called');
+	try {
+		// check to make sure user making updates has job posting rights.
+		let user = await db.User.findOne({ _id: req.user.id });
+		if (user.jobPosting !== true) {
+			return res.status(401).json({
+				msg: 'You are not authorized to edit this job.',
+			});
+		}
+		const jobs = await db.Job.find({
+			createdBy: req.user.id,
+		}).populate('createdBy');
+		console.log('jobs: ', jobs);
+		res.json(jobs);
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).send('Server Error');
