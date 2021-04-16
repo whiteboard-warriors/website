@@ -308,43 +308,57 @@ const Profile = (props) => {
 								</Col>
 							</Row>
 
+							<hr />
+							{/* job posting */}
+							<Row>
+								<Col>
+									<fieldset>
+										<Form.Group>
+											<h4 className='my-4'>
+												Job Posting{' '}
+											</h4>
+											<Col
+												sm={10}
+												onChange={onChangeProfile}
+											>
+												<Form.Check
+													onChange={(event) =>
+														onChangeProfile(event)
+													}
+													type='radio'
+													label='I want to post jobs'
+													name='jobPosting'
+													id='jobPostingTrue'
+													value='yes'
+													checked={
+														jobPosting === 'yes'
+													}
+												/>
+												<Form.Check
+													onChange={(event) =>
+														onChangeProfile(event)
+													}
+													type='radio'
+													label="I don't want to post jobs"
+													name='jobPosting'
+													id='skillLevelFalse'
+													value='no'
+													checked={
+														jobPosting === 'no'
+													}
+												/>
+											</Col>
+										</Form.Group>
+									</fieldset>
+								</Col>
+							</Row>
+							{/* job posting */}
+
 							<Button variant='primary' type='submit'>
 								Save
 							</Button>
 						</Form>
 
-						<hr />
-						{/* job posting */}
-						<Row>
-							<Col>
-								<fieldset>
-									<Form.Group>
-										<h4 className='my-4'>Job Posting </h4>
-										<Col sm={10} onChange={onChangeProfile}>
-											<Form.Check
-												onChange={onChangeProfile}
-												type='radio'
-												label='I want to post jobs'
-												name='jobPosting'
-												id='jobPostingTrue'
-												value='true'
-												checked={jobPosting === true}
-											/>
-											<Form.Check
-												onChange={onChangeProfile}
-												type='radio'
-												label="I'm not posting jobs"
-												name='jobPosting'
-												id='skillLevelFalse'
-												value='false'
-												checked={jobPosting === false}
-											/>
-										</Col>
-									</Form.Group>
-								</fieldset>
-							</Col>
-						</Row>
-						{/* job posting */}
 						<hr className='my-4' />
 						<h4 className='my-4'>Change Password</h4>
 						<Form className='form-custom-margin'>
