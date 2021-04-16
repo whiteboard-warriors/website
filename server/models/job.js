@@ -27,8 +27,8 @@ const JobSchema = new Schema({
 		type: String,
 	},
 	active: {
-		type: Boolean,
-		default: true,
+		type: String,
+		default: 'true',
 	},
 	postDate: {
 		type: Date,
