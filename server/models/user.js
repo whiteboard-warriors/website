@@ -56,8 +56,8 @@ const UserSchema = new Schema({
 		default: true,
 	},
 	jobPosting: {
-		type: Boolean,
-		default: false,
+		type: String,
+		default: 'no',
 	},
 	token: {
 		// for password resets.
