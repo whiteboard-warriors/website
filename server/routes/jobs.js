@@ -113,8 +113,7 @@ router.put('/:id', async (req, res) => {
 		if (state) job.state = state;
 		if (salary) job.salary = salary;
 		if (about) job.about = about;
-		if (active === 'true') job.active = true;
-		if (active === 'false') job.active = false;
+		if (active) job.active = active;
 		if (postDate) job.postDate = new Date();
 
 		await db.Job.findOneAndUpdate({ _id: req.params.id }, { $set: job });
