@@ -1,73 +1,74 @@
+@import './variables';
 .btn {
 	border-radius: 25px;
 	margin: 5px 0px;
 }
 
 .btn-primary {
-	background-color: $primary;
-	border-color: $primary;
+	background-color: $primary !important;
+	border-color: $primary !important;
 
 	&:hover,
 	&:active,
 	&:target,
 	&:focus {
-		background-color: darken($color: $primary, $amount: 10) !important;
-		border-color: darken($color: $primary, $amount: 10) !important;
+		background-color: darken($primary, 10) !important;
+		border-color: darken($primary, 10) !important;
 		box-shadow: none !important;
 	}
 }
 
 .btn-secondary {
-	background-color: $secondary;
-	border-color: $secondary;
+	background-color: $secondary !important;
+	border-color: $secondary !important;
 
 	&:hover,
 	&:active,
 	&:target,
 	&:focus {
-		background-color: darken($color: $secondary, $amount: 10) !important;
-		border-color: darken($color: $secondary, $amount: 10) !important;
+		background-color: darken($secondary, 10) !important;
+		border-color: darken($secondary, 10) !important;
 		box-shadow: none !important;
 	}
 }
 .btn-danger {
-	background-color: $danger;
-	border-color: $danger;
+	background-color: $danger !important;
+	border-color: $danger !important;
 	color: white;
 
 	&:hover,
 	&:active,
 	&:target,
 	&:focus {
-		background-color: darken($color: $danger, $amount: 10) !important;
-		border-color: darken($color: $danger, $amount: 10) !important;
+		background-color: darken($danger, 10) !important;
+		border-color: darken($danger, 10) !important;
 		box-shadow: none !important;
 	}
 }
 .btn-success {
-	background-color: $success;
-	border-color: $success;
+	background-color: $success !important;
+	border-color: $success !important;
 
 	&:hover,
 	&:active,
 	&:target,
 	&:focus {
-		background-color: darken($color: $success, $amount: 10) !important;
-		border-color: darken($color: $success, $amount: 10) !important;
+		background-color: darken($success, 10) !important;
+		border-color: darken($success, 10) !important;
 		box-shadow: none !important;
 	}
 }
 .btn-warning {
-	background-color: $warning;
-	border-color: $warning;
+	background-color: $warning !important;
+	border-color: $warning !important;
 	color: white;
 
 	&:hover,
 	&:active,
 	&:target,
 	&:focus {
-		background-color: darken($color: $warning, $amount: 10) !important;
-		border-color: darken($color: $warning, $amount: 10) !important;
+		background-color: darken($warning, 10) !important;
+		border-color: darken($warning, 10) !important;
 		box-shadow: none !important;
 		color: white;
 	}
