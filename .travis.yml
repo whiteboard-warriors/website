@@ -35,7 +35,7 @@ before_install:
 - chmod 600 deploy-key.pem
 - ssh-add deploy-key.pem
 after_deploy:
-- if [ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]; then 
+- if [ $TRAVIS_BRANCH == "master" ]; then 
   - ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website && forever start -a --uid 'website' server/index.js" 
 else 
   - ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website-staging && forever start -a --uid 'website-staging' server/index.js" 
