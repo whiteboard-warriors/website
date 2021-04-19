@@ -16,6 +16,9 @@ import Testimonials from './components/scenes/Testimonials/index';
 import NonProfit from './components/scenes/NonProfit/index';
 import Donate from './components/scenes/Donate/index';
 import Profile from './components/scenes/Profile/index';
+import EditJob from './components/scenes/Jobs/EditJob';
+import MyJobs from './components/scenes/Jobs/MyJobs';
+import PostJobs from './components/scenes/Jobs/PostJobs';
 
 // components
 import NavBar from './components/NavBar';
@@ -60,6 +63,21 @@ export default function App() {
 									exact
 									path='/jobs'
 									component={withTracker(Jobs)}
+								/>
+								<Route
+									exact
+									path='/jobs/user/:userID'
+									component={withTracker(MyJobs)}
+								/>
+								<Route
+									exact
+									path='/jobs/post'
+									component={withTracker(PostJobs)}
+								/>
+								<Route
+									exact
+									path='/jobs/edit/:jobID'
+									component={withTracker(EditJob)}
 								/>
 								<Route
 									exact
