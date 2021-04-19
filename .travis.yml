@@ -34,4 +34,6 @@ before_install:
   - eval "$(ssh-agent -s)"
   - chmod 600 deploy-key.pem
   - ssh-add deploy-key.pem
-after_deploy:
+after_success:
+  - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website && forever start -a --uid 'website' server/index.js" 
+  - test $TRAVIS_BRANCH = "staging" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website-staging && forever start -a --uid 'website-staging' server/index.js"
