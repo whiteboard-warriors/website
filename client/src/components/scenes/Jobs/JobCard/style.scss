@@ -1,0 +1,28 @@
+@import '../../../../App.scss';
+
+.job-card-container {
+	padding: 0.5rem;
+	border: 0.5px solid lighten($color: $secondary, $amount: 20);
+	border-radius: 1rem;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	display: flex;
+	color: $black-shade !important;
+	.job-card-content {
+		width: 90%;
+		line-height: 0.8rem;
+		padding: 0.5rem 0.5rem 0;
+		.headline {
+			font-size: 1.2rem;
+		}
+	}
+	.job-card-buttons {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: stretch;
+		justify-content: space-around;
+		align-content: center;
+		// .btn {
+		// 	width: 100%;
+		// }
+	}
+}
