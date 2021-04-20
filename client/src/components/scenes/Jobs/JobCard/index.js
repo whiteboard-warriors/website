@@ -6,6 +6,8 @@ import './style.scss';
 import DeleteModal from '../../../DeleteModal';
 // Bootstrap
 import { Button } from 'react-bootstrap';
+// Utils
+import dateDifference from '../../../../utils/dateDifference';
 
 const JobCard = (props) => {
 	const {
@@ -41,7 +43,8 @@ const JobCard = (props) => {
 					</p>
 					<p className='details'>
 						<b>Location:</b> {city}, {state} <b> - Salary:</b>{' '}
-						{salary} <b> - </b> <i>{postDate} ago</i>
+						{salary} <b> - </b>{' '}
+						<i>{dateDifference(postDate)} ago</i>
 					</p>
 					<p className='about'>
 						<i>“{about}”</i>
