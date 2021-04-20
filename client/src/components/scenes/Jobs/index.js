@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
@@ -6,10 +6,20 @@ import './style.scss';
 import JobCard from './JobCard';
 // Bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
-// Temp data
-import jobs from './tempJobs';
+// State
+import JobsContext from '../../../context/jobs/jobsContext';
 
 const Jobs = () => {
+	const jobsContext = useContext(JobsContext);
+	const { jobs, getJobs } = jobsContext;
+
+	useEffect(() => {
+		getJobs();
+		//eslint-disable-next-line
+	}, []);
+
+	//
+
 	return (
 		<Fragment>
 			<Container>
