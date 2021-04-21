@@ -4,14 +4,19 @@ import './style.scss';
 
 // Components
 import JobCard from './JobCard';
+import Spinner from '../../Spinner';
 // Bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
 // State
 import JobsContext from '../../../context/jobs/jobsContext';
+//Util
+import getDaysAgoData from '../../../utils/getDaysAgoData';
 
 const Jobs = () => {
 	const jobsContext = useContext(JobsContext);
-	const { jobs, getJobs } = jobsContext;
+	const { loading, jobs, getJobs } = jobsContext;
+
+	const sortedJobs = getDaysAgoData(jobs, 30);
 
 	useEffect(() => {
 		getJobs();
@@ -41,22 +46,29 @@ const Jobs = () => {
 				</Row>
 				<Row className='mt-3'>
 					<Col lg={{ span: 8, offset: 2 }}>
-						{jobs.map((job) => {
-							return (
-								<JobCard
-									key={job._id}
-									jobID={job._id}
-									company={job.company}
-									title={job.title}
-									city={job.city}
-									state={job.state}
-									salary={job.salary}
-									about={job.about}
-									postDate={job.postDate}
-									admin={false}
-								/>
-							);
-						})}
+						{loading ? (
+							<div className='text-center'>
+								<Spinner className='my-5' />
+							</div>
+						) : (
+							sortedJobs &&
+							sortedJobs.map((job) => {
+								return (
+									<JobCard
+										key={job._id}
+										jobID={job._id}
+										company={job.company}
+										title={job.title}
+										city={job.city}
+										state={job.state}
+										salary={job.salary}
+										about={job.about}
+										postDate={job.postDate}
+										admin={false}
+									/>
+								);
+							})
+						)}
 					</Col>
 				</Row>
 			</Container>
