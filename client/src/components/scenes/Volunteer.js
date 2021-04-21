@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 
-import Footer from '../Footer';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 // import ArticleContent from '../ArticleContent';
@@ -16,7 +15,8 @@ const Volunteer = () => {
 						{/* TODO Replace with CMS ArticleContent */}
 						<div class='volunteer-content'>
 							<p>
-								Currently the best way to find out how you can help Whiteboard Warriors is to
+								Currently the best way to find out how you can
+								help Whiteboard Warriors is to
 								<a href='https://join.slack.com/t/whiteboardwarriors/shared_invite/zt-bphxxiuf-Eeo0NOvjzaas2xMIgZ_Z7A'>
 									{' '}
 									join our Slack
@@ -24,8 +24,10 @@ const Volunteer = () => {
 								community and ask how you can contribute!
 							</p>
 							<p>
-								We have a number of active open-source projects for developers of all skill-levels to get involved improving our
-								website and meet-up management app.
+								We have a number of active open-source projects
+								for developers of all skill-levels to get
+								involved improving our website and meet-up
+								management app.
 							</p>
 						</div>
 					</Col>
@@ -42,7 +44,6 @@ const Volunteer = () => {
 			<br />
 			<br />
 			<br />
-			<Footer />
 		</Fragment>
 	);
 };
