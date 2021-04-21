@@ -22,6 +22,7 @@ import PostJobs from './components/scenes/Jobs/PostJobs';
 
 // components
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import Volunteer from './components/scenes/Volunteer';
 import withTracker from './tracker/withTracker';
 
@@ -110,6 +111,7 @@ export default function App() {
 									component={withTracker(NonProfit)}
 								/>
 							</Switch>
+							<Footer></Footer>
 						</Router>
 					</JobsState>
 				</AuthState>
