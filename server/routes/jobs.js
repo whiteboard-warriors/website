@@ -37,7 +37,7 @@ router.get('/created-by/user/', async (req, res) => {
 	try {
 		// check to make sure user making updates has job posting rights.
 		let user = await db.User.findOne({ _id: req.user.id });
-		if (user.jobPosting !== true) {
+		if (user.jobPosting !== 'yes') {
 			return res.status(401).json({
 				msg: 'You are not authorized to edit this job.',
 			});
@@ -57,13 +57,16 @@ router.get('/created-by/user/', async (req, res) => {
 // @desc     creates a job
 router.post('/', async (req, res) => {
 	let { company, title, city, state, salary, about } = req.body;
+	console.log(req.body);
+	console.log(req.user);
 
 	try {
 		// check to make sure user making updates has job posting rights.
 		let user = await db.User.findOne({ _id: req.user.id });
-		if (user.jobPosting !== true) {
+		if (user.jobPosting !== 'yes') {
 			return res.status(401).json({
-				msg: 'You are not authorized to edit this job.',
+				msg:
+					'You are not authorized to create a job post. Please update your profile to create job posts.',
 			});
 		}
 
@@ -101,7 +104,7 @@ router.put('/:id', async (req, res) => {
 	try {
 		// check to make sure user making updates has job posting rights.
 		let user = await db.User.findOne({ _id: req.user.id });
-		if (user.jobPosting !== true) {
+		if (user.jobPosting !== 'yes') {
 			return res.status(401).json({
 				msg: 'You are not authorized to edit this job.',
 			});
