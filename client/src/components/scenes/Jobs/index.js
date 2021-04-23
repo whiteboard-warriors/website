@@ -16,14 +16,18 @@ const Jobs = () => {
 	const jobsContext = useContext(JobsContext);
 	const { loading, jobs, getJobs } = jobsContext;
 
-	const sortedJobs = getDaysAgoData(jobs, 30);
+	let sortedJobs = getDaysAgoData(jobs, 30);
+
+	// sortedJobs = [];
 
 	useEffect(() => {
 		getJobs();
 		//eslint-disable-next-line
 	}, []);
 
-	//
+	if (jobs === []) {
+		sortedJobs = false;
+	}
 
 	return (
 		<Fragment>
@@ -33,25 +37,24 @@ const Jobs = () => {
 				</div>
 				<Row>
 					<Col
-						lg={{ span: 2, offset: 8 }}
-						className='d-flex flex-row-reverse'
+						// lg={{ span: 2, offset: 8 }}
+						className='admin-buttons-container'
 					>
 						<Link
 							to='/jobs/post'
-							className='btn btn-primary btn-lg '
+							className='btn btn-primary btn-md '
 						>
 							<b>Post a job</b>
 						</Link>
 					</Col>
 				</Row>
-				<Row className='mt-3'>
+				<Row className='mt-3 job-post-container'>
 					<Col lg={{ span: 8, offset: 2 }}>
 						{loading ? (
 							<div className='text-center'>
 								<Spinner className='my-5' />
 							</div>
-						) : (
-							sortedJobs &&
+						) : jobs ? (
 							sortedJobs.map((job) => {
 								return (
 									<JobCard
@@ -68,6 +71,13 @@ const Jobs = () => {
 									/>
 								);
 							})
+						) : (
+							<div className='text-center px-1'>
+								<h4 className='jobs-notification'>
+									I'm sorry, no jobs have been posted in the
+									last 30 days.
+								</h4>
+							</div>
 						)}
 					</Col>
 				</Row>
