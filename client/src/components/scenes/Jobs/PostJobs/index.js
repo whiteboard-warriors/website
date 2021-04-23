@@ -12,9 +12,14 @@ const PostJobs = (props) => {
 	const jobsContext = useContext(JobsContext);
 
 	const { setAlert } = alertContext;
-	const { createJob, error, clearJobError } = jobsContext;
-	const { user, isAuthenticated } = authContext;
-	console.log(user._id);
+	const {
+		createJob,
+		error,
+		clearJobError,
+		saveSuccess,
+		clearCreateJobFlags,
+	} = jobsContext;
+	const { isAuthenticated } = authContext;
 
 	useEffect(() => {
 		if (!isAuthenticated) {
@@ -29,8 +34,14 @@ const PostJobs = (props) => {
 			setAlert(error, 'danger');
 			clearJobError();
 		}
+		if (saveSuccess) {
+			setAlert('Your new job has been posted.', 'success');
+			clearCreateJobFlags();
+			// debugger;
+			props.history.push('/jobs');
+		}
 		// eslint-disable-next-line
-	}, [error, isAuthenticated, props.history]);
+	}, [error, isAuthenticated, clearCreateJobFlags, props.history]);
 
 	const [job, setJob] = useState({
 		company: '',
@@ -51,7 +62,6 @@ const PostJobs = (props) => {
 		e.preventDefault();
 
 		createJob({
-			createdBy: user._id,
 			company,
 			title,
 			city,
@@ -62,12 +72,12 @@ const PostJobs = (props) => {
 	};
 
 	return (
-		<Container>
-			<div className='text-center'>
-				<h3 className='mt-5 mb-3'>Post Job</h3>
-			</div>
+		<Container className='mt-5 mb-3'>
 			<Row>
-				<Col lg={{ span: 6, offset: 3 }}>
+				<Col lg={{ span: 6, offset: 3 }} className='job-posting-card'>
+					<div className='text-center'>
+						<h4>Let's creat your entry level br job posting</h4>
+					</div>
 					<Form onSubmit={onSubmit} className='form-custom-margin'>
 						<Form.Group controlId='formCompany'>
 							<Form.Control
@@ -121,7 +131,7 @@ const PostJobs = (props) => {
 							/>
 						</Form.Group>
 						<Form.Text className='text-muted'>
-							Please abbreviate. Like: 70 to 90K.
+							Please abbreviate. Eg. 70k to 90K.
 						</Form.Text>
 						<Form.Group controlId='formAbout'>
 							<Form.Control
@@ -134,7 +144,7 @@ const PostJobs = (props) => {
 							/>
 						</Form.Group>
 						<Form.Text className='text-muted'>
-							Please keep it Brief. 80 Char max.
+							Please keep it Brief. 80 char max.
 						</Form.Text>
 
 						<div className='text-center my-3'>
