@@ -33,7 +33,7 @@ const Jobs = () => {
 		<Fragment>
 			<Container>
 				<div className='text-center'>
-					<h2 className='mt-5 mb-3'>Jobs</h2>
+					<h2 className='mt-5 mb-3'>Awesome Entry Level Jobs</h2>
 				</div>
 				<Row>
 					<Col
@@ -44,7 +44,7 @@ const Jobs = () => {
 							to='/jobs/post'
 							className='btn btn-primary btn-md '
 						>
-							<b>Post a job</b>
+							<b>Create a job post</b>
 						</Link>
 					</Col>
 				</Row>
