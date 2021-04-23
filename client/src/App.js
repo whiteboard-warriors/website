@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import JobsState from './context/jobs/JobsState';
-
+import { Container } from 'react-bootstrap';
+// bootstrap
 // pages
 import Landing from './components/scenes/Landing/index';
 import About from './components/scenes/About/index';
@@ -25,6 +26,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Volunteer from './components/scenes/Volunteer';
 import withTracker from './tracker/withTracker';
+import Alerts from './components/Alerts';
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,6 +41,9 @@ export default function App() {
 					<JobsState>
 						<Router>
 							<NavBar></NavBar>
+							<Container>
+								<Alerts />
+							</Container>
 							<Switch>
 								<Route
 									exact
