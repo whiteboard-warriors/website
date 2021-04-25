@@ -19,7 +19,7 @@ const PostJobs = (props) => {
 		saveSuccess,
 		clearCreateJobFlags,
 	} = jobsContext;
-	const { isAuthenticated } = authContext;
+	const { user, isAuthenticated } = authContext;
 
 	useEffect(() => {
 		if (!isAuthenticated) {
@@ -40,6 +40,14 @@ const PostJobs = (props) => {
 			// debugger;
 			props.history.push('/jobs');
 		}
+		if (user.jobPosting === 'no') {
+			setAlert(
+				'Please update your profile to be able to post jobs :)',
+				'warning'
+			);
+			props.history.push('/profile');
+		}
+
 		// eslint-disable-next-line
 	}, [error, isAuthenticated, clearCreateJobFlags, props.history]);
 
