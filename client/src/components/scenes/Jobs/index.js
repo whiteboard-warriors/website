@@ -54,7 +54,7 @@ const Jobs = () => {
 							<div className='text-center'>
 								<Spinner className='my-5' />
 							</div>
-						) : jobs ? (
+						) : jobs.length !== 0 ? (
 							sortedJobs.map((job) => {
 								return (
 									<JobCard
