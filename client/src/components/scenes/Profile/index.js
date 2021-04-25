@@ -322,9 +322,7 @@ const Profile = (props) => {
 												onChange={onChangeProfile}
 											>
 												<Form.Check
-													onChange={(event) =>
-														onChangeProfile(event)
-													}
+													onChange={onChangeProfile}
 													type='radio'
 													label='I want to post jobs'
 													name='jobPosting'
@@ -335,9 +333,7 @@ const Profile = (props) => {
 													}
 												/>
 												<Form.Check
-													onChange={(event) =>
-														onChangeProfile(event)
-													}
+													onChange={onChangeProfile}
 													type='radio'
 													label="I don't want to post jobs"
 													name='jobPosting'
