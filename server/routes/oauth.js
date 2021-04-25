@@ -15,13 +15,13 @@ router.get(
 	'/linkedin/callback',
 	passport.authenticate('linkedin', { session: false }),
 	function (req, res) {
-		console.log('req.user: '+req.user);
+		console.log('req.user: ' + req.user)
 		// Successful authentication, redirect home.
 		// // res.setHeader('test','test');
 		// res.redirect('http://localhost:3000')
 		const payload = {
 			id: req.user.id,
-			name:  req.user.name,
+			name: req.user.name,
 		}
 		// Sign token
 		jwt.sign(
@@ -31,10 +31,11 @@ router.get(
 				expiresIn: 31556926, // 1 year in seconds
 			},
 			(err, token) => {
-				res.json({
-					success: true,
-					token: 'Bearer ' + token,
-				})
+				res.redirect('http://localhost:3000/authenticate?token=' + token)
+				// res.json({
+				// 	success: true,
+				// 	token: 'Bearer ' + token,
+				// })
 			}
 		)
 	}
