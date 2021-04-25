@@ -1,5 +1,4 @@
 const express = require('express')
-const passport = require('../config/passport')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const db = require('../models')
@@ -7,6 +6,7 @@ const jwt = require('jsonwebtoken')
 const { check, validationResult } = require('express-validator')
 const crypto = require('crypto')
 const emailService = require('../service/emailservice')
+const passport = require('passport');
 // @route   POST api/auth
 // @desc - Login
 router.post('/login', async function (req, res) {
@@ -78,12 +78,7 @@ router.post(
 			return res.status(400).json({ errors: errors.array() })
 		}
 
-		let {
-			firstName,
-			lastName,
-			email,
-			password
-		} = req.body
+		let { firstName, lastName, email, password } = req.body
 
 		try {
 			let user = await db.User.findOne({ email })
@@ -95,7 +90,7 @@ router.post(
 				firstName,
 				lastName,
 				email,
-				password
+				password,
 			})
 			// console.log('routes/auth.js - user to be saved >>> ', user);
 
@@ -149,10 +144,7 @@ router.post('/forgot-password-init', async (req, res) => {
 			let updatedUser = {}
 			updatedUser.token = buf.toString('hex')
 
-			await db.User.findByIdAndUpdate(
-				{ _id: user._id },
-				{ $set: updatedUser }
-			)
+			await db.User.findByIdAndUpdate({ _id: user._id }, { $set: updatedUser })
 
 			emailService.sendPasswordResetEmail(user.email, updatedUser.token)
 		}
@@ -184,5 +176,22 @@ router.post('/forgot-password-complete', async (req, res) => {
 		res.status(500).send('Server Error')
 	}
 })
+
+/**
+ *
+ */
+router.get('/linkedin', passport.authenticate('linkedin'))
+
+/**
+ * Callback from LinkedIn SSO
+ */
+router.get(
+	'/linkedin/callback',
+	passport.authenticate('linkedin', { failureRedirect: '/login' }),
+	function (req, res) {
+		// Successful authentication, redirect home.
+		res.redirect('/')
+	}
+)
 
 module.exports = router

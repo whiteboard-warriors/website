@@ -32,6 +32,10 @@ if (process.env.NODE_ENV === 'production') {
 		res.sendFile(process.cwd() + '/client/public/sitemap.xml')
 	})
 }
+
+// Oauth
+app.use('/oauth', require('./routes/oauth'));
+
 // Add routes, both API and view
 app.use(
 	'/api/users',

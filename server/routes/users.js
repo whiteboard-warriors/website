@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
-const crypto = require('crypto');
-const emailService = require('../service/emailservice');
-
 const db = require('../models');
-const passport = require('../config/passport');
 
 // @route   GET /api/users
 // @desc - Get the current users' info

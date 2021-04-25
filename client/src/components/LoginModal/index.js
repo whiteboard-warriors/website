@@ -5,6 +5,9 @@ import './style.scss'
 import LoginForm from '../LoginForm'
 import RegistrationForm from '../RegistrationForm'
 
+import linkedIn from './linkedin-signin.png'
+import { Link } from 'react-router-dom'
+
 export default function LoginModal(props) {
 	const [key, setKey] = useState('log-in')
 
@@ -17,6 +20,15 @@ export default function LoginModal(props) {
 
 				<Modal.Body>
 					<Alert />
+					<div className="text-center">
+						<a href="http://localhost:5005/api/auth/linkedin" className="">
+							<img
+							className="linkedIn-button mx-auto mb-2"
+								alt="Sign-In With LinkedIn"
+								src={linkedIn}
+							></img>
+						</a>
+					</div>
 					<Tabs id="controlled-tab" activeKey={key} onSelect={(k) => setKey(k)}>
 						<Tab className="p-4" eventKey="log-in" title="Log In">
 							<LoginForm></LoginForm>
