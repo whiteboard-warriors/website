@@ -48,6 +48,7 @@ router.put('/:id', async (req, res) => {
 		secondaryLanguage,
 		skillLevel,
 		active,
+		jobPosting,
 	} = req.body;
 	try {
 		if (req.user.id !== req.params.id) {
@@ -66,6 +67,7 @@ router.put('/:id', async (req, res) => {
 			updatedUser.secondaryLanguage = secondaryLanguage;
 		if (active) updatedUser.active = active;
 		if (skillLevel) updatedUser.skillLevel = skillLevel;
+		if (jobPosting) updatedUser.jobPosting = jobPosting;
 
 		await db.User.findByIdAndUpdate(
 			{ _id: req.params.id },
