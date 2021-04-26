@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Header from '../../Header';
-import Footer from '../../Footer';
+
 // import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -15,28 +15,40 @@ const NonProfit = () => {
 				<Container>
 					<Row className='mt4r'>
 						<Col md={{ span: 8, offset: 2 }}>
-							<h1 className='text-center mb4r'>Whiteboard Warriors Non-Profit</h1>
+							<h1 className='text-center mb4r'>
+								Whiteboard Warriors Non-Profit
+							</h1>
 							<p className='text-block-2'>
-								Whiteboard Warriors is a Non-Profit Corporation under US Internal Revenue Service Code 501(c)(3). All donations
-								to Whiteboard Warriors are tax deductible.
+								Whiteboard Warriors is a Non-Profit Corporation
+								under US Internal Revenue Service Code
+								501(c)(3). All donations to Whiteboard Warriors
+								are tax deductible.
 							</p>
 							<h3>Non-Profit Numbers</h3>
 							<table>
 								<tr>
 									<td>
-										<strong>EIN (Employer Identification Number):</strong>
+										<strong>
+											EIN (Employer Identification
+											Number):
+										</strong>
 									</td>
 									<td>84-3279768</td>
 								</tr>
 								<tr>
 									<td>
-										<strong>State of California Entity (File) Number:</strong>
+										<strong>
+											State of California Entity (File)
+											Number:
+										</strong>
 									</td>
 									<td>C4532739</td>
 								</tr>
 								<tr>
 									<td>
-										<strong>California RCT Registration Number:</strong>
+										<strong>
+											California RCT Registration Number:
+										</strong>
 									</td>
 									<td>CT0268183</td>
 								</tr>
@@ -78,8 +90,6 @@ const NonProfit = () => {
 					</Row>
 				</Container>
 			</div>
-
-			<Footer />
 		</Fragment>
 	);
 };

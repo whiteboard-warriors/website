@@ -1,0 +1,8 @@
+@import '../../../../App.scss';
+
+.job-posting-card {
+	padding: 2rem 3rem !important;
+	border: 0.5px solid lighten($color: $secondary, $amount: 20);
+	border-radius: 1.5rem;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
