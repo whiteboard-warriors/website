@@ -1,7 +1,7 @@
 const jobs = [
 	{
 		_id: '607527618a25d8a645dce524',
-		active: true,
+		active: false,
 		createdBy: '5e9cc061c7c28c2c3a26ce33',
 		company: 'Facebook',
 		title: 'Junior Developer',
