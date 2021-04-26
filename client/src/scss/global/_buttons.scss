@@ -1,0 +1,81 @@
+@import './variables';
+.btn {
+	border-radius: 25px;
+	margin: 5px 0px;
+}
+
+.btn-primary {
+	background-color: $primary !important;
+	border-color: $primary !important;
+
+	&:hover,
+	&:active,
+	&:target,
+	&:focus {
+		background-color: darken($primary, 10) !important;
+		border-color: darken($primary, 10) !important;
+		box-shadow: none !important;
+	}
+}
+
+.btn-secondary {
+	background-color: $secondary !important;
+	border-color: $secondary !important;
+
+	&:hover,
+	&:active,
+	&:target,
+	&:focus {
+		background-color: darken($secondary, 10) !important;
+		border-color: darken($secondary, 10) !important;
+		box-shadow: none !important;
+	}
+}
+.btn-danger {
+	background-color: $danger !important;
+	border-color: $danger !important;
+	color: white;
+
+	&:hover,
+	&:active,
+	&:target,
+	&:focus {
+		background-color: darken($danger, 10) !important;
+		border-color: darken($danger, 10) !important;
+		box-shadow: none !important;
+	}
+}
+.btn-success {
+	background-color: $success !important;
+	border-color: $success !important;
+
+	&:hover,
+	&:active,
+	&:target,
+	&:focus {
+		background-color: darken($success, 10) !important;
+		border-color: darken($success, 10) !important;
+		box-shadow: none !important;
+	}
+}
+.btn-warning {
+	background-color: $warning !important;
+	border-color: $warning !important;
+	color: white;
+
+	&:hover,
+	&:active,
+	&:target,
+	&:focus {
+		background-color: darken($warning, 10) !important;
+		border-color: darken($warning, 10) !important;
+		box-shadow: none !important;
+		color: white;
+	}
+}
+
+.btn-subNav {
+	width: 100% !important;
+	border-radius: 0px !important;
+	margin-right: 0.5rem !important;
+}
