@@ -1,0 +1,101 @@
+@import './variables';
+
+.alert {
+	padding: 15px;
+	margin-bottom: 10px;
+	border: 1px solid transparent;
+	border-radius: 1rem;
+	position: fixed;
+	top: 10%;
+	right: 5%;
+	z-index: ±2147483647;
+	min-width: 30rem;
+	max-width: 100vw;
+}
+
+.alert h4 {
+	margin-top: 0;
+	color: inherit;
+}
+
+.alert .alert-link {
+	font-weight: bold;
+}
+
+.alert > p,
+.alert > ul {
+	margin-bottom: 0;
+}
+
+.alert > p + p {
+	margin-top: 5px;
+}
+
+.alert-dismissable,
+.alert-dismissible {
+	padding-right: 35px;
+}
+
+.alert-dismissable .close,
+.alert-dismissible .close {
+	position: relative;
+	top: -2px;
+	right: -21px;
+	color: inherit;
+}
+
+.alert-success {
+	background-color: $success !important;
+	border-color: lighten($color: $success, $amount: 10) !important;
+	color: $white !important;
+}
+
+.alert-success hr {
+	border-top-color: lighten($color: $success, $amount: 20) !important;
+}
+
+.alert-success .alert-link {
+	color: darken($color: $white, $amount: 10) !important;
+}
+
+.alert-info {
+	background-color: $primary !important;
+	border-color: lighten($color: $primary, $amount: 10) !important;
+	color: $white !important;
+}
+
+.alert-info hr {
+	border-top-color: lighten($color: $primary, $amount: 20) !important;
+}
+
+.alert-info .alert-link {
+	color: darken($color: $white, $amount: 10) !important;
+}
+
+.alert-warning {
+	background-color: $warning !important;
+	border-color: lighten($color: $warning, $amount: 10) !important;
+	color: $white !important;
+}
+
+.alert-warning hr {
+	border-top-color: lighten($color: $warning, $amount: 20) !important;
+}
+
+.alert-warning .alert-link {
+	color: darken($color: $white, $amount: 10) !important;
+}
+
+.alert-danger {
+	background-color: $danger !important;
+	border-color: lighten($color: $danger, $amount: 10) !important;
+	color: $white !important;
+}
+
+.alert-danger hr {
+	border-top-color: lighten($color: $danger, $amount: 20) !important;
+}
+
+.alert-danger .alert-link {
+	color: darken($color: $white, $amount: 10) !important;
+}
