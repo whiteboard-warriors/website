@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Header from '../../Header';
-import Footer from '../../Footer';
 import MeetupMap from '../../MeetupMap';
 import Container from 'react-bootstrap/Container';
 // import Col from 'react-bootstrap/Col';
@@ -19,15 +18,35 @@ const Meetups = () => {
 					<Row>
 						<Col md={{ span: 4, offset: 2 }}>
 							<div className='meetup-link'>
-								<a href='https://www.meetup.com/whiteboard-warriors' target='_blank' rel='noopener noreferrer'>
-									<img className='meetup-logo' src={Meetup} alt='meetup logo'></img>
-									<span className='meetup-location-title'>Irvine, CA</span>
+								<a
+									href='https://www.meetup.com/whiteboard-warriors'
+									target='_blank'
+									rel='noopener noreferrer'
+								>
+									<img
+										className='meetup-logo'
+										src={Meetup}
+										alt='meetup logo'
+									></img>
+									<span className='meetup-location-title'>
+										Irvine, CA
+									</span>
 								</a>
 							</div>
 							<div className='meetup-link'>
-								<a href='https://www.meetup.com/whiteboard-warriors-silicon-valley' target='_blank' rel='noopener noreferrer'>
-									<img className='meetup-logo' src={Meetup} alt='meetup logo'></img>
-									<span className='meetup-location-title'>San Mateo, CA</span>
+								<a
+									href='https://www.meetup.com/whiteboard-warriors-silicon-valley'
+									target='_blank'
+									rel='noopener noreferrer'
+								>
+									<img
+										className='meetup-logo'
+										src={Meetup}
+										alt='meetup logo'
+									></img>
+									<span className='meetup-location-title'>
+										San Mateo, CA
+									</span>
 								</a>
 							</div>
 						</Col>
@@ -39,8 +58,6 @@ const Meetups = () => {
 					</Row>
 				</Container>
 			</div>
-
-			<Footer />
 		</Fragment>
 	);
 };
