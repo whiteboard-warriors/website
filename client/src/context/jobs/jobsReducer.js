@@ -3,6 +3,8 @@ import {
 	GET_JOBS,
 	GET_JOB_SUCCESS,
 	GET_JOB,
+	GET_MY_JOBS,
+	GET_MY_JOBS_SUCCESS,
 	CREATE_JOB,
 	CREATE_JOB_SUCCESS,
 	CLEAR_CREATE_JOB_FLAGS,
@@ -12,6 +14,7 @@ import {
 	UPDATE_JOB,
 	FILTER_JOBS,
 	CLEAR_FILTER,
+	GET_JOBS_ERROR,
 	CREATE_JOB_ERROR,
 	CLEAR_JOB_ERROR,
 	CLEAR_JOBS,
@@ -31,8 +34,15 @@ export default (state, action) => {
 				job: action.payload,
 				loading: false,
 			};
+		case GET_MY_JOBS_SUCCESS:
+			return {
+				...state,
+				myJobs: action.payload,
+				loading: false,
+			};
 		case GET_JOBS:
-		case GET_JOB: {
+		case GET_JOB:
+		case GET_MY_JOBS: {
 			return {
 				...state,
 				loading: true,
@@ -54,9 +64,7 @@ export default (state, action) => {
 		case UPDATE_JOB_SUCCESS:
 			return {
 				...state,
-				jobs: state.jobs.map((job) =>
-					job._id === action.payload._id ? action.payload : job
-				),
+				jobs: state.jobs.map((job) => (job._id === action.payload._id ? action.payload : job)),
 				saving: false,
 				saveSuccess: true,
 			};
@@ -103,6 +111,7 @@ export default (state, action) => {
 				...state,
 				filtered: null,
 			};
+		case GET_JOBS_ERROR:
 		case CREATE_JOB_ERROR:
 			return {
 				...state,
