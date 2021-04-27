@@ -5,18 +5,6 @@ const db = require('../models');
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 // @route   GET /api/jobs
-// @desc    Retrieves all jobs
-router.get('/', async (req, res) => {
-	try {
-		const jobs = await db.Job.find().populate('createdBy');
-		res.json(jobs);
-	} catch (err) {
-		console.error(err.message);
-		res.status(500).send('Server Error');
-	}
-});
-
-// @route   GET /api/jobs
 // @desc    Retrieves one job
 router.get('/:id', async (req, res) => {
 	try {
@@ -33,7 +21,6 @@ router.get('/:id', async (req, res) => {
 // @route   GET /api/jobs/created-by/user/
 // @desc    Retrieves job by user who created it.
 router.get('/created-by/user/', async (req, res) => {
-	console.log('get job by created by called');
 	try {
 		// check to make sure user making updates has job posting rights.
 		let user = await db.User.findOne({ _id: req.user.id });
@@ -65,8 +52,7 @@ router.post('/', async (req, res) => {
 		let user = await db.User.findOne({ _id: req.user.id });
 		if (user.jobPosting !== 'yes') {
 			return res.status(401).json({
-				msg:
-					'You are not authorized to create a job post. Please update your profile to create job posts.',
+				msg: 'You are not authorized to create a job post. Please update your profile to create job posts.',
 			});
 		}
 
@@ -91,16 +77,7 @@ router.post('/', async (req, res) => {
 // @route   PUT /api/jobs/admin
 // @desc    Allows Admin to update job
 router.put('/:id', async (req, res) => {
-	let {
-		company,
-		title,
-		city,
-		state,
-		salary,
-		about,
-		active,
-		postDate,
-	} = req.body;
+	let { company, title, city, state, salary, about, active, postDate } = req.body;
 	try {
 		// check to make sure user making updates has job posting rights.
 		let user = await db.User.findOne({ _id: req.user.id });
