@@ -81,6 +81,9 @@ const JobsState = (props) => {
 				payload: res.data,
 			});
 		} catch (err) {
+			if (err.response.status === 401) {
+				authError();
+			}
 			dispatch({
 				type: GET_JOBS_ERROR,
 				payload: err.response.msg,
@@ -102,6 +105,9 @@ const JobsState = (props) => {
 				payload: res.data,
 			});
 		} catch (err) {
+			if (err.response.status === 401) {
+				authError();
+			}
 			dispatch({
 				type: GET_JOBS_ERROR,
 				payload: err.response.msg,
