@@ -2,12 +2,15 @@ import React, { useContext, useReducer } from 'react';
 import JobsContext from './jobsContext';
 import jobsReducer from './jobsReducer';
 import * as HTTP from '../../service/HTTP';
+import axios from 'axios';
 import AuthContext from '../auth/authContext';
 import {
 	GET_JOBS_SUCCESS,
 	GET_JOBS,
 	GET_JOB_SUCCESS,
 	GET_JOB,
+	GET_MY_JOBS,
+	GET_MY_JOBS_SUCCESS,
 	CREATE_JOB,
 	CREATE_JOB_SUCCESS,
 	SET_CURRENT_JOB,
@@ -26,6 +29,7 @@ import {
 const JobsState = (props) => {
 	const initialState = {
 		jobs: [],
+		myJobs: [],
 		current: null,
 		filtered: null,
 		error: null,
@@ -50,16 +54,12 @@ const JobsState = (props) => {
 			payload: null,
 		});
 		try {
-			let res = await HTTP.get('/api/jobs');
+			let res = await axios.get('/api/all/jobs');
 			dispatch({
 				type: GET_JOBS_SUCCESS,
 				payload: res.data,
 			});
 		} catch (err) {
-			if (err.response.status === 401) {
-				authError();
-			}
-
 			dispatch({
 				type: GET_JOBS_ERROR,
 				payload: err.response.msg,
@@ -81,10 +81,27 @@ const JobsState = (props) => {
 				payload: res.data,
 			});
 		} catch (err) {
-			if (err.response.status === 401) {
-				authError();
-			}
-
+			dispatch({
+				type: GET_JOBS_ERROR,
+				payload: err.response.msg,
+			});
+		}
+	};
+	/**
+	 * Get MY Jobs
+	 */
+	const getMyJobs = async (id) => {
+		dispatch({
+			type: GET_MY_JOBS,
+			payload: null,
+		});
+		try {
+			let res = await HTTP.get(`/api/jobs/created-by/user/`);
+			dispatch({
+				type: GET_MY_JOBS_SUCCESS,
+				payload: res.data,
+			});
+		} catch (err) {
 			dispatch({
 				type: GET_JOBS_ERROR,
 				payload: err.response.msg,
@@ -177,6 +194,7 @@ const JobsState = (props) => {
 		<JobsContext.Provider
 			value={{
 				jobs: state.jobs,
+				myJobs: state.myJobs,
 				current: state.current,
 				filtered: state.filtered,
 				error: state.error,
@@ -193,6 +211,7 @@ const JobsState = (props) => {
 				clearFilter,
 				getJobs,
 				getJob,
+				getMyJobs,
 				clearCreateJobFlags,
 				clearJobError,
 			}}
