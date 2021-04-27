@@ -32,16 +32,9 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 // Add routes, both API and view
-app.use(
-	'/api/users',
-	passport.authenticate('jwt', { session: false }),
-	require('./routes/users')
-);
-app.use(
-	'/api/jobs',
-	passport.authenticate('jwt', { session: false }),
-	require('./routes/jobs')
-);
+app.use('/api/users', passport.authenticate('jwt', { session: false }), require('./routes/users'));
+app.use('/api/jobs', passport.authenticate('jwt', { session: false }), require('./routes/jobs'));
+app.use('/api/all/jobs', require('./routes/allJobs'));
 app.use('/api/auth', require('./routes/auth'));
 
 // Connect to the Mongo DB
