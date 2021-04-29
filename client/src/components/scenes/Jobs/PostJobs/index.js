@@ -12,22 +12,13 @@ const PostJobs = (props) => {
 	const jobsContext = useContext(JobsContext);
 
 	const { setAlert } = alertContext;
-	const {
-		createJob,
-		error,
-		clearJobError,
-		saveSuccess,
-		clearCreateJobFlags,
-	} = jobsContext;
+	const { createJob, error, clearJobError, saveSuccess, clearCreateJobFlags } = jobsContext;
 	const { user, isAuthenticated } = authContext;
 
 	useEffect(() => {
 		if (!isAuthenticated) {
 			props.history.push('/');
-			setAlert(
-				error,
-				"Oops, you're not logged in. Please login before to perform this action."
-			);
+			setAlert("Oops, unfortunately you're not logged in 😱. Please login or sign up to perform this action.", 'danger');
 		}
 
 		if (error) {
@@ -41,10 +32,7 @@ const PostJobs = (props) => {
 			props.history.push('/jobs');
 		}
 		if (user.jobPosting === 'no') {
-			setAlert(
-				'Please update your profile to be able to post jobs :)',
-				'warning'
-			);
+			setAlert('Please update your profile to be able to post jobs :)', 'warning');
 			props.history.push('/profile');
 		}
 
@@ -88,45 +76,17 @@ const PostJobs = (props) => {
 					</div>
 					<Form onSubmit={onSubmit} className='form-custom-margin'>
 						<Form.Group controlId='formCompany'>
-							<Form.Control
-								type='text'
-								placeholder='Company*'
-								name='company'
-								value={company}
-								onChange={onChange}
-								required
-							/>
+							<Form.Control type='text' placeholder='Company*' name='company' value={company} onChange={onChange} required />
 						</Form.Group>
 						<Form.Group controlId='formTitle'>
-							<Form.Control
-								type='text'
-								placeholder='Title*'
-								name='title'
-								value={title}
-								onChange={onChange}
-								required
-							/>
+							<Form.Control type='text' placeholder='Title*' name='title' value={title} onChange={onChange} required />
 						</Form.Group>
 						<Form.Group controlId='formCity'>
-							<Form.Control
-								type='text'
-								placeholder='City*'
-								name='city'
-								value={city}
-								onChange={onChange}
-								required
-							/>
+							<Form.Control type='text' placeholder='City*' name='city' value={city} onChange={onChange} required />
 						</Form.Group>
 
 						<Form.Group controlId='formState'>
-							<Form.Control
-								type='text'
-								placeholder='State*'
-								onChange={onChange}
-								name='state'
-								value={state}
-								required
-							/>
+							<Form.Control type='text' placeholder='State*' onChange={onChange} name='state' value={state} required />
 						</Form.Group>
 						<Form.Group controlId='formSalary'>
 							<Form.Control
@@ -138,22 +98,11 @@ const PostJobs = (props) => {
 								maxLength='15'
 							/>
 						</Form.Group>
-						<Form.Text className='text-muted'>
-							Please abbreviate. Eg. 70k to 90K.
-						</Form.Text>
+						<Form.Text className='text-muted'>Please abbreviate. Eg. 70k to 90K.</Form.Text>
 						<Form.Group controlId='formAbout'>
-							<Form.Control
-								type='text'
-								placeholder='About'
-								onChange={onChange}
-								name='about'
-								value={about}
-								maxLength='80'
-							/>
+							<Form.Control type='text' placeholder='About' onChange={onChange} name='about' value={about} maxLength='80' />
 						</Form.Group>
-						<Form.Text className='text-muted'>
-							Please keep it Brief. 80 char max.
-						</Form.Text>
+						<Form.Text className='text-muted'>Please keep it Brief. 80 char max.</Form.Text>
 
 						<div className='text-center my-3'>
 							<Button variant='primary' type='submit' size='lg'>

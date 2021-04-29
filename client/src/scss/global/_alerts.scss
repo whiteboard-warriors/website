@@ -1,16 +1,19 @@
 @import './variables';
 
 .alert {
-	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	padding: 15px 20px;
 	margin-bottom: 10px;
 	border: 1px solid transparent;
-	border-radius: 1rem;
+	border-radius: 50px;
 	position: fixed;
-	top: 10%;
+	top: 95px;
 	right: 5%;
 	z-index: ±2147483647;
 	min-width: 30rem;
-	max-width: 100vw;
+	max-width: 25vw;
 }
 
 .alert h4 {

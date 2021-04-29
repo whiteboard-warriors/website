@@ -9,12 +9,15 @@ import Spinner from '../../Spinner';
 import { Container, Row, Col } from 'react-bootstrap';
 // State
 import JobsContext from '../../../context/jobs/jobsContext';
+import AuthContext from '../../../context/auth/authContext';
 //Util
 import getDaysAgoData from '../../../utils/getDaysAgoData';
 
 const Jobs = () => {
 	const jobsContext = useContext(JobsContext);
+	const authContext = useContext(AuthContext);
 	const { loading, jobs, getJobs } = jobsContext;
+	const { user } = authContext;
 
 	let sortedJobs = getDaysAgoData(jobs, 30);
 
@@ -40,12 +43,14 @@ const Jobs = () => {
 						// lg={{ span: 2, offset: 8 }}
 						className='admin-buttons-container'
 					>
-						<Link
-							to='/jobs/post'
-							className='btn btn-primary btn-md '
-						>
+						<Link to='/jobs/post' className='btn btn-primary btn-md '>
 							<b>Create a job post</b>
 						</Link>
+						{user.jobPosting === 'yes' && (
+							<Link to={`/jobs/user/${user._id}`} className='btn btn-secondary btn-md mr-3'>
+								<b>My job posts</b>
+							</Link>
+						)}
 					</Col>
 				</Row>
 				<Row className='mt-3 job-post-container'>
@@ -73,10 +78,7 @@ const Jobs = () => {
 							})
 						) : (
 							<div className='text-center px-1'>
-								<h4 className='jobs-notification'>
-									I'm sorry, no jobs have been posted in the
-									last 30 days.
-								</h4>
+								<h4 className='jobs-notification'>I'm sorry, no jobs have been posted in the last 30 days.</h4>
 							</div>
 						)}
 					</Col>
