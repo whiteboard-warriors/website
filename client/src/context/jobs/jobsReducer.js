@@ -91,7 +91,7 @@ export default (state, action) => {
 		case SET_CURRENT_JOB:
 			return {
 				...state,
-				current: action.payload,
+				current: state.jobs.filter((job) => job._id === action.payload),
 			};
 		case CLEAR_CURRENT_JOB:
 			return {
