@@ -34,7 +34,7 @@ const MyJobs = () => {
 		<Fragment>
 			<Container>
 				<div className='text-center'>
-					<h2 className='mt-5 mb-3'>My Job Posts</h2>
+					<h2 className='mt-5 mb-3'>Hi {user.firstName}, here are your job posts</h2>
 				</div>
 				<Row>
 					<Col
@@ -44,11 +44,6 @@ const MyJobs = () => {
 						<Link to='/jobs/post' className='btn btn-primary btn-md '>
 							<b>Create a job post</b>
 						</Link>
-						{user.jobPosting === 'yes' && (
-							<Link to={`/jobs/user/${user._id}`} className='btn btn-secondary btn-md mr-3'>
-								<b>My job posts</b>
-							</Link>
-						)}
 					</Col>
 				</Row>
 				<Row className='mt-3 job-post-container'>
