@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
@@ -8,19 +8,13 @@ import DeleteModal from '../../../DeleteModal';
 import { Button } from 'react-bootstrap';
 // Utils
 import dateDifference from '../../../../utils/dateDifference';
+// State
+import JobsContext from '../../../../context/jobs/jobsContext';
 
 const JobCard = (props) => {
-	const {
-		jobID,
-		company,
-		title,
-		city,
-		state,
-		salary,
-		about,
-		postDate,
-		admin,
-	} = props;
+	const { jobID, company, title, city, state, salary, about, postDate, admin } = props;
+	const jobsContext = useContext(JobsContext);
+	const { setCurrentJob } = jobsContext;
 
 	const [showModal, setShowModal] = useState(false);
 
@@ -42,9 +36,7 @@ const JobCard = (props) => {
 						<b>{company}</b> is hiring a <b>{title}</b>
 					</p>
 					<p className='details'>
-						<b>Location:</b> {city}, {state} <b> - Salary:</b>{' '}
-						{salary} <b> - </b>{' '}
-						<i>{dateDifference(postDate)} ago</i>
+						<b>Location:</b> {city}, {state} <b> - Salary:</b> {salary} <b> - </b> <i>{dateDifference(postDate)} ago</i>
 					</p>
 					<p className='about'>
 						<i>“{about}”</i>
@@ -52,7 +44,13 @@ const JobCard = (props) => {
 				</div>
 				<div className='job-card-buttons'>
 					{admin && (
-						<Link to='/' className='btn btn-secondary btn-sm '>
+						<Link
+							to={`/jobs/edit/${jobID}`}
+							className='btn btn-secondary btn-sm '
+							onClick={() => {
+								setCurrentJob(jobID);
+							}}
+						>
 							<b>Edit</b>
 						</Link>
 					)}
@@ -67,10 +65,7 @@ const JobCard = (props) => {
 					)}
 
 					{admin && (
-						<Button
-							onClick={openModal}
-							className='btn btn-danger btn-sm '
-						>
+						<Button onClick={openModal} className='btn btn-danger btn-sm '>
 							<b>Delete</b>
 						</Button>
 					)}
@@ -95,8 +90,7 @@ JobCard.defaultProps = {
 	city: 'City',
 	state: 'ST',
 	salary: '80K to 100K',
-	about:
-		'We are looking for a junior Engineer, passionate about learning and growing',
+	about: 'We are looking for a junior Engineer, passionate about learning and growing',
 	postDate: '2 days',
 	admin: true,
 };
