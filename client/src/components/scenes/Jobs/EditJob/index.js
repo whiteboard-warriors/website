@@ -14,14 +14,11 @@ const EditJob = (props) => {
 	const jobsContext = useContext(JobsContext);
 
 	const { setAlert } = alertContext;
-	const { jobs, updateJob, error, clearJobError, saveSuccess, clearCreateJobFlags, getJobs, current } = jobsContext;
+	const { job, updateJob, error, clearJobError, saveSuccess, clearCreateJobFlags, getJob } = jobsContext;
 	const { user, isAuthenticated } = authContext;
-	// console.log('current ', current[0]);
-
-	let job;
 
 	useEffect(() => {
-		getJobs();
+		getJob(props.match.params.jobID);
 		if (!isAuthenticated) {
 			props.history.push('/');
 			setAlert("Oops, looks like you're not logged in 😱. Please login or sign up to perform this action.", 'danger');
@@ -32,22 +29,17 @@ const EditJob = (props) => {
 			clearJobError();
 		}
 		if (saveSuccess) {
-			setAlert('Your new job has been posted.', 'success');
+			setAlert('Your job has been updated.', 'success');
 			clearCreateJobFlags();
-
-			props.history.push('/jobs');
+			props.history.push(`/jobs/user/${user._id}`);
 		}
 		if (user.jobPosting === 'no') {
 			setAlert('Please update your profile to be able to post jobs :)', 'warning');
 			props.history.push('/profile');
 		}
-		setCurrentJob({ job });
+		if (job) setCurrentJob(job);
 		// eslint-disable-next-line
-	}, [error, isAuthenticated, props.history, job]);
-
-	let filteredJob = jobs.filter((job) => job._id === props.match.params.jobID);
-	job = filteredJob[0];
-	console.log(job);
+	}, [error, isAuthenticated, props.history, saveSuccess]);
 
 	const [currentJob, setCurrentJob] = useState({
 		company: job && job.company,
@@ -57,9 +49,7 @@ const EditJob = (props) => {
 		salary: job && job.salary,
 		about: job && job.about,
 	});
-
 	let { company, title, city, state, salary, about } = currentJob;
-
 	const onChange = (e) => {
 		setCurrentJob({ ...currentJob, [e.target.name]: e.target.value });
 	};
@@ -79,76 +69,73 @@ const EditJob = (props) => {
 	};
 
 	return (
-		<Container className='mt-5 mb-3'>
-			<Row>
-				<Col lg={{ span: 6, offset: 3 }} className='job-posting-card'>
-					<div className='text-center'>
-						<h4>Edit your {title} job</h4>
-					</div>
-					{job && job && job ? (
-						<Form onSubmit={onSubmit} className='form-custom-margin'>
-							<Form.Group controlId='formCompany'>
-								<Form.Control
-									type='text'
-									placeholder='Company*'
-									name='company'
-									value={company && company}
-									onChange={onChange}
-									required
-								/>
-							</Form.Group>
-							<Form.Group controlId='formTitle'>
-								<Form.Control
-									type='text'
-									placeholder='Title*'
-									name='title'
-									value={title && title}
-									onChange={onChange}
-									required
-								/>
-							</Form.Group>
-							<Form.Group controlId='formCity'>
-								<Form.Control type='text' placeholder='City*' name='city' value={city && city} onChange={onChange} required />
-							</Form.Group>
-
-							<Form.Group controlId='formState'>
-								<Form.Control
-									type='text'
-									placeholder='State*'
-									onChange={onChange}
-									name='state'
-									value={state && state}
-									required
-								/>
-							</Form.Group>
-							<Form.Group controlId='formSalary'>
-								<Form.Control
-									type='text'
-									placeholder='Salary Per Year'
-									onChange={onChange}
-									name='salary'
-									value={salary && salary}
-									maxLength='15'
-								/>
-							</Form.Group>
-							<Form.Text className='text-muted'>Please abbreviate. Eg. 70k to 90K.</Form.Text>
-							<Form.Group controlId='formAbout'>
-								<Form.Control type='text' placeholder='About' onChange={onChange} name='about' value={about} maxLength='80' />
-							</Form.Group>
-							<Form.Text className='text-muted'>Please keep it Brief. 80 char max.</Form.Text>
-
-							<div className='text-center my-3'>
-								<Button variant='primary' type='submit' size='lg'>
-									Edit Job
-								</Button>
+		<>
+			{job ? (
+				<Container className='mt-5 mb-3'>
+					<Row>
+						<Col lg={{ span: 6, offset: 3 }} className='job-posting-card'>
+							<div className='text-center'>
+								<h4>Edit your {title} job</h4>
 							</div>
-						</Form>
-					) : (
-						<Spinner />
-					)}
-				</Col>
-			</Row>
-		</Container>
+
+							<Form onSubmit={onSubmit} className='form-custom-margin'>
+								<Form.Group controlId='formCompany'>
+									<Form.Control
+										type='text'
+										placeholder='Company*'
+										name='company'
+										value={company}
+										onChange={onChange}
+										required
+									/>
+								</Form.Group>
+								<Form.Group controlId='formTitle'>
+									<Form.Control type='text' placeholder='Title*' name='title' value={title} onChange={onChange} required />
+								</Form.Group>
+								<Form.Group controlId='formCity'>
+									<Form.Control type='text' placeholder='City*' name='city' value={city} onChange={onChange} required />
+								</Form.Group>
+
+								<Form.Group controlId='formState'>
+									<Form.Control type='text' placeholder='State*' onChange={onChange} name='state' value={state} required />
+								</Form.Group>
+								<Form.Group controlId='formSalary'>
+									<Form.Control
+										type='text'
+										placeholder='Salary Per Year'
+										onChange={onChange}
+										name='salary'
+										value={salary}
+										maxLength='15'
+									/>
+								</Form.Group>
+								<Form.Text className='text-muted'>Please abbreviate. Eg. 70k to 90K.</Form.Text>
+								<Form.Group controlId='formAbout'>
+									<Form.Control
+										type='text'
+										placeholder='About'
+										onChange={onChange}
+										name='about'
+										value={about}
+										maxLength='80'
+									/>
+								</Form.Group>
+								<Form.Text className='text-muted'>Please keep it Brief. 80 char max.</Form.Text>
+
+								<div className='text-center my-3'>
+									<Button variant='primary' type='submit' size='lg'>
+										Save
+									</Button>
+								</div>
+							</Form>
+						</Col>
+					</Row>
+				</Container>
+			) : (
+				<Spinner />
+			)}
+		</>
+		// <>{job && <p>{job.title}</p>}</>
 	);
 };
 
