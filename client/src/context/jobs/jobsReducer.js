@@ -27,12 +27,17 @@ export default (state, action) => {
 				...state,
 				jobs: action.payload,
 				loading: false,
+				current: null,
 			};
 		case GET_JOB_SUCCESS:
+			// localStorage.removeItem('currentJob');
+			localStorage.setItem('currentJob', JSON.stringify(action.payload));
+			let currentJob = JSON.parse(localStorage.getItem('currentJob'));
 			return {
 				...state,
 				job: action.payload,
 				loading: false,
+				current: currentJob,
 			};
 		case GET_MY_JOBS_SUCCESS:
 			return {
