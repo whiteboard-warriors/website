@@ -6,7 +6,6 @@ import LoginForm from '../LoginForm'
 import RegistrationForm from '../RegistrationForm'
 
 import linkedIn from './linkedin-signin.png'
-import { Link } from 'react-router-dom'
 
 export default function LoginModal(props) {
 	const [key, setKey] = useState('log-in')

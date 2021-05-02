@@ -16,9 +16,6 @@ router.get(
 	passport.authenticate('linkedin', { session: false }),
 	function (req, res) {
 		console.log('req.user: ' + req.user)
-		// Successful authentication, redirect home.
-		// // res.setHeader('test','test');
-		// res.redirect('http://localhost:3000')
 		const payload = {
 			id: req.user.id,
 			name: req.user.name,
