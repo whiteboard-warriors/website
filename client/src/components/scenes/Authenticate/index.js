@@ -1,9 +1,8 @@
-import React, { Fragment, useContext, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
+import { useLocation, Redirect } from 'react-router-dom'
 import queryString from 'query-string'
 import AuthContext from '../../../context/auth/authContext'
 
-import AlertContext from '../../../context/alert/alertContext'
 /**
  * Pulls our User's newly issue JWT Token after they have
  * completed OAuth flow
@@ -12,21 +11,27 @@ import AlertContext from '../../../context/alert/alertContext'
 const Authenticate = (props) => {
 	const location = useLocation()
   const authContext = useContext(AuthContext);
-	const { clearErrors, isAuthenticated, setToken } = authContext
-	const alertContext = useContext(AlertContext)
-	const { setAlert } = alertContext
+	const { isAuthenticated, setToken } = authContext
+  const [finishAuthenticate, setFinishAuthenticate] = useState(false); // your state value to manipulate
+
 	/**
 	 *
 	 */
 	useEffect(() => {
-		// console.log()
-
 		setToken('Bearer ' +queryString.parse(location.search).token)
 
+    // redirect user 
+    if(isAuthenticated){
+      setFinishAuthenticate(true);
+    }
 
-	}, [location])
+	}, [isAuthenticated, location, setToken])
 
-	return <Fragment></Fragment>
+  if(finishAuthenticate){
+    return <Redirect to="/"></Redirect>
+  } else {
+    return <Fragment></Fragment>
+  }
 }
 
 export default Authenticate
