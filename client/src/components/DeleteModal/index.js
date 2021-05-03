@@ -1,19 +1,20 @@
-import React, { useRef, useEffect, useCallback, useContext } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import './style.scss';
 
 import Button from 'react-bootstrap/Button';
 
-import AlertContext from '../../context/alert/alertContext';
+// import AlertContext from '../../context/alert/alertContext';
 
 const DeleteModal = (props) => {
-	const alertContext = useContext(AlertContext);
-	const { setAlert } = alertContext;
+	// const alertContext = useContext(AlertContext);
+	// const { setAlert } = alertContext;
 	const {
 		id,
 		title = 'Title',
-		type = 'Item Type',
+		// type = 'Item Type',
 		message = 'message about what you are deleting. ',
+		company = 'Company',
 		action,
 		showModal,
 		setShowModal,
@@ -52,24 +53,22 @@ const DeleteModal = (props) => {
 	return (
 		<>
 			{showModal ? (
-				<div
-					className='delete-modal-container'
-					ref={modalRef}
-					onClick={closeModal}
-				>
+				<div className='delete-modal-container' ref={modalRef} onClick={closeModal}>
 					<animated.div style={animation}>
 						<div className='delete-modal'>
-							<p className='lead'>{message}</p>
-							<h4>{title}</h4>
+							<div className='text-center'>
+								<p className='lead'>{message}</p>
+							</div>
+							<h4>
+								{title} at {company}
+							</h4>
 							<div className='text-center'>
 								<Button
 									variant='secondary'
 									size='lg'
 									className='mr-5'
 									aria-label='Close modal'
-									onClick={() =>
-										setShowModal((prev) => !prev)
-									}
+									onClick={() => setShowModal((prev) => !prev)}
 								>
 									Cancel
 								</Button>
@@ -77,15 +76,15 @@ const DeleteModal = (props) => {
 								<Button
 									variant='danger'
 									size='lg'
-									onClick={() => {
-										action(id);
-										setAlert(
-											`Your ${type} has been deleted`,
-											'danger'
-										);
+									onClick={(e) => {
+										e.preventDefault();
+										action({
+											_id: id,
+											active: 'false',
+										});
 									}}
 								>
-									Delete
+									Deactivate
 								</Button>
 							</div>
 						</div>

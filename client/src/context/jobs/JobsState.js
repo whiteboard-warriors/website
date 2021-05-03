@@ -36,6 +36,8 @@ const JobsState = (props) => {
 		loading: true,
 		saving: false,
 		saveSuccess: false,
+		updating: false,
+		updateSuccess: false,
 		deleting: false,
 		deleteSuccess: false,
 		job: null,
@@ -152,7 +154,7 @@ const JobsState = (props) => {
 			payload: null,
 		});
 		try {
-			const res = await HTTP.put(`/api/job/${job._id}`, job);
+			const res = await HTTP.put(`/api/jobs/${job._id}`, job);
 
 			dispatch({
 				type: UPDATE_JOB_SUCCESS,
@@ -172,8 +174,8 @@ const JobsState = (props) => {
 	};
 
 	// Set Current Job
-	const setCurrentJob = (job) => {
-		dispatch({ type: SET_CURRENT_JOB, payload: job });
+	const setCurrentJob = (id) => {
+		dispatch({ type: SET_CURRENT_JOB, payload: id });
 	};
 
 	// Clear Current Job
@@ -208,6 +210,8 @@ const JobsState = (props) => {
 				loading: state.loading,
 				saving: state.saving,
 				saveSuccess: state.saveSuccess,
+				updating: state.updating,
+				updateSuccess: state.updateSuccess,
 				createJob,
 				clearJobs,
 				setCurrentJob,

@@ -10,21 +10,39 @@ import { Container, Row, Col } from 'react-bootstrap';
 // State
 import JobsContext from '../../../../context/jobs/jobsContext';
 import AuthContext from '../../../../context/auth/authContext';
+import AlertContext from '../../../../context/alert/alertContext';
 //Util
 import getDaysAgoData from '../../../../utils/getDaysAgoData';
 
-const MyJobs = () => {
+const MyJobs = (props) => {
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
-	const { loading, myJobs, getMyJobs } = jobsContext;
-	const { user } = authContext;
+	const alertContext = useContext(AlertContext);
+
+	const { loading, myJobs, getMyJobs, updateSuccess, clearCreateJobFlags, error, clearJobError } = jobsContext;
+	const { user, isAuthenticated } = authContext;
+	const { setAlert } = alertContext;
 
 	let sortedJobs = getDaysAgoData(myJobs, 365);
 
 	useEffect(() => {
 		getMyJobs();
+		if (!isAuthenticated) {
+			props.history.push('/');
+			setAlert("Oops, looks like you're not logged in 😱. Please login or sign up to perform this action.", 'danger');
+		}
+
+		if (error) {
+			setAlert(error, 'danger');
+			clearJobError();
+		}
+		if (updateSuccess) {
+			setAlert('Your job posting has been updated!', 'warning');
+			clearCreateJobFlags();
+			props.history.push(`/jobs/user/${user._id}`);
+		}
 		//eslint-disable-next-line
-	}, []);
+	}, [isAuthenticated, updateSuccess, props.history]);
 
 	if (myJobs === []) {
 		sortedJobs = false;
@@ -34,7 +52,7 @@ const MyJobs = () => {
 		<Fragment>
 			<Container>
 				<div className='text-center'>
-					<h2 className='mt-5 mb-3'>My Job Posts</h2>
+					<h2 className='mt-5 mb-3'>Hi {user.firstName}, here are your job posts</h2>
 				</div>
 				<Row>
 					<Col
@@ -44,11 +62,6 @@ const MyJobs = () => {
 						<Link to='/jobs/post' className='btn btn-primary btn-md '>
 							<b>Create a job post</b>
 						</Link>
-						{user.jobPosting === 'yes' && (
-							<Link to={`/jobs/user/${user._id}`} className='btn btn-secondary btn-md mr-3'>
-								<b>My job posts</b>
-							</Link>
-						)}
 					</Col>
 				</Row>
 				<Row className='mt-3 job-post-container'>
@@ -71,6 +84,7 @@ const MyJobs = () => {
 										about={job.about}
 										postDate={job.postDate}
 										admin={true}
+										active={job.active}
 									/>
 								);
 							})

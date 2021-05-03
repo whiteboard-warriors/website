@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
@@ -8,19 +8,13 @@ import DeleteModal from '../../../DeleteModal';
 import { Button } from 'react-bootstrap';
 // Utils
 import dateDifference from '../../../../utils/dateDifference';
+// State
+import JobsContext from '../../../../context/jobs/jobsContext';
 
 const JobCard = (props) => {
-	const {
-		jobID,
-		company,
-		title,
-		city,
-		state,
-		salary,
-		about,
-		postDate,
-		admin,
-	} = props;
+	const { jobID, company, title, city, state, salary, about, postDate, admin, active } = props;
+	const jobsContext = useContext(JobsContext);
+	const { setCurrentJob, updateJob } = jobsContext;
 
 	const [showModal, setShowModal] = useState(false);
 
@@ -31,20 +25,33 @@ const JobCard = (props) => {
 		});
 	};
 
-	//temp
-	const deleteJob = () => console.log('job deleted');
+	const renewJobPosting = (e) => {
+		e.preventDefault();
+		updateJob({
+			_id: jobID,
+			postDate: true,
+			active: 'true',
+		});
+	};
+
+	let activeMsg = 'Not Active';
+	let activeColor = false;
+	if (active === 'true') {
+		activeMsg = 'Active';
+		activeColor = true;
+	}
 
 	return (
 		<>
 			<div className='job-card-container mb-3'>
 				<div className='job-card-content'>
 					<p className='headline'>
-						<b>{company}</b> is hiring a <b>{title}</b>
+						<b>{company}</b> is hiring a <b>{title}</b>{' '}
+						{active && activeColor === true && <b style={{ color: '#04afee' }}>{`  | ${activeMsg}`} </b>}
+						{active && activeColor === false && <b style={{ color: '#f57f91' }}>{`  | ${activeMsg}`} </b>}
 					</p>
 					<p className='details'>
-						<b>Location:</b> {city}, {state} <b> - Salary:</b>{' '}
-						{salary} <b> - </b>{' '}
-						<i>{dateDifference(postDate)} ago</i>
+						<b>Location:</b> {city}, {state} <b> - Salary:</b> {salary} <b> - </b> <i>{dateDifference(postDate)}</i>
 					</p>
 					<p className='about'>
 						<i>“{about}”</i>
@@ -52,12 +59,18 @@ const JobCard = (props) => {
 				</div>
 				<div className='job-card-buttons'>
 					{admin && (
-						<Link to='/' className='btn btn-secondary btn-sm '>
+						<Link
+							to={`/jobs/edit/${jobID}`}
+							className='btn btn-secondary btn-sm '
+							onClick={() => {
+								setCurrentJob(jobID);
+							}}
+						>
 							<b>Edit</b>
 						</Link>
 					)}
 					{admin ? (
-						<Link to='/' className='btn btn-primary btn-sm '>
+						<Link to='/' onClick={renewJobPosting} className='btn btn-primary btn-sm '>
 							<b>Renew</b>
 						</Link>
 					) : (
@@ -67,11 +80,8 @@ const JobCard = (props) => {
 					)}
 
 					{admin && (
-						<Button
-							onClick={openModal}
-							className='btn btn-danger btn-sm '
-						>
-							<b>Delete</b>
+						<Button onClick={openModal} className='btn btn-danger btn-sm '>
+							<b>Deactivate</b>
 						</Button>
 					)}
 				</div>
@@ -80,10 +90,11 @@ const JobCard = (props) => {
 				showModal={showModal}
 				setShowModal={setShowModal}
 				id={jobID}
-				action={deleteJob}
+				action={updateJob}
 				title={title}
 				type={'Job'}
-				message={'Are you sure you want to delete this event?'}
+				message={'Are you sure you want to deactivate this job?'}
+				company={company}
 			/>
 		</>
 	);
@@ -95,10 +106,10 @@ JobCard.defaultProps = {
 	city: 'City',
 	state: 'ST',
 	salary: '80K to 100K',
-	about:
-		'We are looking for a junior Engineer, passionate about learning and growing',
+	about: 'We are looking for a junior Engineer, passionate about learning and growing',
 	postDate: '2 days',
 	admin: true,
+	active: false,
 };
 
 export default JobCard;

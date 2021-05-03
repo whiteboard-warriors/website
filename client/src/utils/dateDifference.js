@@ -5,8 +5,9 @@ const dateDifference = (date) => {
 	let newDate = Date.now();
 	let today = dayjs(newDate);
 	let diffDate = today.diff(date, 'days');
-	if (diffDate > 1) return `${diffDate} days`;
-	return `${diffDate} day`;
+	if (diffDate === 0) return 'Today';
+	if (diffDate > 1) return `${diffDate} days ago`;
+	return `${diffDate} day ago`;
 };
 
 export default dateDifference;

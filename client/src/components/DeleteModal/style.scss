@@ -21,8 +21,8 @@
 	color: $black;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
-
+	justify-content: space-around;
+	align-items: center !important;
 	padding: 1rem;
 	position: relative;
 	z-index: 2;

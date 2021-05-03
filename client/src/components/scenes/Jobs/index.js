@@ -20,6 +20,7 @@ const Jobs = () => {
 	const { user } = authContext;
 
 	let sortedJobs = getDaysAgoData(jobs, 30);
+	let validJobs = sortedJobs.filter((item) => item.active === 'true');
 
 	// sortedJobs = [];
 
@@ -60,7 +61,7 @@ const Jobs = () => {
 								<Spinner className='my-5' />
 							</div>
 						) : jobs.length !== 0 ? (
-							sortedJobs.map((job) => {
+							validJobs.map((job) => {
 								return (
 									<JobCard
 										key={job._id}
