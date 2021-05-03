@@ -10,21 +10,39 @@ import { Container, Row, Col } from 'react-bootstrap';
 // State
 import JobsContext from '../../../../context/jobs/jobsContext';
 import AuthContext from '../../../../context/auth/authContext';
+import AlertContext from '../../../../context/alert/alertContext';
 //Util
 import getDaysAgoData from '../../../../utils/getDaysAgoData';
 
-const MyJobs = () => {
+const MyJobs = (props) => {
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
-	const { loading, myJobs, getMyJobs } = jobsContext;
-	const { user } = authContext;
+	const alertContext = useContext(AlertContext);
+
+	const { loading, myJobs, getMyJobs, updateSuccess, clearCreateJobFlags, error, clearJobError } = jobsContext;
+	const { user, isAuthenticated } = authContext;
+	const { setAlert } = alertContext;
 
 	let sortedJobs = getDaysAgoData(myJobs, 365);
 
 	useEffect(() => {
 		getMyJobs();
+		if (!isAuthenticated) {
+			props.history.push('/');
+			setAlert("Oops, looks like you're not logged in 😱. Please login or sign up to perform this action.", 'danger');
+		}
+
+		if (error) {
+			setAlert(error, 'danger');
+			clearJobError();
+		}
+		if (updateSuccess) {
+			setAlert('Your job posting has been updated!', 'warning');
+			clearCreateJobFlags();
+			props.history.push(`/jobs/user/${user._id}`);
+		}
 		//eslint-disable-next-line
-	}, []);
+	}, [isAuthenticated, updateSuccess, props.history]);
 
 	if (myJobs === []) {
 		sortedJobs = false;
@@ -66,6 +84,7 @@ const MyJobs = () => {
 										about={job.about}
 										postDate={job.postDate}
 										admin={true}
+										active={job.active}
 									/>
 								);
 							})
