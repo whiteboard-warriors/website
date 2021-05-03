@@ -53,11 +53,16 @@ export default (state, action) => {
 				loading: true,
 			};
 		}
-		case CREATE_JOB:
-		case UPDATE_JOB: {
+		case CREATE_JOB: {
 			return {
 				...state,
 				saving: true,
+			};
+		}
+		case UPDATE_JOB: {
+			return {
+				...state,
+				updating: true,
 			};
 		}
 		case CREATE_JOB_SUCCESS:
@@ -70,8 +75,8 @@ export default (state, action) => {
 			return {
 				...state,
 				jobs: state.jobs.map((job) => (job._id === action.payload._id ? action.payload : job)),
-				saving: false,
-				saveSuccess: true,
+				updating: false,
+				updateSuccess: true,
 			};
 
 		case CLEAR_JOBS:
@@ -89,6 +94,8 @@ export default (state, action) => {
 				saveSuccess: false,
 				loading: false,
 				saving: false,
+				updating: false,
+				updateSuccess: false,
 				deleting: false,
 				deleteSuccess: false,
 			};
