@@ -38,6 +38,7 @@ const EditJob = (props) => {
 			setAlert('Please update your profile to be able to post jobs :)', 'warning');
 			props.history.push('/profile');
 		}
+		//eslint-disable-next-line
 	}, [error, isAuthenticated, props.history, saveSuccess]);
 
 	return <>{loading ? <Spinner /> : <JobForm action={updateJob} job={job} />}</>;
