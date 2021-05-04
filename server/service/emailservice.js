@@ -1,12 +1,12 @@
-const AWS = require('aws-sdk')
-const config = require('../../awsconfig')
+const AWS = require('aws-sdk');
+const config = require('../../awsconfig');
 AWS.config.update({
 	accessKeyId: config.aws.key,
 	secretAccessKey: config.aws.secret,
 	region: config.aws.ses.region,
-})
+});
 
-const ses = new AWS.SES({ apiVersion: '2010-12-01' })
+const ses = new AWS.SES({ apiVersion: '2010-12-01' });
 
 /**
  *
@@ -17,8 +17,24 @@ const sendWelcomeConfirmation = (userEmail) => {
 		'Welcome to Whiteboard Warriors',
 		'Welcome to Whiteboard Warriors!',
 		'Whiteboard Warriors <noreply@whiteboardwarriors.org>'
-	)
-}
+	);
+};
+/**
+ *
+ */
+const sendJobApplicationEmail = (applicantName, applicantEmail, linkedIn, employerName, employerEmail) => {
+	sendEmail(
+		employerEmail,
+		`New Job application from ${applicantName}`,
+		`Hi ${employerName} \n\n\n\n
+		Here is a new job application from ${applicantName}.\n\n
+		Please visit this LinkedIn link to learn more about ${applicantName} --> ${linkedIn}\n\n
+		Please click REPLY if you'd like to contact ${applicantName}. \n\n\n\n
+		Kind regards, \n\n
+		Whiteboard Warriors Team`,
+		applicantEmail
+	);
+};
 
 /**
  *
@@ -35,8 +51,8 @@ const sendPasswordResetEmail = (userEmail, resetToken) => {
 			resetToken +
 			'\n\n🔴 If you did not request this change please ignore this email! 🔴',
 		'Whiteboard Warriors <noreply@whiteboardwarriors.org>'
-	)
-}
+	);
+};
 
 /**
  *
@@ -69,15 +85,15 @@ const sendEmail = (to, subject, message, from) => {
 		},
 		ReturnPath: from ? from : config.aws.ses.from.default,
 		Source: from ? from : config.aws.ses.from.default,
-	}
+	};
 
 	ses.sendEmail(params, (err, data) => {
 		if (err) {
-			return console.log(err, err.stack)
+			return console.log(err, err.stack);
 		} else {
-			console.log('Email sent.', data)
+			console.log('Email sent.', data);
 		}
-	})
-}
+	});
+};
 
-module.exports = { sendWelcomeConfirmation, sendPasswordResetEmail }
+module.exports = { sendWelcomeConfirmation, sendPasswordResetEmail, sendJobApplicationEmail };
