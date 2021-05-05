@@ -51,7 +51,7 @@ const JobCard = (props) => {
 						{active && activeColor === false && <b style={{ color: '#f57f91' }}>{`  | ${activeMsg}`} </b>}
 					</p>
 					<p className='details'>
-						<b>Location:</b> {city}, {state} <b> - Salary:</b> {salary} <b> - </b> <i>{dateDifference(postDate)}</i>
+						<b>Location:</b> {city}, {state} <b> - Salary:</b> {salary} <b> - Posted: </b> <i>{dateDifference(postDate)}</i>
 					</p>
 					<p className='about'>
 						<i>“{about}”</i>
