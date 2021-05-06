@@ -20,9 +20,6 @@ before_install:
     - eval "$(ssh-agent -s)"
     - chmod 600 deploy-key.pem
     - ssh-add deploy-key.pem
-before_deploy:
-    - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "forever stop website"
-    - test $TRAVIS_BRANCH = "staging" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "forever stop website-staging"
 deploy:
     - provider: script
       skip_cleanup: true
@@ -34,6 +31,3 @@ deploy:
       script: scripts/deploy_staging.sh
       on:
           branch: staging
-after_deploy:
-    - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website && forever start -a --uid 'website' server/index.js"
-    - test $TRAVIS_BRANCH = "staging" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website-staging && forever start -a --uid 'website-staging' server/index.js"
