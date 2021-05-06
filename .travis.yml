@@ -17,16 +17,13 @@ before_script:
 before_deploy:
 deploy:
     - provider: script
-      skip_cleanup: true
-      script: openssl aes-256-cbc -K $encrypted_13c03eac0538_key -iv $encrypted_13c03eac0538_iv -in .env-production.enc -out .env-staging -d && mv .env-staging .env && rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+      script: scripts/deploy_production.sh
       on:
-          branches: master
-      # website staging, use '/' on end of $TRAVIS_BUILD_DIR to copy contents
+          branch: master
     - provider: script
-      skip_cleanup: true
-      script: openssl aes-256-cbc -K $encrypted_13c03eac0538_key -iv $encrypted_13c03eac0538_iv -in .env-staging.enc -out .env-staging -d && mv .env-staging .env && rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
+      script: scripts/deploy_staging.sh
       on:
-          branches: staging
+          branch: staging
 before_install:
     - openssl aes-256-cbc -K $encrypted_081d3a392e1a_key -iv $encrypted_081d3a392e1a_iv
       -in deploy-key.pem.enc -out deploy-key.pem -d
