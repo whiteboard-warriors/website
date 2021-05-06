@@ -8,34 +8,21 @@ const Profile = (props) => {
 	const alertContext = useContext(AlertContext);
 	const authContext = useContext(AuthContext);
 	const { setAlert } = alertContext;
-	const {
-		user,
-		updateUserProfile,
-		updateProfileSuccess,
-		clearSuccess,
-	} = authContext;
+	const { user, updateUserProfile, updateProfileSuccess, clearSuccess } = authContext;
 
 	const [profile, setProfile] = useState({
 		id: user._id,
 		firstName: user.firstName,
 		lastName: user.lastName,
 		slackUsername: user.slackUsername,
+		linkedIn: user.linkedIn,
 		primaryLanguage: user.primaryLanguage,
 		secondaryLanguage: user.secondaryLanguage,
 		skillLevel: user.skillLevel,
 		jobPosting: user.jobPosting,
 	});
 
-	const {
-		id,
-		firstName,
-		lastName,
-		slackUsername,
-		primaryLanguage,
-		secondaryLanguage,
-		skillLevel,
-		jobPosting,
-	} = profile;
+	const { id, firstName, lastName, slackUsername, linkedIn, primaryLanguage, secondaryLanguage, skillLevel, jobPosting } = profile;
 
 	/**
 	 *
@@ -58,6 +45,7 @@ const Profile = (props) => {
 			firstName,
 			lastName,
 			slackUsername,
+			linkedIn,
 			primaryLanguage,
 			secondaryLanguage,
 			skillLevel,
@@ -107,6 +95,7 @@ const Profile = (props) => {
 									</Form.Group>
 								</Col>
 							</Row>
+
 							<Form.Group>
 								<Form.Label>Slack Username</Form.Label>
 								<Form.Control
@@ -117,34 +106,32 @@ const Profile = (props) => {
 									value={slackUsername}
 								/>
 							</Form.Group>
+							<Form.Group>
+								<Form.Label>Linked In profile link</Form.Label>
+								<Form.Control
+									type='text'
+									placeholder='Your Linked In profile link'
+									onChange={onChangeProfile}
+									name='linkedIn'
+									value={linkedIn}
+								/>
+							</Form.Group>
+
 							<Row className='mt-5'>
 								<Col>
 									<fieldset>
 										<Form.Group>
-											<Form.Label>
-												Primary Language
-											</Form.Label>
-											<Col
-												sm={10}
-												onChange={onChangeProfile}
-											>
+											<Form.Label>Primary Language</Form.Label>
+											<Col sm={10} onChange={onChangeProfile}>
 												<Form.Check
 													type='radio'
 													label='JavaScript'
 													value='javascript'
 													name='primaryLanguage'
 													id='primarylanguageJavaScript'
-													checked={
-														primaryLanguage ===
-														'javascript'
-													}
-													onChange={(event) =>
-														onChangeProfile(event)
-													}
-													disabled={
-														secondaryLanguage ===
-														'javascript'
-													}
+													checked={primaryLanguage === 'javascript'}
+													onChange={(event) => onChangeProfile(event)}
+													disabled={secondaryLanguage === 'javascript'}
 												/>
 												<Form.Check
 													type='radio'
@@ -152,17 +139,9 @@ const Profile = (props) => {
 													value='c-cplusplus-java-go'
 													name='primaryLanguage'
 													id='primarylanguageCJavaGo'
-													checked={
-														primaryLanguage ===
-														'c-cplusplus-java-go'
-													}
-													onChange={(event) =>
-														onChangeProfile(event)
-													}
-													disabled={
-														secondaryLanguage ===
-														'c-cplusplus-java-go'
-													}
+													checked={primaryLanguage === 'c-cplusplus-java-go'}
+													onChange={(event) => onChangeProfile(event)}
+													disabled={secondaryLanguage === 'c-cplusplus-java-go'}
 												/>
 												<Form.Check
 													type='radio'
@@ -170,17 +149,9 @@ const Profile = (props) => {
 													value='python-ruby'
 													name='primaryLanguage'
 													id='primarylanguagePythonRuby'
-													checked={
-														primaryLanguage ===
-														'python-ruby'
-													}
-													onChange={(event) =>
-														onChangeProfile(event)
-													}
-													disabled={
-														secondaryLanguage ===
-														'python-ruby'
-													}
+													checked={primaryLanguage === 'python-ruby'}
+													onChange={(event) => onChangeProfile(event)}
+													disabled={secondaryLanguage === 'python-ruby'}
 												/>
 											</Col>
 										</Form.Group>
@@ -190,9 +161,7 @@ const Profile = (props) => {
 								<Col>
 									<fieldset>
 										<Form.Group>
-											<Form.Label>
-												Secondary Language
-											</Form.Label>
+											<Form.Label>Secondary Language</Form.Label>
 											<Col sm={10}>
 												<Form.Check
 													type='radio'
@@ -200,15 +169,9 @@ const Profile = (props) => {
 													value='javascript'
 													name='secondaryLanguage'
 													id='secondarylanguageJavaScript'
-													checked={
-														secondaryLanguage ===
-														'javascript'
-													}
+													checked={secondaryLanguage === 'javascript'}
 													onChange={onChangeProfile}
-													disabled={
-														primaryLanguage ===
-														'javascript'
-													}
+													disabled={primaryLanguage === 'javascript'}
 												/>
 												<Form.Check
 													type='radio'
@@ -216,15 +179,9 @@ const Profile = (props) => {
 													value='c-cplusplus-java-go'
 													name='secondaryLanguage'
 													id='secondarylanguageCJavaGo'
-													checked={
-														secondaryLanguage ===
-														'c-cplusplus-java-go'
-													}
+													checked={secondaryLanguage === 'c-cplusplus-java-go'}
 													onChange={onChangeProfile}
-													disabled={
-														primaryLanguage ===
-														'c-cplusplus-java-go'
-													}
+													disabled={primaryLanguage === 'c-cplusplus-java-go'}
 												/>
 												<Form.Check
 													type='radio'
@@ -232,15 +189,9 @@ const Profile = (props) => {
 													name='secondaryLanguage'
 													value='python-ruby'
 													id='secondarylanguagePythonRuby'
-													checked={
-														secondaryLanguage ===
-														'python-ruby'
-													}
+													checked={secondaryLanguage === 'python-ruby'}
 													onChange={onChangeProfile}
-													disabled={
-														primaryLanguage ===
-														'python-ruby'
-													}
+													disabled={primaryLanguage === 'python-ruby'}
 												/>
 											</Col>
 										</Form.Group>
@@ -253,10 +204,7 @@ const Profile = (props) => {
 									<fieldset>
 										<Form.Group>
 											<Form.Label>Skill Level</Form.Label>
-											<Col
-												sm={10}
-												onChange={onChangeProfile}
-											>
+											<Col sm={10} onChange={onChangeProfile}>
 												<Form.Check
 													onChange={onChangeProfile}
 													type='radio'
@@ -264,10 +212,7 @@ const Profile = (props) => {
 													name='skillLevel'
 													id='skillLevelAdvanced'
 													value='beginner'
-													checked={
-														skillLevel ===
-														'beginner'
-													}
+													checked={skillLevel === 'beginner'}
 												/>
 												<Form.Check
 													onChange={onChangeProfile}
@@ -276,9 +221,7 @@ const Profile = (props) => {
 													name='skillLevel'
 													id='skillLevelEasy'
 													value='easy'
-													checked={
-														skillLevel === 'easy'
-													}
+													checked={skillLevel === 'easy'}
 												/>
 												<Form.Check
 													onChange={onChangeProfile}
@@ -287,9 +230,7 @@ const Profile = (props) => {
 													name='skillLevel'
 													id='skillLevelMedium'
 													value='medium'
-													checked={
-														skillLevel === 'medium'
-													}
+													checked={skillLevel === 'medium'}
 												/>
 												<Form.Check
 													onChange={onChangeProfile}
@@ -298,9 +239,7 @@ const Profile = (props) => {
 													name='skillLevel'
 													id='skillLevelHard'
 													value='hard'
-													checked={
-														skillLevel === 'hard'
-													}
+													checked={skillLevel === 'hard'}
 												/>
 											</Col>
 										</Form.Group>
@@ -314,13 +253,8 @@ const Profile = (props) => {
 								<Col>
 									<fieldset>
 										<Form.Group>
-											<h4 className='my-4'>
-												Job Posting{' '}
-											</h4>
-											<Col
-												sm={10}
-												onChange={onChangeProfile}
-											>
+											<h4 className='my-4'>Job Posting </h4>
+											<Col sm={10} onChange={onChangeProfile}>
 												<Form.Check
 													onChange={onChangeProfile}
 													type='radio'
@@ -328,9 +262,7 @@ const Profile = (props) => {
 													name='jobPosting'
 													id='jobPostingTrue'
 													value='yes'
-													checked={
-														jobPosting === 'yes'
-													}
+													checked={jobPosting === 'yes'}
 												/>
 												<Form.Check
 													onChange={onChangeProfile}
@@ -339,9 +271,7 @@ const Profile = (props) => {
 													name='jobPosting'
 													id='skillLevelFalse'
 													value='no'
-													checked={
-														jobPosting === 'no'
-													}
+													checked={jobPosting === 'no'}
 												/>
 											</Col>
 										</Form.Group>
@@ -359,16 +289,9 @@ const Profile = (props) => {
 						<h4 className='my-4'>Change Password</h4>
 						<Form className='form-custom-margin'>
 							<Form.Group>
-								<Form.Control
-									type='password'
-									placeholder='Password'
-									id='password'
-								/>
+								<Form.Control type='password' placeholder='Password' id='password' />
 
-								<Form.Control
-									type='password'
-									placeholder='Confirm Password'
-								/>
+								<Form.Control type='password' placeholder='Confirm Password' />
 							</Form.Group>
 							<Button variant='primary' type='submit'>
 								Reset
@@ -378,10 +301,7 @@ const Profile = (props) => {
 						<h4>Change E-Mail</h4>
 						<Form className='form-custom-margin'>
 							<Form.Group>
-								<Form.Control
-									type='email'
-									placeholder='Enter email'
-								/>
+								<Form.Control type='email' placeholder='Enter email' />
 							</Form.Group>
 							<Button variant='primary' type='submit'>
 								Update
