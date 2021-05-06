@@ -1,0 +1,45 @@
+input,
+textarea {
+	border-radius: 0 !important;
+	border-color: lighten($color: $secondary, $amount: 10) !important;
+	&:focus {
+		box-shadow: 0 0 5px rgba(176, 179, 180, 1) !important;
+	}
+	&:active {
+		box-shadow: 0 0 5px rgba(176, 179, 180, 1);
+		border: 1px solid rgb(161, 164, 165);
+	}
+}
+
+.form-group {
+	input {
+		padding: 1.4rem 1rem;
+	}
+}
+
+select {
+	height: 2.8rem !important;
+	border-radius: 0 !important;
+	border-color: lighten($color: $secondary, $amount: 10) !important;
+	&:focus {
+		box-shadow: 0 0 5px rgba(176, 179, 180, 1) !important;
+	}
+	&:active {
+		box-shadow: 0 0 5px rgba(176, 179, 180, 1);
+		border: 1px solid rgb(161, 164, 165);
+	}
+}
+
+option {
+	padding: 1.4rem 1rem;
+}
+
+.form-custom-margin {
+	.form-group,
+	.btn {
+		margin: 1rem 0 !important;
+		.form-control:last-child {
+			margin: 2rem 0 1rem !important;
+		}
+	}
+}

@@ -1,1 +1,35 @@
+// Mobile
 @import '../../../App.scss';
+.admin-buttons-container {
+	display: flex;
+	flex-direction: row-reverse;
+}
+.job-post-container {
+	min-height: 42vh;
+}
+.jobs-notification {
+	margin: 5rem 0 24vh 0;
+}
+// Tablets
+@media only screen and (min-width: 768px) {
+	.jobs-notification {
+		margin: 5rem 0 34vh 0;
+	}
+}
+@media only screen and (min-width: 1024px) {
+	.jobs-notification {
+		margin: 5rem 0 43vh 0;
+	}
+	.job-post-container {
+		min-height: 54vh;
+	}
+}
+// Desktop
+@media only screen and (min-width: 1366px) {
+	.jobs-notification {
+		margin: 5rem 0 26vh 0;
+	}
+	.job-post-container {
+		min-height: 36vh;
+	}
+}
