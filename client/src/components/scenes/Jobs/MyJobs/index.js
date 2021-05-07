@@ -90,7 +90,7 @@ const MyJobs = (props) => {
 							})
 						) : (
 							<div className='text-center px-1'>
-								<h4 className='jobs-notification'>I'm sorry, you have posted no jobs in the last year.</h4>
+								<h4 className='jobs-notification'>Oops, Looks like you haven't posted any jobs this past year.</h4>
 							</div>
 						)}
 					</Col>
