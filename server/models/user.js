@@ -42,7 +42,7 @@ const UserSchema = new Schema({
 	},
 	primaryLanguage: {
 		type: String,
-		required: 'Primary language is Required',
+		// required: 'Primary language is Required',
 	},
 	secondaryLanguage: {
 		type: String,
@@ -54,6 +54,17 @@ const UserSchema = new Schema({
 	active: {
 		type: Boolean,
 		default: true,
+	},
+	jobPosting: {
+		type: String,
+		default: 'no',
+	},
+	token: {
+		// for password resets.
+		type: String,
+	},
+	skillLevel: {
+		type: String,
 	},
 });
 
