@@ -10,14 +10,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 // State
 import JobsContext from '../../../context/jobs/jobsContext';
 import AuthContext from '../../../context/auth/authContext';
+import AlertContext from '../../../context/alert/alertContext';
 //Util
 import getDaysAgoData from '../../../utils/getDaysAgoData';
 
 const Jobs = () => {
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
-	const { loading, jobs, getJobs } = jobsContext;
+	const alertContext = useContext(AlertContext);
+	const { loading, jobs, getJobs, applyingSuccess, error, clearJobError } = jobsContext;
 	const { user } = authContext;
+	const { setAlert } = alertContext;
 
 	let sortedJobs = getDaysAgoData(jobs, 30);
 	let validJobs = sortedJobs.filter((item) => item.active === 'true');
@@ -26,8 +29,15 @@ const Jobs = () => {
 
 	useEffect(() => {
 		getJobs();
+		if (applyingSuccess) {
+			setAlert('Thanks! Your job application was submitted successfully', 'success');
+		}
+		if (error) {
+			setAlert(error, 'danger');
+			clearJobError();
+		}
 		//eslint-disable-next-line
-	}, []);
+	}, [applyingSuccess]);
 
 	if (jobs === []) {
 		sortedJobs = false;
