@@ -24,6 +24,9 @@ import {
 	GET_JOBS_ERROR,
 	UPDATE_JOB_ERROR,
 	CLEAR_CREATE_JOB_FLAGS,
+	APPLY_FOR_JOB,
+	APPLY_FOR_JOB_ERROR,
+	APPLY_FOR_JOB_SUCCESS,
 } from '../types';
 
 const JobsState = (props) => {
@@ -35,6 +38,8 @@ const JobsState = (props) => {
 		error: null,
 		loading: true,
 		saving: false,
+		applying: false,
+		applyingSuccess: false,
 		saveSuccess: false,
 		updating: false,
 		updateSuccess: false,
@@ -95,7 +100,7 @@ const JobsState = (props) => {
 	/**
 	 * Get MY Jobs
 	 */
-	const getMyJobs = async (id) => {
+	const getMyJobs = async () => {
 		dispatch({
 			type: GET_MY_JOBS,
 			payload: null,
@@ -139,7 +144,28 @@ const JobsState = (props) => {
 			});
 		}
 	};
-
+	/**
+	 * Apply for a job
+	 */
+	const applyForJob = async (jobID) => {
+		dispatch({
+			type: APPLY_FOR_JOB,
+			payload: null,
+		});
+		try {
+			let res = await HTTP.post('/api/jobs/apply-for-job', jobID);
+			dispatch({
+				type: APPLY_FOR_JOB_SUCCESS,
+				payload: res.data,
+			});
+		} catch (err) {
+			dispatch({
+				type: APPLY_FOR_JOB_ERROR,
+				payload: err.response.data.msg,
+			});
+		}
+	};
+	// Clear job flags
 	const clearCreateJobFlags = async () => {
 		dispatch({
 			type: CLEAR_CREATE_JOB_FLAGS,
@@ -208,6 +234,8 @@ const JobsState = (props) => {
 				error: state.error,
 				job: state.job,
 				loading: state.loading,
+				applying: state.applying,
+				applyingSuccess: state.applyingSuccess,
 				saving: state.saving,
 				saveSuccess: state.saveSuccess,
 				updating: state.updating,
@@ -222,6 +250,7 @@ const JobsState = (props) => {
 				getJobs,
 				getJob,
 				getMyJobs,
+				applyForJob,
 				clearCreateJobFlags,
 				clearJobError,
 			}}
