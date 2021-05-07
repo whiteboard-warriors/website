@@ -160,8 +160,7 @@ export default function RegistrationForm() {
 							placeholder='Linked In profile link'
 							onChange={onChange}
 							name='linkedIn'
-							pattern='((https?:\/\/)?((www|\w\w)\.)?linkedin\.com\/)((([\w]{2,3})?)|([^\/]+\/(([\w|\d-&#?=])+\/?){1,}))$
-'
+							pattern='^http(s)?:\/\/(www\.)?linkedin\.com\/in\/.*$'
 							required
 						/>
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
