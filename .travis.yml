@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-    - 14
+    - 14.16.1
 addons:
     ssh_known_hosts:
         - '$DEPLOY_HOST'
@@ -10,19 +10,24 @@ env:
         - secure: fhkMmJOCqLlfOqFa6bUZjkYR4xiBDcqrW00c6tUu5jzgwQPZ/GwSvScc8S5B23Q4KDVdscCWH4R4+ln/McBU+9TmRnvFkSv6vokHS9FefC2WQnbMvqPeesaopjyaiBS8P1Bw0tK0U1woWW73PqfCPhySAGxyI4UpNoIquA6mOXBzhYrksiMlwm7jAWR9RrtdnelD0AhUhcrLcEdafOURfKK49F0oXfonP3SFJcU0pJcF/sKTvlK5Td1adzXi4CcFsZ3/hZ4ZA3B19O+/oeevB6Wf/596ig8S9rb6GQl5M5R+S7N/fKXzpRTx+P/61oKt4VWuSnnNtqSt6CWspJ13CQ/H6F2kL4n0zf4mzdGsZG/5dddLq5vXdGT9hRfafSYiRoqzqfhA+8j8ToIGxrJJFsf+aDzghOBJsQ4XQFC/Z9wIuwSVI8EcrbAhCb3fmDD1fmkIPj2zA4CVcJrDCTHllFnEKG5jG8MzuG/Y9KGPbJjuhgUE3NnnXEYqxlzKfsJ5g4MixoyxWmQWOO0M4v2TqbPLRie4bxBuJg8ycCUj+/1YAyMp1x8uC6UBsTpgMiYtZp5wr8H+SiqE9rGQSEijL/N+eHbsbDYQIzCzQYnbkEjubso4tJyzjpSLPw3B/3xNV2x8ddWeOEFonTIqWNJSm1TJt8uvrmjZ15EwC+o1bHA=
         - secure: MTHa9/rJhE+CgfMCWgLqp4XZXhHPRm5w4IHQWrOhsh/keJghCZHJNzD395M3V454YyhxbOGHvGjYSS3KuNud3onSSApJYDIsssxfod3/LS8Zuk0K0DZaVkX7Y16xfQ1Dp90aGnCqFQW50YMI6SDC3yZbjBFDgd0QIfZ10cGoFocLqqVBsT5ert4nH6tmNiBxQAoM0P3SN8kb9CVTMmWcXjIGSyAk9z6eLKA8brgrc535kbs0uFjPVm5RORbEeD/TPm0T0Z3VWey3rRBqsu7UW4+P3NiYlS/gJpx7wkic3A/beIMdfwZBctzt/2qy+QSmkzjJS9hWmzDrMBoLutANM0c3OA59fz9aDMBLe09vJrSgWtH7t1WrwpoAS+EGknQ2zRnU1opJZYFpgROJs9Hi7fzhtMn2GTnDFjYvt0wz2wnUOzmpY5cIofNIcJw7gGqQc3YuY4QbgkNiD2/dFfgfeKnzsR8qozAniKjVi/M0WbYzuE0dpgxSX9kH0Ktt/NL4jjQQah6IalhtQOL7nLT6Grd5ghU4P2/iJvzwVI29/KP4ieSWstKHePeYhnWOrYVxREHjjgbOXAnLpKUaJ6mbN1AygD1SkaZgIDDLvvaIrc4wQ55R3FgLoAevy+NlD15m5xS7wlBCs1noA79nvUCu61ZysH83QpPOPsEjn42iI5g=
         - secure: lwVlbrwWliWHdelJ5DneQjz8B/7pgJcjQeeY38sycDj352k0BVhbHy/xNep40sPPOWDz1CgM8ZuddzAEqD8ZWT5y0AhffrpOr53MuKEYf3g2PGaZeYAtl2phFymLES4TatR9MmJ0m09q52S9PXz5OQMvaBHyv3BD6hvab4I3kZxkXtGu1YE5NNXPfJu1+w7K9nqPi03reTkqW8sxXxr/99dTXEnQ3Jp87hrsHxn82lZEGHwEy8pSjVNsNU6n4B4PW5a3lOPD0tSMJ+xP5LHJgviWw2dtElWz1wvVaRKES/qbBt4uG4HkwaQw0b5tdgKjUYFw0U1uVYTpffvYPBYHuofSp0BAyXWwR/23yzMMxe/Zqa9ErIE3nQAjerEwTY6QMOLP8bPp8c4+V3NXc4kYdLp2QzK7pIMRVJPfqQMzaMjmqQLvb+zLYIvUEBlfmI+L24w7SCsBajKp6X3Mg9oI/k3N5RSoHB67exuYa8tMeqf6KfoXTvbCQKXVWxWqP3p1js//3PZTVQIrFapS8zPNbAOJf5emgN6aSp7FxMC20/pgucbs4TNyGcMb9UUuzW476rY/Hg/BP0ifKx/DdEJvtUyxEBX1SmmMrmQ8mXASAE5W/IJLq79YcjsAnAzBVsCRr8qp+kWBUgiWSnjbaVIHSBu7OThv1xVdw+084qDRjkU=
+        - secure: GtZu0uE1nBwwhNVbS1SW2c2APm8YuVbfigLVtlBO3MEx3Tzi78iSTKCSUBhJpoSn6tTL7ZvWei9a7oOllgOWB3bJYyYmo++urX2KoQ5HVd2sYhR3ZW2chz/upuFQ4PVHxdvaCrlvU+Ot+rFp7YAEB0nfxnL/MMx3zLsZOZAxF5VJivkPtSw9uQAA2VAADqy7pjPwCudejbiTDN0T+srVHoAupHF6wO0G2alMGA68DuDU4kvKdky3KfVprI9/4JBk/kJyUmCH4L+TnW5HZ+5SiK/EeJ4cveaCXCxJmIuKTgO3k2lU7Hyg7NPogS1Ppki0MQ4eBr1euHTdZx7NSHQ5i7ayevFpKCvGJg2frBomRFGvl8MmiD991i7DLq59HiKgNmOa8LuutSa25BzHSEVmWfZAOZKpBE1SSSJN/M9NxRNgVbJ/Wv1ddoTGP5apnTzIFcDPAAkBXVQHrBP6eb7rlBGluJgFcXofBPxTgOoI2i1nl88lupbXgSostFB/+lfk+6YOA6oLOzi6Er7Kvkn9hGg5zsj/ygAulOj4PDVxbTFxAHouLMKMK3rpOKi6eFpJZzNH5A3jMxKz6AabIKBYJkUtaoqPdJNJ35ltbBsEh0gc56lQj/XiYvdrs16h9BTEWECkKOuSm1uv9MIY3oGKsFBrjjACCxiiEvshwV6rdxk=
+        - secure: NYvh+MSYe3BDCrPBWciaZ34cr1WkKFH1s6sPsXvw9hPzxbSEvskRPT6BDDmipaM8gDM+pTeAmIJaRzKbw8vmA329lx+WDe2e8HNNZBaeTeeuBLQ+Ib4XPfSJKJF7sYvGGMSPqefYTJLsjHDRRFMynqR7k15lD5os8mtDnCwb8qcB2lB46Dy5A8ZNXHSV9MLdGnAcrmMdlJb3Z6lymFGA50wilra/RVlU0d1CWdPj8l7JIUpXo6myTCakcLe9SvdQQVDqq2unYmb6MjBn1VlALduCwuEmnRVui/akpA5047/Vau0SH1wJEEAQZtvX59r/BiKSuCrIq36z6mtr2OUofbvRPDRyChHh8xzj/AF7c5MC0ViillCL/Zk1iKr7T5sZqynTAyWJI5rdXXEu1zCoCZDLgt9Lb2ti2cGxxk6yajplNExpx3Xh4SDzO4IYC2Gkqla91AxjrHZ4ugEloktf0cPXTZSIh1RklO8Uuge0+KBkI5kcGzgIOjhDXsYS1aBIERJU4Osiwx5lfp53rPm8WgVRngZf6bUTPGZDyeD+7TL3oaxUVA50WS4bPv4y1aVT/+X8ISDYzuD4O1TPZlYLlpHrhItGtJnvdPbOKP9z42F2q7AMq8LgJSDtc0SZFL8j6mrd2sNKU2KrKN0Pd/HUiPRIeCnrYFDNTFf/C4m7MGI=
 before_script:
     - npm run-script build
-before_deploy:
-deploy:
-    provider: script
-    skip_cleanup: true
-    script: rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR
-        $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-    on:
-        branch: master
 before_install:
     - openssl aes-256-cbc -K $encrypted_081d3a392e1a_key -iv $encrypted_081d3a392e1a_iv
       -in deploy-key.pem.enc -out deploy-key.pem -d
     - eval "$(ssh-agent -s)"
     - chmod 600 deploy-key.pem
     - ssh-add deploy-key.pem
+deploy:
+    - provider: script
+      skip_cleanup: true
+      script: scripts/deploy_production.sh
+      on:
+          branch: master
+    - provider: script
+      skip_cleanup: true
+      script: scripts/deploy_staging.sh
+      on:
+          branch: staging
