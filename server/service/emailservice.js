@@ -28,12 +28,13 @@ const sendJobApplicationEmail = (applicantName, applicantEmail, linkedIn, employ
 		`New Job application from ${applicantName}`,
 		`Hi ${employerName} \n\n\n\n
 		Here is a new job application from ${applicantName}.\n\n
-		Please visit this LinkedIn link to learn more about ${applicantName} --> ${linkedIn}\n\n
+		Please visit this LinkedIn link to learn more about ${applicantName} --> <a href='${linkedIn}' target='_blank>${linkedIn}</a>'\n\n
 		Please click REPLY if you'd like to contact ${applicantName}. \n\n\n\n
 		Kind regards, \n\n
 		Whiteboard Warriors Team`,
 		applicantEmail
 	);
+	console.log('Email sent');
 };
 
 /**
