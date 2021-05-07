@@ -10,11 +10,18 @@ import { Button } from 'react-bootstrap';
 import dateDifference from '../../../../utils/dateDifference';
 // State
 import JobsContext from '../../../../context/jobs/jobsContext';
+import AuthContext from '../../../../context/auth/authContext';
+import AlertContext from '../../../../context/alert/alertContext';
 
 const JobCard = (props) => {
 	const { jobID, company, title, city, state, salary, about, postDate, admin, active } = props;
 	const jobsContext = useContext(JobsContext);
-	const { setCurrentJob, updateJob } = jobsContext;
+	const authContext = useContext(AuthContext);
+	const alertContext = useContext(AlertContext);
+
+	const { setCurrentJob, updateJob, applyForJob, clearCreateJobFlags } = jobsContext;
+	const { user, isAuthenticated } = authContext;
+	const { setAlert } = alertContext;
 
 	const [showModal, setShowModal] = useState(false);
 
@@ -32,6 +39,20 @@ const JobCard = (props) => {
 			postDate: true,
 			active: 'true',
 		});
+	};
+	const applyForJobPosting = (e) => {
+		e.preventDefault();
+		if (!isAuthenticated) {
+			setAlert('Please signup or login to apply for a jobs! Also, please be sure to include your LinkedIn link!', 'warning');
+			clearCreateJobFlags();
+		} else if (!user.linkedIn) {
+			setAlert('Please update your profile and include our Linked In link to be able to apply for jobs', 'warning');
+			props.history.push('/profile');
+			clearCreateJobFlags();
+		} else {
+			applyForJob({ jobID });
+			clearCreateJobFlags();
+		}
 	};
 
 	let activeMsg = 'Not Active';
@@ -70,11 +91,11 @@ const JobCard = (props) => {
 						</Link>
 					)}
 					{admin ? (
-						<Link to='/' onClick={renewJobPosting} className='btn btn-primary btn-sm '>
+						<Link to={`/jobs/user/${user._id}`} onClick={renewJobPosting} className='btn btn-primary btn-sm '>
 							<b>Renew</b>
 						</Link>
 					) : (
-						<Link to='/' className='btn btn-primary btn-sm '>
+						<Link to='/jobs' onClick={applyForJobPosting} className='btn btn-primary btn-sm '>
 							<b>Apply</b>
 						</Link>
 					)}
