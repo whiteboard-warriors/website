@@ -103,7 +103,8 @@ const Profile = (props) => {
 									placeholder='Your Whiteboard Warriors Slack user'
 									onChange={onChangeProfile}
 									name='slackUsername'
-									value={slackUsername}
+									defaultValue={slackUsername}
+									id='slackUsername'
 								/>
 							</Form.Group>
 							<Form.Group>
@@ -113,7 +114,8 @@ const Profile = (props) => {
 									placeholder='Your Linked In profile link'
 									onChange={onChangeProfile}
 									name='linkedIn'
-									value={linkedIn}
+									defaultValue={linkedIn}
+									id='linkedIn'
 								/>
 							</Form.Group>
 
