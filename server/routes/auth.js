@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-const express = require('express')
-const router = express.Router()
-const bcrypt = require('bcryptjs')
-const db = require('../models')
-const jwt = require('jsonwebtoken')
-const { check, validationResult } = require('express-validator')
-const crypto = require('crypto')
-const emailService = require('../service/emailservice')
-const passport = require('passport');
-=======
 const express = require('express');
-const passport = require('../config/passport');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../models');
@@ -18,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const crypto = require('crypto');
 const emailService = require('../service/emailservice');
->>>>>>> staging
+const passport = require('passport');
 // @route   POST api/auth
 // @desc - Login
 router.post('/login', async function (req, res) {
@@ -78,10 +66,7 @@ router.post(
 		check('lastName', 'Please add your last name.').not().isEmpty(),
 
 		check('email', 'Please include a valid email').isEmail(),
-		check(
-			'password',
-			'Please enter a password with 6 or more characters'
-		).isLength({ min: 6 }),
+		check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
 	],
 
 	async (req, res) => {
@@ -90,11 +75,7 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-<<<<<<< HEAD
-		let { firstName, lastName, email, password } = req.body
-=======
 		let { firstName, lastName, email, password } = req.body;
->>>>>>> staging
 
 		try {
 			let user = await db.User.findOne({ email });
@@ -107,11 +88,7 @@ router.post(
 				lastName,
 				email,
 				password,
-<<<<<<< HEAD
-			})
-=======
 			});
->>>>>>> staging
 			// console.log('routes/auth.js - user to be saved >>> ', user);
 
 			await user.save();
@@ -164,14 +141,7 @@ router.post('/forgot-password-init', async (req, res) => {
 			let updatedUser = {};
 			updatedUser.token = buf.toString('hex');
 
-<<<<<<< HEAD
-			await db.User.findByIdAndUpdate({ _id: user._id }, { $set: updatedUser })
-=======
-			await db.User.findByIdAndUpdate(
-				{ _id: user._id },
-				{ $set: updatedUser }
-			);
->>>>>>> staging
+			await db.User.findByIdAndUpdate({ _id: user._id }, { $set: updatedUser });
 
 			emailService.sendPasswordResetEmail(user.email, updatedUser.token);
 		}
@@ -204,25 +174,17 @@ router.post('/forgot-password-complete', async (req, res) => {
 	}
 });
 
-<<<<<<< HEAD
 /**
  *
  */
-router.get('/linkedin', passport.authenticate('linkedin'))
+router.get('/linkedin', passport.authenticate('linkedin'));
 
 /**
  * Callback from LinkedIn SSO
  */
-router.get(
-	'/linkedin/callback',
-	passport.authenticate('linkedin', { failureRedirect: '/login' }),
-	function (req, res) {
-		// Successful authentication, redirect home.
-		res.redirect('/')
-	}
-)
+router.get('/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), function (req, res) {
+	// Successful authentication, redirect home.
+	res.redirect('/');
+});
 
-module.exports = router
-=======
 module.exports = router;
->>>>>>> staging
