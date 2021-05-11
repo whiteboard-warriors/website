@@ -1,9 +1,9 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './style.scss';
 
 // Components
 import JobCard from '../JobCard';
+import JobActions from '../JobActions';
 import Spinner from '../../../Spinner';
 // Bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
@@ -52,18 +52,9 @@ const MyJobs = (props) => {
 		<Fragment>
 			<Container>
 				<div className='text-center'>
-					<h2 className='mt-5 mb-3'>Hi {user.firstName}, here are your job posts</h2>
+					<h4 className='my-5 px-1'>Hi {user.firstName}, here are your job posts:</h4>
 				</div>
-				<Row>
-					<Col
-						// lg={{ span: 2, offset: 8 }}
-						className='admin-buttons-container'
-					>
-						<Link to='/jobs/post' className='btn btn-primary btn-md '>
-							<b>Create a job post</b>
-						</Link>
-					</Col>
-				</Row>
+				<JobActions />
 				<Row className='mt-3 job-post-container'>
 					<Col lg={{ span: 8, offset: 2 }}>
 						{loading ? (
@@ -90,7 +81,7 @@ const MyJobs = (props) => {
 							})
 						) : (
 							<div className='text-center px-1'>
-								<h4 className='jobs-notification'>Oops, Looks like you haven't posted any jobs this past year.</h4>
+								<h5 className='jobs-notification'>Oops, Looks like you haven't posted any jobs this past year.</h5>
 							</div>
 						)}
 					</Col>
