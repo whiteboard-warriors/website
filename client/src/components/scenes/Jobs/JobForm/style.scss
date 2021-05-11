@@ -1,8 +1,22 @@
 @import '../../../../App.scss';
 
 .job-posting-card {
-	padding: 2rem 3rem !important;
+	padding: 2rem 1.2rem !important;
 	border: 0.5px solid lighten($color: $secondary, $amount: 20);
 	border-radius: 1.5rem;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	margin: 0 1rem;
+}
+
+// Tablets
+@media only screen and (min-width: 731px) {
+	.job-posting-card {
+		padding: 2rem 3rem !important;
+	}
+}
+// @media only screen and (min-width: 1024px) {
+// }
+
+// Desktop
+@media only screen and (min-width: 1366px) {
 }
