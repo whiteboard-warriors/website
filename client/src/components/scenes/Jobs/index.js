@@ -1,9 +1,9 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './style.scss';
 
 // Components
 import JobCard from './JobCard';
+import JobActions from './JobActions';
 import Spinner from '../../Spinner';
 // Bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
@@ -47,23 +47,9 @@ const Jobs = () => {
 		<Fragment>
 			<Container>
 				<div className='text-center'>
-					<h2 className='mt-5 mb-3'>Awesome Entry Level Jobs</h2>
+					<h2 className='my-5'>Awesome Entry Level Jobs</h2>
 				</div>
-				<Row>
-					<Col
-						// lg={{ span: 2, offset: 8 }}
-						className='admin-buttons-container'
-					>
-						<Link to='/jobs/post' className='btn btn-primary btn-md '>
-							<b>Create a job post</b>
-						</Link>
-						{user.jobPosting === 'yes' && (
-							<Link to={`/jobs/user/${user._id}`} className='btn btn-secondary btn-md mr-3'>
-								<b>My job posts</b>
-							</Link>
-						)}
-					</Col>
-				</Row>
+				<JobActions user={user} />
 				<Row className='mt-3 job-post-container'>
 					<Col lg={{ span: 8, offset: 2 }}>
 						{loading ? (
