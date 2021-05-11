@@ -41,7 +41,7 @@ const EditJob = (props) => {
 		//eslint-disable-next-line
 	}, [error, isAuthenticated, props.history, updateSuccess]);
 
-	return <>{loading ? <Spinner /> : <JobForm action={updateJob} job={job} />}</>;
+	return <>{loading || !job ? <Spinner /> : <JobForm action={updateJob} job={job} />}</>;
 };
 
 export default EditJob;
