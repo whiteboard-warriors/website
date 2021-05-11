@@ -18,6 +18,9 @@ import {
 	CREATE_JOB_ERROR,
 	CLEAR_JOB_ERROR,
 	CLEAR_JOBS,
+	APPLY_FOR_JOB,
+	APPLY_FOR_JOB_SUCCESS,
+	APPLY_FOR_JOB_ERROR,
 } from '../types';
 
 export default (state, action) => {
@@ -53,6 +56,12 @@ export default (state, action) => {
 				loading: true,
 			};
 		}
+		case APPLY_FOR_JOB: {
+			return {
+				...state,
+				applying: true,
+			};
+		}
 		case CREATE_JOB: {
 			return {
 				...state,
@@ -65,7 +74,16 @@ export default (state, action) => {
 				updating: true,
 			};
 		}
+		case APPLY_FOR_JOB_SUCCESS: {
+			console.log('apply for job success -- ', action.payload);
+			return {
+				...state,
+				applying: false,
+				applyingSuccess: true,
+			};
+		}
 		case CREATE_JOB_SUCCESS:
+			console.log('create job success -- ', action.payload);
 			return {
 				...state,
 				saving: false,
@@ -98,6 +116,8 @@ export default (state, action) => {
 				updateSuccess: false,
 				deleting: false,
 				deleteSuccess: false,
+				applying: false,
+				applyingSuccess: false,
 			};
 		}
 		case SET_CURRENT_JOB:
@@ -123,6 +143,7 @@ export default (state, action) => {
 				...state,
 				filtered: null,
 			};
+		case APPLY_FOR_JOB_ERROR:
 		case GET_JOBS_ERROR:
 		case CREATE_JOB_ERROR:
 			return {

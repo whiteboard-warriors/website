@@ -11,25 +11,11 @@ a,
 a:focus,
 a:visited {
 	// color: white;
-	transition: color 0.2s linear, background 0.2s linear,
-		text-shadow 0.2s linear;
-	-o-transition: color 0.2s linear, background 0.2s linear,
-		text-shadow 0.2s linear;
-	-moz-transition: color 0.2s linear, background 0.2s linear,
-		text-shadow 0.2s linear;
-	-webkit-transition: color 0.2s linear, background 0.2s linear,
-		text-shadow 0.2s linear;
+	transition: color 0.2s linear, background 0.2s linear, text-shadow 0.2s linear;
+	-o-transition: color 0.2s linear, background 0.2s linear, text-shadow 0.2s linear;
+	-moz-transition: color 0.2s linear, background 0.2s linear, text-shadow 0.2s linear;
+	-webkit-transition: color 0.2s linear, background 0.2s linear, text-shadow 0.2s linear;
 	text-decoration: none !important;
-}
-
-// Headings
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-	font-weight: 800;
 }
 
 /* buttons  */
@@ -69,7 +55,7 @@ h5 {
 	}
 }
 
-//	// size
+// size
 
 .btn-xl {
 	padding: 1.5rem 2rem !important;

@@ -109,10 +109,14 @@ router.put('/:id', async (req, res) => {
 // @desc    Applicant applies for job application
 router.post('/apply-for-job', async (req, res) => {
 	const { jobID } = req.body;
-
+	// console.log(jobID);
+	// console.log(req.user);
 	try {
-		const job = await db.Job.findOne({ _id: jobID });
+		const job = await db.Job.findOne({ _id: jobID }).populate('createdBy');
+		console.log(job.createdBy.firstName);
+		console.log(job.createdBy.email);
 		const user = await db.User.findOne({ _id: req.user.id });
+		console.log(user.linkedIn);
 		if (!user) {
 			return res.status(401).json({
 				msg: 'Please login to apply for jobs',
@@ -126,7 +130,7 @@ router.post('/apply-for-job', async (req, res) => {
 		// sendJobApplicationEmail(applicantName, applicantEmail, linkedIn, employerName, employerEmail)
 		sendJobApplicationEmail(user.email, user.email, user.linkedIn, job.createdBy.firstName, job.createdBy.email);
 
-		res.send(200).send('Your job application was submitted successfully');
+		res.send('Your job application was submitted successfully');
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).send('Server Error');

@@ -1,23 +1,26 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './style.scss';
 
 // Components
 import JobCard from './JobCard';
+import JobActions from './JobActions';
 import Spinner from '../../Spinner';
 // Bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
 // State
 import JobsContext from '../../../context/jobs/jobsContext';
 import AuthContext from '../../../context/auth/authContext';
+import AlertContext from '../../../context/alert/alertContext';
 //Util
 import getDaysAgoData from '../../../utils/getDaysAgoData';
 
 const Jobs = () => {
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
-	const { loading, jobs, getJobs } = jobsContext;
+	const alertContext = useContext(AlertContext);
+	const { loading, jobs, getJobs, applyingSuccess, error, clearJobError } = jobsContext;
 	const { user } = authContext;
+	const { setAlert } = alertContext;
 
 	let sortedJobs = getDaysAgoData(jobs, 30);
 	let validJobs = sortedJobs.filter((item) => item.active === 'true');
@@ -26,8 +29,15 @@ const Jobs = () => {
 
 	useEffect(() => {
 		getJobs();
+		if (applyingSuccess) {
+			setAlert('Thanks! Your job application was submitted successfully', 'success');
+		}
+		if (error) {
+			setAlert(error, 'danger');
+			clearJobError();
+		}
 		//eslint-disable-next-line
-	}, []);
+	}, [applyingSuccess]);
 
 	if (jobs === []) {
 		sortedJobs = false;
@@ -37,23 +47,9 @@ const Jobs = () => {
 		<Fragment>
 			<Container>
 				<div className='text-center'>
-					<h2 className='mt-5 mb-3'>Awesome Entry Level Jobs</h2>
+					<h2 className='my-5'>Awesome Entry Level Jobs</h2>
 				</div>
-				<Row>
-					<Col
-						// lg={{ span: 2, offset: 8 }}
-						className='admin-buttons-container'
-					>
-						<Link to='/jobs/post' className='btn btn-primary btn-md '>
-							<b>Create a job post</b>
-						</Link>
-						{user.jobPosting === 'yes' && (
-							<Link to={`/jobs/user/${user._id}`} className='btn btn-secondary btn-md mr-3'>
-								<b>My job posts</b>
-							</Link>
-						)}
-					</Col>
-				</Row>
+				<JobActions user={user} />
 				<Row className='mt-3 job-post-container'>
 					<Col lg={{ span: 8, offset: 2 }}>
 						{loading ? (

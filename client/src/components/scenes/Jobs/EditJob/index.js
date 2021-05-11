@@ -14,7 +14,7 @@ const EditJob = (props) => {
 	const jobsContext = useContext(JobsContext);
 
 	const { setAlert } = alertContext;
-	const { job, updateJob, error, clearJobError, saveSuccess, clearCreateJobFlags, getJob, loading } = jobsContext;
+	const { job, updateJob, error, clearJobError, updateSuccess, clearCreateJobFlags, getJob, loading } = jobsContext;
 	const { user, isAuthenticated } = authContext;
 
 	useEffect(() => {
@@ -29,7 +29,7 @@ const EditJob = (props) => {
 			setAlert(error, 'danger');
 			clearJobError();
 		}
-		if (saveSuccess) {
+		if (updateSuccess) {
 			setAlert('Your job has been updated.', 'success');
 			clearCreateJobFlags();
 			props.history.push(`/jobs/user/${user._id}`);
@@ -39,9 +39,9 @@ const EditJob = (props) => {
 			props.history.push('/profile');
 		}
 		//eslint-disable-next-line
-	}, [error, isAuthenticated, props.history, saveSuccess]);
+	}, [error, isAuthenticated, props.history, updateSuccess]);
 
-	return <>{loading ? <Spinner /> : <JobForm action={updateJob} job={job} />}</>;
+	return <>{loading || !job ? <Spinner /> : <JobForm action={updateJob} job={job} />}</>;
 };
 
 export default EditJob;

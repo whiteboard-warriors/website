@@ -66,6 +66,7 @@ const sendEmail = (to, subject, message, from) => {
 		Destination: {
 			ToAddresses: [to],
 		},
+		ReplyToAddresses: [from],
 		Message: {
 			Body: {
 				// Html: {
@@ -83,8 +84,8 @@ const sendEmail = (to, subject, message, from) => {
 				Data: subject,
 			},
 		},
-		ReturnPath: from ? from : config.aws.ses.from.default,
-		Source: from ? from : config.aws.ses.from.default,
+		ReturnPath: config.aws.ses.from.default,
+		Source: config.aws.ses.from.default,
 	};
 
 	ses.sendEmail(params, (err, data) => {
