@@ -28,13 +28,12 @@ const sendJobApplicationEmail = (applicantName, applicantEmail, linkedIn, employ
 		`New Job application from ${applicantName}`,
 		`Hi ${employerName} \n\n\n\n
 		Here is a new job application from ${applicantName}.\n\n
-		Please visit this LinkedIn link to learn more about ${applicantName} --> <a href='${linkedIn}' target='_blank>${linkedIn}</a>'\n\n
+		Please visit this LinkedIn link to learn more about ${applicantName} --> ${linkedIn}\n\n
 		Please click REPLY if you'd like to contact ${applicantName}. \n\n\n\n
 		Kind regards, \n\n
 		Whiteboard Warriors Team`,
 		applicantEmail
 	);
-	console.log('Email sent');
 };
 
 /**
@@ -67,6 +66,7 @@ const sendEmail = (to, subject, message, from) => {
 		Destination: {
 			ToAddresses: [to],
 		},
+		ReplyToAddresses: [from],
 		Message: {
 			Body: {
 				// Html: {
@@ -84,8 +84,8 @@ const sendEmail = (to, subject, message, from) => {
 				Data: subject,
 			},
 		},
-		ReturnPath: from ? from : config.aws.ses.from.default,
-		Source: from ? from : config.aws.ses.from.default,
+		ReturnPath: config.aws.ses.from.default,
+		Source: config.aws.ses.from.default,
 	};
 
 	ses.sendEmail(params, (err, data) => {
