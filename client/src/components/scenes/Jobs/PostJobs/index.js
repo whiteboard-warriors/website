@@ -70,9 +70,9 @@ const PostJobs = (props) => {
 	return (
 		<Container className='mt-5 mb-3'>
 			<Row>
-				<Col lg={{ span: 6, offset: 3 }} className='job-posting-card'>
+				<Col lg={{ span: 6, offset: 3 }} md={{ span: 8, offset: 2 }} className='job-posting-card'>
 					<div className='text-center'>
-						<h4>Let's creat your entry level br job posting</h4>
+						<h4>Let's creat your entry level job posting</h4>
 					</div>
 					<Form onSubmit={onSubmit} className='form-custom-margin'>
 						<Form.Group controlId='formCompany'>
