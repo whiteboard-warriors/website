@@ -66,10 +66,17 @@ const JobCard = (props) => {
 		<>
 			<div className='job-card-container mb-3'>
 				<div className='job-card-content'>
+					{active && (
+						<div className='job-status-container'>
+							<p className='job-status'>
+								{active && activeColor === true && <b style={{ color: '#04afee' }}>{activeMsg}</b>}
+								{active && activeColor === false && <b style={{ color: '#f57f91' }}>{activeMsg} </b>}
+							</p>
+						</div>
+					)}
+
 					<p className='headline'>
-						<b>{company}</b> is hiring a <b>{title}</b>{' '}
-						{active && activeColor === true && <b style={{ color: '#04afee' }}>{`  | ${activeMsg}`} </b>}
-						{active && activeColor === false && <b style={{ color: '#f57f91' }}>{`  | ${activeMsg}`} </b>}
+						<b>{company}</b> is hiring: <b>{title}</b>
 					</p>
 					<p className='details'>
 						<b>Location:</b> {city}, {state} <b> - Salary:</b> {salary} <b> - Posted: </b> <i>{dateDifference(postDate)}</i>
