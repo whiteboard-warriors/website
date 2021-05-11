@@ -112,8 +112,9 @@ router.post('/apply-for-job', async (req, res) => {
 	// console.log(jobID);
 	// console.log(req.user);
 	try {
-		const job = await db.Job.findOne({ _id: jobID });
-		console.log(job.title);
+		const job = await db.Job.findOne({ _id: jobID }).populate('createdBy');
+		console.log(job.createdBy.firstName);
+		console.log(job.createdBy.email);
 		const user = await db.User.findOne({ _id: req.user.id });
 		console.log(user.linkedIn);
 		if (!user) {
