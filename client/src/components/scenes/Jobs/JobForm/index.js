@@ -26,8 +26,8 @@ const JobForm = (props) => {
 	};
 	return (
 		<Container className='mt-5 mb-3'>
-			<Row>
-				<Col lg={{ span: 6, offset: 3 }} className='job-posting-card'>
+			<Row className='px-3'>
+				<Col lg={{ span: 6, offset: 3 }} sm={{ span: 8, offset: 2 }} className='job-posting-card'>
 					<div className='text-center'>
 						<h4>Edit your {title} job</h4>
 					</div>
