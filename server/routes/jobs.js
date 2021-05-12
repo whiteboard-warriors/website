@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../models');
-const isAuthenticated = require('../config/middleware/isAuthenticated');
+// const isAuthenticated = require('../config/middleware/isAuthenticated');
+const { sendJobApplicationEmail } = require('../service/emailservice');
 
 // @route   GET /api/jobs
 // @desc    Retrieves one job
@@ -98,6 +99,38 @@ router.put('/:id', async (req, res) => {
 
 		await db.Job.findOneAndUpdate({ _id: req.params.id }, { $set: job });
 		res.send('Your job was updated!');
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error');
+	}
+});
+
+// @route   POST /api/jobs/apply-for-job
+// @desc    Applicant applies for job application
+router.post('/apply-for-job', async (req, res) => {
+	const { jobID } = req.body;
+	// console.log(jobID);
+	// console.log(req.user);
+	try {
+		const job = await db.Job.findOne({ _id: jobID }).populate('createdBy');
+		console.log(job.createdBy.firstName);
+		console.log(job.createdBy.email);
+		const user = await db.User.findOne({ _id: req.user.id });
+		console.log(user.linkedIn);
+		if (!user) {
+			return res.status(401).json({
+				msg: 'Please login to apply for jobs',
+			});
+		}
+		if (!user.linkedIn) {
+			return res.status(400).json({
+				msg: 'Please update your user profile and include your LinkedIn link to apply for jobs',
+			});
+		}
+		// sendJobApplicationEmail(applicantName, applicantEmail, linkedIn, employerName, employerEmail)
+		sendJobApplicationEmail(user.email, user.email, user.linkedIn, job.createdBy.firstName, job.createdBy.email);
+
+		res.send('Your job application was submitted successfully');
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).send('Server Error');

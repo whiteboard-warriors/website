@@ -67,6 +67,7 @@ router.post(
 
 		check('email', 'Please include a valid email').isEmail(),
 		check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
+		check('linkedIn', 'Please a valid Linked In link').isLength({ min: 25 }),
 	],
 
 	async (req, res) => {
@@ -75,7 +76,7 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		let { firstName, lastName, email, password } = req.body;
+		let { firstName, lastName, email, password, linkedIn } = req.body;
 
 		try {
 			let user = await db.User.findOne({ email });
@@ -88,6 +89,7 @@ router.post(
 				lastName,
 				email,
 				password,
+				linkedIn,
 			});
 			// console.log('routes/auth.js - user to be saved >>> ', user);
 

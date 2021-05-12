@@ -1,0 +1,26 @@
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: 800;
+}
+// Font sizes
+h2 {
+	font-size: 1.6rem;
+}
+
+// Tablets
+@media only screen and (min-width: 768px) {
+	// Font sizes
+	h2 {
+		font-size: 2rem !important;
+	}
+}
+@media only screen and (min-width: 1024px) {
+}
+// Desktop
+@media only screen and (min-width: 1366px) {
+}
