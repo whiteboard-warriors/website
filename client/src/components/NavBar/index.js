@@ -16,13 +16,7 @@ export default function NavBar(props) {
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
 	const { setAlert } = alertContext;
-	const {
-		isAuthenticated,
-		logout,
-		user,
-		registrationSuccess,
-		clearErrors,
-	} = authContext;
+	const { isAuthenticated, logout, user, registrationSuccess, clearErrors } = authContext;
 
 	useEffect(() => {
 		if (registrationSuccess) {
@@ -49,15 +43,8 @@ export default function NavBar(props) {
 		<Fragment>
 			{isAuthenticated ? (
 				<Fragment>
-					<NavDropdown
-						title={user.firstName ? user.firstName : ''}
-						id='collasible-nav-dropdown'
-					>
-						<Link
-							data-rb-event-key='/profile'
-							className='dropdown-item'
-							to='/profile'
-						>
+					<NavDropdown title={user.firstName ? user.firstName : ''} id='collasible-nav-dropdown'>
+						<Link data-rb-event-key='/profile' className='dropdown-item' to='/profile'>
 							Profile
 						</Link>
 
@@ -88,11 +75,7 @@ export default function NavBar(props) {
 
 	return (
 		<Fragment>
-			<Navbar
-				bg='light'
-				expand='lg'
-				className='d-flex justify-content-lg-around'
-			>
+			<Navbar bg='light' expand='lg' className='d-flex justify-content-lg-around'>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>
 					<Container>
@@ -117,10 +100,7 @@ export default function NavBar(props) {
 								<i className='navbar-icon fa fa-briefcase'></i>
 								Jobs
 							</Link>
-							<NavDropdown
-								title={aboutTitle}
-								id='basic-nav-dropdown'
-							>
+							<NavDropdown title={aboutTitle} id='basic-nav-dropdown'>
 								<NavDropdown.Item as='div'>
 									<Link className='nav-link' to='/about'>
 										<i className='navbar-icon fas fa-info'></i>
@@ -129,10 +109,7 @@ export default function NavBar(props) {
 								</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item as='div'>
-									<Link
-										className='nav-link'
-										to='/testimonials'
-									>
+									<Link className='nav-link' to='/testimonials'>
 										<i className='navbar-icon fas fa-bullhorn'></i>
 										Testimonials
 									</Link>
@@ -156,7 +133,7 @@ export default function NavBar(props) {
 				</Navbar.Collapse>
 			</Navbar>
 
-			<LoginModal show={show} onHide={() => setShow(false)}></LoginModal>
+			<LoginModal show={show} setShow={setShow}></LoginModal>
 		</Fragment>
 	);
 }
