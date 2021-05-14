@@ -27,7 +27,6 @@ const JobCard = (props) => {
 
 	const openModal = () => {
 		setShowModal((prev) => {
-			console.log(prev);
 			return !prev;
 		});
 	};
