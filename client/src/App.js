@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import JobsState from './context/jobs/JobsState';
-import { Container } from 'react-bootstrap';
 // bootstrap
 // pages
 import Landing from './components/scenes/Landing/index';
@@ -48,9 +47,7 @@ export default function App() {
 						<Router>
 							<ScrollToTop>
 								<NavBar navExpanded={navExpanded} setNavExpanded={setNavExpanded}></NavBar>
-								<Container>
-									<Alerts />
-								</Container>
+								<Alerts />
 								<div onClick={closeNav}>
 									<Switch>
 										<Route exact path='/' component={withTracker(Landing)} />
