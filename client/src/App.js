@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 // router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import JobsState from './context/jobs/JobsState';
-import { Container } from 'react-bootstrap';
 // bootstrap
 // pages
 import Landing from './components/scenes/Landing/index';
@@ -35,6 +34,11 @@ import './App.scss';
 
 // images
 export default function App() {
+	const [navExpanded, setNavExpanded] = useState(false);
+	const closeNav = () => {
+		setNavExpanded(false);
+	};
+
 	return (
 		<Fragment>
 			<AlertState>
@@ -42,82 +46,26 @@ export default function App() {
 					<JobsState>
 						<Router>
 							<ScrollToTop>
-								<NavBar></NavBar>
-								<Container>
-									<Alerts />
-								</Container>
-								<Switch>
-									<Route
-										exact
-										path='/'
-										component={withTracker(Landing)}
-									/>
-									<Route
-										exact
-										path='/about'
-										component={withTracker(About)}
-									/>
-									<Route
-										exact
-										path='/donate'
-										component={withTracker(Donate)}
-									/>
-									<Route
-										exact
-										path='/meetups'
-										component={withTracker(Meetups)}
-									/>
-									<Route
-										exact
-										path='/jobs'
-										component={withTracker(Jobs)}
-									/>
-									<Route
-										exact
-										path='/jobs/user/:userID'
-										component={withTracker(MyJobs)}
-									/>
-									<Route
-										exact
-										path='/jobs/post'
-										component={withTracker(PostJobs)}
-									/>
-									<Route
-										exact
-										path='/jobs/edit/:jobID'
-										component={withTracker(EditJob)}
-									/>
-									<Route
-										exact
-										path='/profile'
-										component={withTracker(Profile)}
-									/>
-									<Route
-										exact
-										path='/resources'
-										component={withTracker(Resources)}
-									/>
-									<Route
-										exact
-										path='/volunteer'
-										component={withTracker(Volunteer)}
-									/>
-									<Route
-										exact
-										path='/testimonials'
-										component={withTracker(Testimonials)}
-									/>
-									<Route
-										exact
-										path='/nonprofit'
-										component={withTracker(NonProfit)}
-									/>
-									<Route
-										exact
-										path='/501c3'
-										component={withTracker(NonProfit)}
-									/>
-								</Switch>
+								<NavBar navExpanded={navExpanded} setNavExpanded={setNavExpanded}></NavBar>
+								<Alerts />
+								<div onClick={closeNav}>
+									<Switch>
+										<Route exact path='/' component={withTracker(Landing)} />
+										<Route exact path='/about' component={withTracker(About)} />
+										<Route exact path='/donate' component={withTracker(Donate)} />
+										<Route exact path='/meetups' component={withTracker(Meetups)} />
+										<Route exact path='/jobs' component={withTracker(Jobs)} />
+										<Route exact path='/jobs/user/:userID' component={withTracker(MyJobs)} />
+										<Route exact path='/jobs/post' component={withTracker(PostJobs)} />
+										<Route exact path='/jobs/edit/:jobID' component={withTracker(EditJob)} />
+										<Route exact path='/profile' component={withTracker(Profile)} />
+										<Route exact path='/resources' component={withTracker(Resources)} />
+										<Route exact path='/volunteer' component={withTracker(Volunteer)} />
+										<Route exact path='/testimonials' component={withTracker(Testimonials)} />
+										<Route exact path='/nonprofit' component={withTracker(NonProfit)} />
+										<Route exact path='/501c3' component={withTracker(NonProfit)} />
+									</Switch>
+								</div>
 								<Footer></Footer>
 							</ScrollToTop>
 						</Router>

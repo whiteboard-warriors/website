@@ -51,7 +51,7 @@ const MyJobs = (props) => {
 	return (
 		<Fragment>
 			<Container>
-				<div className='text-center'>
+				<div className='text-center my-jobs-title'>
 					<h4 className='my-5 px-1'>Hi {user.firstName}, here are your job posts:</h4>
 				</div>
 				<JobActions />

@@ -174,7 +174,6 @@ const JobsState = (props) => {
 
 	// Update Job
 	const updateJob = async (job) => {
-		console.log('updateJob > ', job);
 		dispatch({
 			type: UPDATE_JOB,
 			payload: null,
