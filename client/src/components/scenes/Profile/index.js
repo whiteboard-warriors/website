@@ -57,9 +57,7 @@ const Profile = (props) => {
 		<Fragment>
 			<Container className='mb-5'>
 				<div className='text-center mb-5'>
-					<h1 className='mt-5'>
-						{user.firstName} {user.lastName}
-					</h1>
+					<h1 className='mt-5'>Profile</h1>
 				</div>
 				<Row>
 					<Col lg={{ span: 6, offset: 3 }}>
@@ -249,7 +247,6 @@ const Profile = (props) => {
 								</Col>
 							</Row>
 
-							<hr />
 							{/* job posting */}
 							<Row>
 								<Col>
