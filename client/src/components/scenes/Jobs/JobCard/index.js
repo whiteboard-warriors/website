@@ -53,12 +53,17 @@ const JobCard = (props) => {
 			clearCreateJobFlags();
 		}
 	};
-
+	// Job validity logic
+	let postedDaysAgo = dateDifference(postDate).match(/\d+/g);
 	let activeMsg = 'Not Active';
 	let activeColor = false;
 	if (active === 'true') {
 		activeMsg = 'Active';
 		activeColor = true;
+	}
+	if (active === 'true' && postedDaysAgo !== null && parseInt(postedDaysAgo[0]) > 30) {
+		activeMsg = 'Expired';
+		activeColor = false;
 	}
 
 	return (
