@@ -101,19 +101,19 @@ export default function RegistrationForm() {
 		<Fragment>
 			<Form noValidate validated={validated} onSubmit={handleSubmit} id='registrationForm'>
 				<Form.Row>
-					<Form.Group as={Col} md='6' controlId='validationCustom01'>
+					<Form.Group as={Col} md='6' controlId='firstName'>
 						<Form.Label>First Name</Form.Label>
 						<Form.Control type='text' placeholder='First Name' onChange={onChange} name='firstName' required />
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
-					<Form.Group as={Col} md='6' controlId='validationCustom02'>
+					<Form.Group as={Col} md='6' controlId='lastName'>
 						<Form.Label>Last Name</Form.Label>
 						<Form.Control type='text' placeholder='Last Name' onChange={onChange} name='lastName' required />
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
 				<Form.Row>
-					<Form.Group as={Col} md='12' controlId='validationCustom02'>
+					<Form.Group as={Col} md='12' controlId='email'>
 						<Form.Label>Email</Form.Label>
 						<Form.Control
 							type='email'
@@ -127,7 +127,7 @@ export default function RegistrationForm() {
 					</Form.Group>
 				</Form.Row>
 				<Form.Row>
-					<Form.Group as={Col} md='6' controlId='validationCustom02'>
+					<Form.Group as={Col} md='6' controlId='password1'>
 						<Form.Label>Password</Form.Label>
 						<Form.Control
 							type='password'
@@ -139,7 +139,7 @@ export default function RegistrationForm() {
 						/>
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
-					<Form.Group as={Col} md='6' controlId='validationCustom02'>
+					<Form.Group as={Col} md='6' controlId='password2'>
 						<Form.Label>Password</Form.Label>
 						<Form.Control
 							type='password'
@@ -153,7 +153,7 @@ export default function RegistrationForm() {
 					</Form.Group>
 				</Form.Row>
 				<Form.Row>
-					<Form.Group as={Col} md='12' controlId='validationCustom01'>
+					<Form.Group as={Col} md='12' controlId='linkedIn'>
 						<Form.Label>Linked In profile link</Form.Label>
 						<Form.Control
 							type='text'

@@ -30,10 +30,18 @@ app.use(
 );
 app.use(passport.initialize());
 require('./config/passport')(passport);
+
+// Add routes, both API and view
+app.use('/api/users', passport.authenticate('jwt', { session: false }), require('./routes/users'));
+app.use('/api/jobs', passport.authenticate('jwt', { session: false }), require('./routes/jobs'));
+app.use('/api/all/jobs', require('./routes/allJobs'));
+app.use('/api/auth', require('./routes/auth'));
+
 // Serve up static assets (usually on heroku)
+app.use(express.static('client/build'));
+
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-	app.get('/', (req, res) => {
+	app.get('*', (req, res) => {
 		res.sendFile(process.cwd() + '/client/build/index.html');
 	});
 
@@ -41,15 +49,6 @@ if (process.env.NODE_ENV === 'production') {
 		res.sendFile(process.cwd() + '/client/public/sitemap.xml');
 	});
 }
-
-// Oauth
-app.use('/oauth', require('./routes/oauth'));
-
-// Add routes, both API and view
-app.use('/api/users', passport.authenticate('jwt', { session: false }), require('./routes/users'));
-app.use('/api/jobs', passport.authenticate('jwt', { session: false }), require('./routes/jobs'));
-app.use('/api/all/jobs', require('./routes/allJobs'));
-app.use('/api/auth', require('./routes/auth'));
 
 // Connect to the Mongo DB
 mongoose.set('useUnifiedTopology', true);
