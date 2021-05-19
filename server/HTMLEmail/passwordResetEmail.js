@@ -1,161 +1,6 @@
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Whiteboard Warriors</title>
-		<style>
-			body {
-				padding: 0;
-				margin: 0;
-			}
-			* {
-				color: black;
-				font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
-					'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-			}
-			.table-container {
-				width: 100%;
-				margin-top: 30px;
-			}
-			.border {
-				border: 1px solid lightgray;
-				max-width: 640px;
-				border-radius: 20px;
-			}
-			.header-container {
-				width: 640px;
-				background-color: #fa6500;
-				padding: 20px;
-				border-top-left-radius: 20px;
-				border-top-right-radius: 20px;
-			}
-
-			.logo {
-				height: 150px;
-			}
-			.content-container {
-				padding: 50px;
-			}
-			.footer-container {
-				min-width: 640px;
-				background-color: #717375;
-				padding: 30px;
-				border-bottom-left-radius: 20px;
-				border-bottom-right-radius: 20px;
-			}
-			.icon {
-				width: 50px;
-			}
-			.social-link {
-				text-decoration: none;
-			}
-			.social-media {
-				padding: 30px;
-			}
-			.button {
-				display: inline;
-				padding: 5px 10px;
-				border-radius: 20px;
-				max-width: 50px;
-				text-align: center;
-				color: white;
-				margin-right: 10px;
-			}
-			.button:hover {
-				border: 1px solid #8e969f;
-			}
-			.instagram {
-				background-color: #e90171;
-				background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-				background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-				background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-			}
-			.facebook {
-				background-color: #1a77f2;
-			}
-			.twitter {
-				background-color: #1da1f2;
-			}
-		</style>
-	</head>
-	<body>
-		<table class="table-container">
-			<tbody>
-				<tr>
-					<td align="center" valign="top">
-						<div class="border">
-							<table class="header-container">
-								<tbody>
-									<tr>
-										<td align="center" valign="top">
-											<div class="">
-												<img
-													src="https://www.whiteboardwarriors.org/static/media/ww_logo.2ee342af.svg"
-													alt="logo"
-													class="logo"
-												/>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="content-container">
-								<tbody>
-									<tr>
-										<td align="center" valign="top">
-											<div class="content-header">
-												<h1>Welcome to Whiteboard Warriors!</h1>
-												<br />
-												<h4>
-													If you haven't seen it yet,
-													<a href="https://www.whiteboardwarriors.org/jobs" target="_blank"
-														>click here to check out our new job board.</a
-													>
-												</h4>
-												<br /><br />
-												<p>
-													<i>
-														Follow us on social media to stay in touch with everything happening at Whiteboard
-														Warriors.</i
-													>
-												</p>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<table class="footer-container">
-								<tbody>
-									<tr>
-										<td align="center">
-											<div class="socia-media">
-												<a class="social-link" href="https://www.instagram.com/whiteboardwarriors/" target="_blank"
-													><div class="button instagram">Instagram</div></a
-												>
-												<a class="social-link" href="https://www.facebook.com/whiteboardwarriors" target="_blank"
-													><div class="button facebook">Facebook</div></a
-												>
-												<a class="social-link" href="https://www.twitter.com/wbwarriorscode" target="_blank"
-													><div class="button twitter">Twitter</div></a
-												>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</body>
-</html>
-
-<!-- INLINE -->
-
-<body
+const passwordResetEmail = (httpProtocol, hostName, resetToken) => {
+	return `
+    <body
 	style="
 		color: black;
 		font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
@@ -214,7 +59,8 @@
 								color: black;
 								font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
 									sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-								width: 640px;
+								width: 100%;
+								max-width: 640px;
 								background-color: #fa6500;
 								padding: 20px;
 								border-top-left-radius: 20px;
@@ -253,18 +99,16 @@
 													'Noto Color Emoji';
 											"
 										>
-											<img
-												src="https://www.whiteboardwarriors.org/static/media/ww_logo.2ee342af.svg"
-												alt="logo"
-												class="logo"
-												style="
-													color: black;
-													font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-														'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-														'Segoe UI Symbol', 'Noto Color Emoji';
-													height: 150px;
-												"
-											/>
+											<h1
+													style="
+														color: white;
+														font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+															'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+															'Segoe UI Symbol', 'Noto Color Emoji';
+													"
+												>
+													Whiteboard Warriors
+											</h1>
 										</div>
 									</td>
 								</tr>
@@ -319,7 +163,7 @@
 														'Segoe UI Symbol', 'Noto Color Emoji';
 												"
 											>
-												Welcome to Whiteboard Warriors!
+												Password Reset
 											</h1>
 											<br
 												style="
@@ -329,7 +173,7 @@
 														'Segoe UI Symbol', 'Noto Color Emoji';
 												"
 											/>
-											<h4
+											<p
 												style="
 													color: black;
 													font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -337,19 +181,9 @@
 														'Segoe UI Symbol', 'Noto Color Emoji';
 												"
 											>
-												If you haven't seen it yet,
-												<a
-													href="https://www.whiteboardwarriors.org/jobs"
-													target="_blank"
-													style="
-														color: black;
-														font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-															'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-															'Segoe UI Symbol', 'Noto Color Emoji';
-													"
-													>click here to check out our new job board.
-												</a>
-											</h4>
+												You have requested to reset your Whiteboard Warriors password. Please click the button bellow to
+												reset your password:
+											</p>
 											<br
 												style="
 													color: black;
@@ -365,6 +199,65 @@
 														'Segoe UI Symbol', 'Noto Color Emoji';
 												"
 											/>
+											<a
+												class="social-link"
+												href="${httpProtocol + hostName}/reset-password?token=${resetToken}"
+                                                target="_blank"
+												style="
+													color: black;
+													font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+														'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+														'Segoe UI Symbol', 'Noto Color Emoji';
+													text-decoration: none;
+												"
+												><div
+													class="button reset"
+													style="
+														color: white;
+														font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+															'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+															'Segoe UI Symbol', 'Noto Color Emoji';
+														display: inline;
+														padding: 10px;
+														border-radius: 20px;
+														max-width: 50px;
+														text-align: center;
+														margin-right: 10px;
+														background-color: #1da1f2;
+													"
+												>
+													Reset My Password
+												</div>
+												<br
+													style="
+														color: black;
+														font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+															'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+															'Segoe UI Symbol', 'Noto Color Emoji';
+													"
+												/><br
+													style="
+														color: black;
+														font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+															'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+															'Segoe UI Symbol', 'Noto Color Emoji';
+													"
+												/><br
+													style="
+														color: black;
+														font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+															'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+															'Segoe UI Symbol', 'Noto Color Emoji';
+													"
+												/><br
+													style="
+														color: black;
+														font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+															'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+															'Segoe UI Symbol', 'Noto Color Emoji';
+													"
+												/>
+											</a>
 											<p
 												style="
 													color: black;
@@ -395,7 +288,8 @@
 								color: black;
 								font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
 									sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-								min-width: 640px;
+								width: 100%;
+								max-width: 640px;
 								background-color: #717375;
 								padding: 30px;
 								border-bottom-left-radius: 20px;
@@ -541,3 +435,7 @@
 		</tbody>
 	</table>
 </body>
+    `;
+};
+
+module.exports = { passwordResetEmail };

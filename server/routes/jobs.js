@@ -128,7 +128,7 @@ router.post('/apply-for-job', async (req, res) => {
 			});
 		}
 		// sendJobApplicationEmail(applicantName, applicantEmail, linkedIn, employerName, employerEmail)
-		sendJobApplicationEmail(user.email, user.email, user.linkedIn, job.createdBy.firstName, job.createdBy.email);
+		sendJobApplicationEmail(user.firstName, user.email, user.linkedIn, job.createdBy.firstName, job.createdBy.email);
 
 		res.send('Your job application was submitted successfully');
 	} catch (err) {
