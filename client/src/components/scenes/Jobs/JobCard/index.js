@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './style.scss';
 
 // Components
@@ -14,6 +14,7 @@ import AuthContext from '../../../../context/auth/authContext';
 import AlertContext from '../../../../context/alert/alertContext';
 
 const JobCard = (props) => {
+	const history = useHistory();
 	const { jobID, company, title, city, state, salary, about, postDate, admin, active } = props;
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
@@ -45,8 +46,9 @@ const JobCard = (props) => {
 			setAlert('Please signup or login to apply for a jobs! Also, please be sure to include your LinkedIn link!', 'warning');
 			clearCreateJobFlags();
 		} else if (!user.linkedIn) {
+			history.push('/profile');
 			setAlert('Please update your profile and include our Linked In link to be able to apply for jobs', 'warning');
-			props.history.push('/profile');
+
 			clearCreateJobFlags();
 		} else {
 			applyForJob({ jobID });
