@@ -16,7 +16,7 @@ import personPlaceholder from './placeholder.jpeg';
 export default function NavBar(props) {
 	const [show, setShow] = useState(false);
 	// const [navExpanded, setNavExpanded] = useState(false);
-	const { navExpanded, setNavExpanded, profileImage } = props;
+	const { navExpanded, setNavExpanded } = props;
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
 	const { setAlert } = alertContext;
@@ -76,7 +76,7 @@ export default function NavBar(props) {
 						<li className='nav-item avatar'>
 							<Link className='nav-link p-0' to='/profile' onClick={closeNav}>
 								<img
-									src={profileImage ? profileImage : personPlaceholder}
+									src={user.avatar ? user.avatar : personPlaceholder}
 									className='profile-pic rounded-circle z-depth-0'
 									alt='avatar'
 								></img>
