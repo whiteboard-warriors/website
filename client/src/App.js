@@ -27,6 +27,7 @@ import Volunteer from './components/scenes/Volunteer';
 import withTracker from './tracker/withTracker';
 import Alerts from './components/Alerts';
 import ScrollToTop from './components/ScrollToTop';
+import Authenticate from './components/scenes/Authenticate';
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -64,6 +65,7 @@ export default function App() {
 										<Route exact path='/testimonials' component={withTracker(Testimonials)} />
 										<Route exact path='/nonprofit' component={withTracker(NonProfit)} />
 										<Route exact path='/501c3' component={withTracker(NonProfit)} />
+										<Route exact path='/authenticate' component={Authenticate} />
 									</Switch>
 								</div>
 								<Footer></Footer>

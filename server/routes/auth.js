@@ -1,5 +1,4 @@
 const express = require('express');
-const passport = require('../config/passport');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../models');
@@ -7,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const crypto = require('crypto');
 const emailService = require('../service/emailservice');
+const passport = require('passport');
 // @route   POST api/auth
 // @desc - Login
 router.post('/login', async function (req, res) {
@@ -174,6 +174,19 @@ router.post('/forgot-password-complete', async (req, res) => {
 		console.error(err.message);
 		res.status(500).send('Server Error');
 	}
+});
+
+/**
+ *
+ */
+router.get('/linkedin', passport.authenticate('linkedin'));
+
+/**
+ * Callback from LinkedIn SSO
+ */
+router.get('/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), function (req, res) {
+	// Successful authentication, redirect home.
+	res.redirect('/');
 });
 
 module.exports = router;

@@ -179,6 +179,21 @@ const AuthState = (props) => {
 		}
 	}
 
+	/**
+	 * 
+	 * @param {*} token 
+	 */
+	const setToken = async (token) => {
+		dispatch({
+			type: LOGIN_SUCCESS,
+			payload: {
+				token: token
+			}
+		})
+
+		loadUser();
+	}
+
 	// Logout
 	const logout = () => dispatch({ type: LOGOUT })
 
@@ -211,6 +226,7 @@ const AuthState = (props) => {
 				forgotPassword,
 				forgotPasswordComplete,
 				clearSuccess,
+				setToken
 			}}
 		>
 			{props.children}
