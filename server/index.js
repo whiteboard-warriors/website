@@ -31,6 +31,9 @@ app.use(
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
+// Oauth
+app.use('/oauth', require('./routes/oauth'));
+
 // Add routes, both API and view
 app.use('/api/users', passport.authenticate('jwt', { session: false }), require('./routes/users'));
 app.use('/api/jobs', passport.authenticate('jwt', { session: false }), require('./routes/jobs'));

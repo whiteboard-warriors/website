@@ -12,7 +12,6 @@ router.get('/linkedin', passport.authenticate('linkedin'));
  * Callback from LinkedIn SSO
  */
 router.get('/linkedin/callback', passport.authenticate('linkedin', { session: false }), function (req, res) {
-	console.log('req.user: ' + req.user);
 	const payload = {
 		id: req.user.id,
 		name: req.user.name,
@@ -25,7 +24,7 @@ router.get('/linkedin/callback', passport.authenticate('linkedin', { session: fa
 			expiresIn: 31556926, // 1 year in seconds
 		},
 		(err, token) => {
-			res.redirect('http://localhost:3000/authenticate?token=' + token);
+			res.redirect(process.env.HTTP_PROTOCOL + process.env.HOST_NAME + '/authenticate?token=' + token);
 		}
 	);
 });
