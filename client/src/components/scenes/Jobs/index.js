@@ -18,7 +18,7 @@ const Jobs = () => {
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
-	const { loading, jobs, getJobs, applyingSuccess, error, clearJobError } = jobsContext;
+	const { loading, jobs, getJobs, applyingSuccess, error, clearJobError, clearJobFlags } = jobsContext;
 	const { user } = authContext;
 	const { setAlert } = alertContext;
 
@@ -31,6 +31,7 @@ const Jobs = () => {
 		getJobs();
 		if (applyingSuccess) {
 			setAlert('Thanks! Your job application was submitted successfully', 'success');
+			clearJobFlags();
 		}
 		if (error) {
 			setAlert(error, 'danger');
