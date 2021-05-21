@@ -20,7 +20,7 @@ const JobCard = (props) => {
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
 
-	const { setCurrentJob, updateJob, applyForJob, clearCreateJobFlags } = jobsContext;
+	const { setCurrentJob, updateJob, applyForJob, clearJobFlags } = jobsContext;
 	const { user, isAuthenticated } = authContext;
 	const { setAlert } = alertContext;
 
@@ -44,15 +44,14 @@ const JobCard = (props) => {
 		e.preventDefault();
 		if (!isAuthenticated) {
 			setAlert('Please signup or login to apply for a jobs! Also, please be sure to include your LinkedIn link!', 'warning');
-			clearCreateJobFlags();
+			clearJobFlags();
 		} else if (!user.linkedIn) {
 			history.push('/profile');
 			setAlert('Please update your profile and include our Linked In link to be able to apply for jobs', 'warning');
-
-			clearCreateJobFlags();
+			clearJobFlags();
 		} else {
 			applyForJob({ jobID });
-			clearCreateJobFlags();
+			clearJobFlags();
 		}
 	};
 	// Job validity logic
