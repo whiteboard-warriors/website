@@ -23,7 +23,7 @@ import {
 	CREATE_JOB_ERROR,
 	GET_JOBS_ERROR,
 	UPDATE_JOB_ERROR,
-	CLEAR_CREATE_JOB_FLAGS,
+	CLEAR_JOB_FLAGS,
 	APPLY_FOR_JOB,
 	APPLY_FOR_JOB_ERROR,
 	APPLY_FOR_JOB_SUCCESS,
@@ -166,9 +166,9 @@ const JobsState = (props) => {
 		}
 	};
 	// Clear job flags
-	const clearCreateJobFlags = async () => {
+	const clearJobFlags = async () => {
 		dispatch({
-			type: CLEAR_CREATE_JOB_FLAGS,
+			type: CLEAR_JOB_FLAGS,
 		});
 	};
 
@@ -250,7 +250,7 @@ const JobsState = (props) => {
 				getJob,
 				getMyJobs,
 				applyForJob,
-				clearCreateJobFlags,
+				clearJobFlags,
 				clearJobError,
 			}}
 		>
