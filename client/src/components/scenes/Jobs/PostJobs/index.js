@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import AlertContext from '../../../../context/alert/alertContext';
 import AuthContext from '../../../../context/auth/authContext';
 import JobsContext from '../../../../context/jobs/jobsContext';
@@ -7,17 +8,18 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import './style.scss';
 
 const PostJobs = (props) => {
+	const history = useHistory();
 	const alertContext = useContext(AlertContext);
 	const authContext = useContext(AuthContext);
 	const jobsContext = useContext(JobsContext);
 
 	const { setAlert } = alertContext;
-	const { createJob, error, clearJobError, saveSuccess, clearCreateJobFlags } = jobsContext;
+	const { createJob, error, clearJobError, saveSuccess, clearJobFlags } = jobsContext;
 	const { user, isAuthenticated } = authContext;
 
 	useEffect(() => {
 		if (!isAuthenticated) {
-			props.history.push('/');
+			history.push('/');
 			setAlert("Oops, unfortunately you're not logged in 😱. Please login or sign up to perform this action.", 'danger');
 		}
 
@@ -27,17 +29,17 @@ const PostJobs = (props) => {
 		}
 		if (saveSuccess) {
 			setAlert('Your new job has been posted.', 'success');
-			clearCreateJobFlags();
+			clearJobFlags();
 			// debugger;
-			props.history.push('/jobs');
+			history.push('/jobs');
 		}
 		if (user.jobPosting === 'no') {
-			setAlert('Please update your profile to be able to post jobs :)', 'warning');
-			props.history.push('/profile');
+			setAlert('Please update your profile to be able to post jobs :)\n\nScroll down to the job posting section.', 'warning');
+			history.push('/profile');
 		}
 
 		// eslint-disable-next-line
-	}, [error, isAuthenticated, clearCreateJobFlags, props.history]);
+	}, [error, isAuthenticated, clearJobFlags, history]);
 
 	const [job, setJob] = useState({
 		company: '',
