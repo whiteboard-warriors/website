@@ -18,6 +18,7 @@ export default function LoginModal(props) {
 
 				<Modal.Body>
 					<Alert />
+
 					<Tabs id='controlled-tab' activeKey={key} onSelect={(k) => setKey(k)}>
 						<Tab className='p-4' eventKey='log-in' title='Log In'>
 							<LoginForm></LoginForm>

@@ -106,15 +106,22 @@ const Profile = (props) => {
 								/>
 							</Form.Group>
 							<Form.Group>
-								<Form.Label>Linked In profile link</Form.Label>
+								<Form.Label htmlFor='linkedInVanityUrl'>LinkedIn Profile</Form.Label>
 								<Form.Control
 									type='text'
-									placeholder='Your Linked In profile link'
+									placeholder='https://www.linkedin.com/in/...'
 									onChange={onChangeProfile}
 									name='linkedIn'
 									defaultValue={linkedIn}
-									id='linkedIn'
+									id='linkedInVanityUrl'
 								/>
+								<Form.Text id='linkedInVanityUrlHelpBlock' muted>
+									Your complete LinkedIn Profile url, for example:{' '}
+									<a href='https://linkedin.com/in/jordanbaucke/'>https://linkedin.com/in/jordanbaucke/</a>
+									<br />
+									*Even if you logged in with LinkedIn, <em>we're just not cool enough</em> for them to share this us
+									automatically 🤷‍♂
+								</Form.Text>
 							</Form.Group>
 
 							<Row className='mt-5'>

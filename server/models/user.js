@@ -17,10 +17,7 @@ const UserSchema = new Schema({
 	},
 	password: {
 		type: String,
-		validate: [
-			({ length }) => length >= 6,
-			'Password needs to be longer than 6 characters.',
-		],
+		validate: [({ length }) => length >= 6, 'Password needs to be longer than 6 characters.'],
 		required: 'Password is Required',
 	},
 	avatar: {
@@ -38,6 +35,12 @@ const UserSchema = new Schema({
 		type: String,
 	},
 	linkedIn: {
+		type: String,
+	},
+	linkedInProfileId: {
+		type: String,
+	},
+	linkedInToken: {
 		type: String,
 	},
 	primaryLanguage: {
@@ -75,11 +78,7 @@ UserSchema.methods.validPassword = function (password) {
 // Hooks are automatic methods that run during various phases of the User Model lifecycle
 // In this case, before a User is created, we will automatically hash their password
 UserSchema.pre('save', function (next) {
-	this.password = bcrypt.hashSync(
-		this.password,
-		bcrypt.genSaltSync(10),
-		null
-	);
+	this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10), null);
 	next();
 });
 
