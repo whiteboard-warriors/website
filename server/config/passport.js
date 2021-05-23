@@ -33,7 +33,10 @@ module.exports = (passport) => {
 			{
 				clientID: LINKEDIN_KEY,
 				clientSecret: LINKEDIN_SECRET,
-				callbackURL: process.env.HTTP_PROTOCOL + process.env.HOST_NAME + '/oauth/linkedin/callback',
+				callbackURL:
+					process.env.HTTP_PROTOCOL +
+					(process.env.NODE_ENV === 'production' ? process.env.HOST_NAME : process.env.HOST_SERVER_NAME) +
+					'/oauth/linkedin/callback',
 				scope: ['r_emailaddress', 'r_liteprofile'],
 				state: true,
 				passReqToCallback: true,

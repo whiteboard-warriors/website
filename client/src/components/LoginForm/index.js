@@ -51,7 +51,7 @@ export default function LoginForm() {
 			<Row>
 				<Col>
 					<div className='text-center'>
-						<a href='/api/auth/linkedin' className=''>
+						<a href='http://localhost:5005/api/auth/linkedin' className=''>
 							<img className='linkedIn-button mx-auto mb-2' alt='Sign-In With LinkedIn' src={linkedinSigninDefault}></img>
 						</a>
 					</div>
