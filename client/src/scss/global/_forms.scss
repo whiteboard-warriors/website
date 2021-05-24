@@ -10,6 +10,9 @@ textarea {
 		border: 1px solid rgb(161, 164, 165);
 	}
 }
+input[type='radio'] {
+	-webkit-appearance: radio !important;
+}
 
 .form-group {
 	input {
