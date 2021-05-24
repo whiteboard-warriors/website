@@ -54,7 +54,7 @@ module.exports = (passport) => {
 						lastName: profile.name.familyName,
 						email: profile.emails[0].value,
 						password: utilService.generateRandomString(16),
-						avatar: profile.photos[2].value,
+						avatar: profile.photos[3].value,
 						linkedInProfileId: profile.id,
 						linkedInToken: token,
 						linkedIn: '',
