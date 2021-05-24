@@ -1,1 +1,19 @@
 @import '../../../App.scss';
+
+.profile-img-container {
+	display: flex;
+	justify-content: center;
+	img {
+		height: 11rem;
+		border-radius: 50%;
+		padding: 0.2rem;
+		border: 1px $secondary solid;
+	}
+	margin-bottom: 2rem;
+}
+// desktop
+@media only screen and (min-width: 1024px) {
+	.profile-img-container {
+		margin-bottom: 3rem;
+	}
+}

@@ -46,12 +46,17 @@ export default function LoginForm() {
 		});
 	};
 
+	let location = window.location.href;
+
 	return (
 		<Fragment>
 			<Row>
 				<Col>
 					<div className='text-center'>
-						<a href='/api/auth/linkedin' className=''>
+						<a
+							href={location === 'http://localhost:3000/' ? 'http://localhost:5005/api/auth/linkedin' : '/api/auth/linkedin'}
+							className=''
+						>
 							<img className='linkedIn-button mx-auto mb-2' alt='Sign-In With LinkedIn' src={linkedinSigninDefault}></img>
 						</a>
 					</div>

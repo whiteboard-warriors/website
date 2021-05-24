@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import './style.scss';
 
 // Components
@@ -15,11 +16,12 @@ import AlertContext from '../../../../context/alert/alertContext';
 import getDaysAgoData from '../../../../utils/getDaysAgoData';
 
 const MyJobs = (props) => {
+	const history = useHistory();
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
 
-	const { loading, myJobs, getMyJobs, updateSuccess, clearCreateJobFlags, error, clearJobError } = jobsContext;
+	const { loading, myJobs, getMyJobs, updateSuccess, clearJobFlags, error, clearJobError } = jobsContext;
 	const { user, isAuthenticated } = authContext;
 	const { setAlert } = alertContext;
 
@@ -28,7 +30,7 @@ const MyJobs = (props) => {
 	useEffect(() => {
 		getMyJobs();
 		if (!isAuthenticated) {
-			props.history.push('/');
+			history.push('/');
 			setAlert("Oops, looks like you're not logged in 😱. Please login or sign up to perform this action.", 'danger');
 		}
 
@@ -38,11 +40,11 @@ const MyJobs = (props) => {
 		}
 		if (updateSuccess) {
 			setAlert('Your job posting has been updated!', 'warning');
-			clearCreateJobFlags();
-			props.history.push(`/jobs/user/${user._id}`);
+			clearJobFlags();
+			history.push(`/jobs/user/${user._id}`);
 		}
 		//eslint-disable-next-line
-	}, [isAuthenticated, updateSuccess, props.history]);
+	}, [isAuthenticated, updateSuccess, history]);
 
 	if (myJobs === []) {
 		sortedJobs = false;

@@ -7,7 +7,7 @@ import {
 	GET_MY_JOBS_SUCCESS,
 	CREATE_JOB,
 	CREATE_JOB_SUCCESS,
-	CLEAR_CREATE_JOB_FLAGS,
+	CLEAR_JOB_FLAGS,
 	SET_CURRENT_JOB,
 	CLEAR_CURRENT_JOB,
 	UPDATE_JOB_SUCCESS,
@@ -105,7 +105,7 @@ export default (state, action) => {
 				error: null,
 				current: null,
 			};
-		case CLEAR_CREATE_JOB_FLAGS: {
+		case CLEAR_JOB_FLAGS: {
 			return {
 				...state,
 				error: null,
