@@ -1,8 +1,9 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react';
 import './style.scss';
-import { Form, Row, Col, Button, Container } from 'react-bootstrap';
+import { Form, Row, Col, Button, Container, Image } from 'react-bootstrap';
 import AuthContext from '../../../context/auth/authContext';
 import AlertContext from '../../../context/alert/alertContext';
+import placeholder from './placeholder.jpeg';
 
 const Profile = (props) => {
 	const alertContext = useContext(AlertContext);
@@ -58,6 +59,9 @@ const Profile = (props) => {
 			<Container className='mb-5'>
 				<div className='text-center mb-5'>
 					<h1 className='mt-5'>Profile</h1>
+				</div>
+				<div className='profile-img-container '>
+					<img src={user.avatar ? user.avatar : placeholder} />
 				</div>
 				<Row>
 					<Col lg={{ span: 6, offset: 3 }}>
