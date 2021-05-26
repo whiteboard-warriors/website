@@ -1,0 +1,25 @@
+@import '../../../App.scss';
+
+.PNF-card {
+    margin: 2rem 0 5rem;
+    padding: 3rem 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid $secondary;
+    border-radius: 1.5rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        font-weight: bolder;
+    }
+    h2 {
+        margin-bottom: 3rem;
+    }
+    img {
+        max-width: 20rem;
+    }
+}
