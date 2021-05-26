@@ -20,7 +20,7 @@ const Landing = () => {
 	useEffect(() => {
 		if (loginSuccess && user) {
 			console.log(user.firstName);
-			setAlert(`Welcome back, ${user.firstName}!`, 'success');
+			setAlert(`Welcome, ${user.firstName}!`, 'success');
 			clearLoginFlags();
 		}
 
