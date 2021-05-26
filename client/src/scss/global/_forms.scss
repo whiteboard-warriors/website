@@ -1,4 +1,7 @@
-input,
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='checkbox'],
 textarea {
 	border-radius: 0 !important;
 	border-color: lighten($color: $secondary, $amount: 10) !important;
@@ -10,12 +13,11 @@ textarea {
 		border: 1px solid rgb(161, 164, 165);
 	}
 }
-input[type='radio'] {
-	-webkit-appearance: radio !important;
-}
 
 .form-group {
-	input {
+	input[type='text'],
+	input[type='password'],
+	input[type='email'] {
 		padding: 1.4rem 1rem;
 	}
 }
