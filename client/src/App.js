@@ -19,6 +19,7 @@ import Profile from './components/scenes/Profile/index';
 import EditJob from './components/scenes/Jobs/EditJob';
 import MyJobs from './components/scenes/Jobs/MyJobs';
 import PostJobs from './components/scenes/Jobs/PostJobs';
+import PageNotFound from './components/scenes/PageNotFound';
 
 // components
 import NavBar from './components/NavBar';
@@ -65,6 +66,7 @@ export default function App() {
 										<Route exact path='/testimonials' component={withTracker(Testimonials)} />
 										<Route exact path='/nonprofit' component={withTracker(NonProfit)} />
 										<Route exact path='/501c3' component={withTracker(NonProfit)} />
+										<Route exact path='*' component={withTracker(PageNotFound)} />
 										<Route exact path='/authenticate' component={Authenticate} />
 									</Switch>
 								</div>
