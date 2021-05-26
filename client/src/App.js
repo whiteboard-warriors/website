@@ -30,6 +30,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Authenticate from './components/scenes/Authenticate';
 
 // css
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 // images
