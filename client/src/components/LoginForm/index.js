@@ -5,7 +5,8 @@ import AlertContext from '../../context/alert/alertContext';
 import { Col, Row, Form } from 'react-bootstrap';
 import linkedinSigninDefault from './Sign-In-Large---Default.png';
 
-export default function LoginForm() {
+export default function LoginForm(props) {
+	const { setShow } = props;
 	const authContext = useContext(AuthContext);
 	const { login, authError, clearErrors, isAuthenticated } = authContext;
 	const alertContext = useContext(AlertContext);
@@ -82,7 +83,14 @@ export default function LoginForm() {
 										required
 									/>
 								</Form.Group>
-								<Link to='/forgot-password'>Forgot Password?</Link>
+								<Link
+									to='/forgot-password'
+									onClick={() => {
+										setShow(false);
+									}}
+								>
+									Forgot Password?
+								</Link>
 							</Col>
 						</Row>
 					</Form>
