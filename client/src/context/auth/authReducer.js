@@ -108,6 +108,8 @@ export default (state, action) => {
 				...state,
 				loginSuccess: false,
 				loading: false,
+				forgotRequestSuccess: false,
+				forgotResetSuccess: false,
 			};
 		default:
 			return state;
