@@ -19,6 +19,9 @@ import Profile from './components/scenes/Profile/index';
 import EditJob from './components/scenes/Jobs/EditJob';
 import MyJobs from './components/scenes/Jobs/MyJobs';
 import PostJobs from './components/scenes/Jobs/PostJobs';
+import PageNotFound from './components/scenes/PageNotFound';
+import ForgotPassword from './components/scenes/ForgotPassword';
+import ResetPassword from './components/scenes/ResetPassword';
 
 // components
 import NavBar from './components/NavBar';
@@ -66,6 +69,9 @@ export default function App() {
 										<Route exact path='/nonprofit' component={withTracker(NonProfit)} />
 										<Route exact path='/501c3' component={withTracker(NonProfit)} />
 										<Route exact path='/authenticate' component={Authenticate} />
+										<Route exact path='/forgot-password' component={ForgotPassword} />
+										<Route exact path='/reset-password' component={ResetPassword} />
+										<Route exact path='*' component={withTracker(PageNotFound)} />
 									</Switch>
 								</div>
 								<Footer></Footer>
