@@ -14,7 +14,7 @@ const ForgotPassword = () => {
 	const alertContext = useContext(AlertContext);
 	const authContext = useContext(AuthContext);
 
-	const { forgotPassword, forgotRequestSuccess, error } = authContext;
+	const { forgotPassword, forgotRequestSuccess, error, clearLoginFlags } = authContext;
 	const { setAlert } = alertContext;
 
 	const [user, setUser] = useState({
@@ -23,13 +23,30 @@ const ForgotPassword = () => {
 
 	const { email } = user;
 
-	const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+	const onChange = (e) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		forgotPassword({
-			email,
-		});
+		const form = e.currentTarget;
+		const emailInput = form.elements['email'];
+		let valid = true;
+		console.log(emailInput.checkValidity());
+		if (!emailInput.checkValidity()) {
+			e.stopPropagation();
+			emailInput.setCustomValidity('Please enter a valid email address.');
+			emailInput.reportValidity();
+			valid = false;
+		} else {
+			valid = true;
+		}
+
+		if (valid) {
+			forgotPassword({
+				email,
+			});
+		}
 	};
 
 	/**
@@ -39,7 +56,9 @@ const ForgotPassword = () => {
 		if (forgotRequestSuccess) {
 			history.push('/');
 			setAlert('Please check your email, if we found it in our database we will send you a reset link.', 'success');
+			clearLoginFlags();
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [error, forgotRequestSuccess, history, setAlert]);
 
 	return (
@@ -55,13 +74,22 @@ const ForgotPassword = () => {
 								<Col>
 									<Form.Group controlId='formEmail'>
 										<Form.Label>Please enter the email address associated with your account</Form.Label>
-										<Form.Control type='text' placeholder='E-Mail' name='email' value={email} onChange={onChange} required />
+										<Form.Control
+											type='text'
+											placeholder='E-Mail'
+											name='email'
+											value={email}
+											onChange={onChange}
+											pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+											required
+										/>
+										<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 									</Form.Group>
 								</Col>
 							</Row>
 							<div className='text-center'>
 								<Button variant='primary' type='submit'>
-									Forgot Password
+									Submit
 								</Button>
 							</div>
 						</Form>
