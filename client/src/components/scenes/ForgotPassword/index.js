@@ -17,6 +17,7 @@ const ForgotPassword = () => {
 	const { forgotPassword, forgotRequestSuccess, error, clearLoginFlags } = authContext;
 	const { setAlert } = alertContext;
 
+	const [validated, setValidated] = useState(false);
 	const [user, setUser] = useState({
 		email: '',
 	});
@@ -25,6 +26,17 @@ const ForgotPassword = () => {
 
 	const onChange = (e) => {
 		setUser({ ...user, [e.target.name]: e.target.value });
+		const form = e.currentTarget.form;
+		const emailInput = form.elements['email'];
+
+		if (emailInput.checkValidity()) {
+			setValidated(true);
+			emailInput.setCustomValidity('');
+			emailInput.reportValidity();
+		} else {
+			setValidated(false);
+			emailInput.setCustomValidity('');
+		}
 	};
 
 	const onSubmit = (e) => {
@@ -32,8 +44,7 @@ const ForgotPassword = () => {
 		const form = e.currentTarget;
 		const emailInput = form.elements['email'];
 		let valid = true;
-		console.log(emailInput.checkValidity());
-		if (!emailInput.checkValidity()) {
+		if (!validated) {
 			e.stopPropagation();
 			emailInput.setCustomValidity('Please enter a valid email address.');
 			emailInput.reportValidity();
@@ -49,9 +60,6 @@ const ForgotPassword = () => {
 		}
 	};
 
-	/**
-	 *
-	 */
 	useEffect(() => {
 		if (forgotRequestSuccess) {
 			history.push('/');
@@ -69,13 +77,13 @@ const ForgotPassword = () => {
 						<div className='text-center mb-5'>
 							<h1 className='mt-5'>Forgot Password</h1>
 						</div>
-						<Form onSubmit={onSubmit}>
+						<Form noValidate validated={validated} onSubmit={onSubmit}>
 							<Row>
 								<Col>
 									<Form.Group controlId='formEmail'>
 										<Form.Label>Please enter the email address associated with your account</Form.Label>
 										<Form.Control
-											type='text'
+											type='email'
 											placeholder='E-Mail'
 											name='email'
 											value={email}
@@ -83,7 +91,6 @@ const ForgotPassword = () => {
 											pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
 											required
 										/>
-										<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 									</Form.Group>
 								</Col>
 							</Row>
