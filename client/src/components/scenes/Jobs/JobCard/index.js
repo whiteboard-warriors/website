@@ -47,7 +47,7 @@ const JobCard = (props) => {
 			clearJobFlags();
 		} else if (!user.linkedIn) {
 			history.push('/profile');
-			setAlert('Please update your profile and include our Linked In link to be able to apply for jobs', 'warning');
+			setAlert('Please update your profile and include your LinkedIn link to be able to apply for jobs', 'warning');
 			clearJobFlags();
 		} else {
 			applyForJob({ jobID });
