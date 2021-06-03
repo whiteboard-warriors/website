@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
 import { Col, Row, Form } from 'react-bootstrap';
-import linkedinSigninDefault from './Sign-In-Large---Default.png';
 
 export default function LoginForm(props) {
 	const { setShow } = props;
@@ -57,9 +56,9 @@ export default function LoginForm(props) {
 					<div className='text-center'>
 						<a
 							href={location === 'http://localhost:3000/' ? 'http://localhost:5005/api/auth/linkedin' : '/api/auth/linkedin'}
-							className=''
+							className='btn btn-lg btn-linkedIn'
 						>
-							<img className='linkedIn-button mx-auto mb-2' alt='Sign-In With LinkedIn' src={linkedinSigninDefault}></img>
+							<i className='fab fa-linkedin-in mr-1'></i> - Sign in with LinkedIn
 						</a>
 					</div>
 
