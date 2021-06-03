@@ -11,7 +11,7 @@ export default function LoginModal(props) {
 
 	return (
 		<Fragment>
-			<Modal show={show}>
+			<Modal show={show} onHide={() => setShow(false)}>
 				<Modal.Header closeButton>
 					<Modal.Title>Login to Whiteboard Warriors</Modal.Title>
 				</Modal.Header>
