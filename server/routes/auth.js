@@ -137,6 +137,12 @@ router.post('/forgot-password-init', async (req, res) => {
 	try {
 		const user = await db.User.findOne({ email: email });
 
+		if (!user) {
+			return res.status(401).json({
+				msg: "This email hasn't been registered under a user yet. Please try another email.",
+			});
+		}
+
 		if (user !== undefined) {
 			// generate a token and save it to the users record
 			const buf = crypto.randomBytes(20);
@@ -150,7 +156,9 @@ router.post('/forgot-password-init', async (req, res) => {
 		res.send(200);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, something went wrong. Please try again later.',
+		});
 	}
 });
 
