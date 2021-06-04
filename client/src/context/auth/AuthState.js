@@ -147,7 +147,11 @@ const AuthState = (props) => {
 				payload: res.body,
 			});
 		} catch (err) {
-			console.error(err);
+			console.error(err.response.data.msg);
+			dispatch({
+				type: FORGOT_RESET_FAIL,
+				payload: { error: err.response.data.msg },
+			});
 		}
 	};
 
@@ -191,7 +195,7 @@ const AuthState = (props) => {
 	const logout = () => dispatch({ type: LOGOUT });
 
 	// Clear Errors
-	const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+	const clearAuthErrors = () => dispatch({ type: CLEAR_ERRORS });
 
 	//
 	const clearSuccess = () => dispatch({ type: CLEAR_SUCCESS });
@@ -218,7 +222,7 @@ const AuthState = (props) => {
 				updateUserProfile,
 				login,
 				logout,
-				clearErrors,
+				clearAuthErrors,
 				forgotPassword,
 				forgotPasswordComplete,
 				clearSuccess,
