@@ -67,7 +67,8 @@ router.post(
 
 		check('email', 'Please include a valid email').isEmail(),
 		check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
-		check('linkedIn', 'Please a valid Linked In link').isLength({ min: 25 }),
+		check('linkedIn', 'Please a valid LinkedIn link').isLength({ min: 25 }),
+		check('githubUsername', 'Please add your Github username.').not().isEmpty(),
 	],
 
 	async (req, res) => {
@@ -76,13 +77,14 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		let { firstName, lastName, email, password, linkedIn } = req.body;
+		let { firstName, lastName, email, password, linkedIn, githubUsername } = req.body;
 
 		try {
 			let user = await db.User.findOne({ email });
 
 			if (user) {
-				return res.status(400).json({ msg: 'Registration Error' });
+				console.log(user);
+				return res.status(400).json({ msg: 'This email has already been registered. Please login or signup with a different email' });
 			}
 			user = new db.User({
 				firstName,
@@ -90,6 +92,7 @@ router.post(
 				email,
 				password,
 				linkedIn,
+				githubUsername,
 			});
 			// console.log('routes/auth.js - user to be saved >>> ', user);
 
@@ -97,10 +100,10 @@ router.post(
 
 			const newUser = await db.User.findOne({ email });
 			// console.log('auth.js 128 - newUser >> ', newUser);
-
+			console.log(newUser);
 			const payload = {
 				id: newUser.id,
-				name: newUser.firstName,
+				name: `${newUser.firstName} ${newUser.lastName}`,
 			};
 			jwt.sign(
 				payload,
@@ -118,7 +121,7 @@ router.post(
 				}
 			);
 
-			// emailService.sendWelcomeConfirmation(email);
+			emailService.sendWelcomeConfirmation(email);
 			res.status(200).send('User Saved');
 			// res.redirect(307, 'api/auth/login'); // api login
 		} catch (err) {
