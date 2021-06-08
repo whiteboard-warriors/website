@@ -39,6 +39,7 @@ router.put('/:id', async (req, res) => {
 		lastName,
 		slackUsername,
 		linkedIn,
+		githubUsername,
 		primaryLanguage,
 		secondaryLanguage,
 		skillLevel,
@@ -57,17 +58,14 @@ router.put('/:id', async (req, res) => {
 		if (lastName) updatedUser.lastName = lastName;
 		if (slackUsername) updatedUser.slackUsername = slackUsername;
 		if (linkedIn) updatedUser.linkedIn = linkedIn;
+		if (githubUsername) updatedUser.githubUsername = githubUsername;
 		if (primaryLanguage) updatedUser.primaryLanguage = primaryLanguage;
-		if (secondaryLanguage)
-			updatedUser.secondaryLanguage = secondaryLanguage;
+		if (secondaryLanguage) updatedUser.secondaryLanguage = secondaryLanguage;
 		if (active) updatedUser.active = active;
 		if (skillLevel) updatedUser.skillLevel = skillLevel;
 		if (jobPosting) updatedUser.jobPosting = jobPosting;
 
-		await db.User.findByIdAndUpdate(
-			{ _id: req.params.id },
-			{ $set: updatedUser }
-		);
+		await db.User.findByIdAndUpdate({ _id: req.params.id }, { $set: updatedUser });
 
 		let user = await db.User.find({
 			_id: req.params.id,
