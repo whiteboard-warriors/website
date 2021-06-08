@@ -14,7 +14,7 @@ const ForgotPassword = () => {
 	const alertContext = useContext(AlertContext);
 	const authContext = useContext(AuthContext);
 
-	const { forgotPassword, forgotRequestSuccess, error, clearLoginFlags } = authContext;
+	const { forgotPassword, forgotRequestSuccess, authError, clearLoginFlags, clearAuthErrors } = authContext;
 	const { setAlert } = alertContext;
 
 	const [validated, setValidated] = useState(false);
@@ -66,8 +66,12 @@ const ForgotPassword = () => {
 			setAlert('Please check your email, if we found it in our database we will send you a reset link.', 'success');
 			clearLoginFlags();
 		}
+		if (authError) {
+			setAlert(authError, 'danger');
+			clearAuthErrors();
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [error, forgotRequestSuccess, history, setAlert]);
+	}, [authError, forgotRequestSuccess, history, setAlert]);
 
 	return (
 		<Fragment>

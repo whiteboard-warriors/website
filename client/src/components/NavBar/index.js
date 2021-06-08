@@ -20,13 +20,14 @@ export default function NavBar(props) {
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
 	const { setAlert } = alertContext;
-	const { isAuthenticated, logout, user, registrationSuccess, clearErrors } = authContext;
+	const { isAuthenticated, logout, user, registrationSuccess, clearAuthErrors, clearLoginFlags } = authContext;
 
 	useEffect(() => {
 		if (registrationSuccess) {
 			setAlert('Great Success! Welcome!', 'success');
 			setShow(false);
-			clearErrors();
+			clearAuthErrors();
+			clearLoginFlags();
 		}
 		// eslint-disable-next-line
 	}, [registrationSuccess]);
@@ -48,7 +49,10 @@ export default function NavBar(props) {
 	};
 
 	const logoutAndCloseNav = () => {
+		clearAuthErrors();
+		clearLoginFlags();
 		logout();
+		setAlert("You've been successfully logged out.", 'success');
 		closeNav();
 	};
 

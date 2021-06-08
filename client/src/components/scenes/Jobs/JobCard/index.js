@@ -49,6 +49,10 @@ const JobCard = (props) => {
 			history.push('/profile');
 			setAlert('Please update your profile and include your LinkedIn link to be able to apply for jobs', 'warning');
 			clearJobFlags();
+		} else if (!user.githubUsername) {
+			history.push('/profile');
+			setAlert('Please update your profile and include your Github username to be able to apply for jobs', 'warning');
+			clearJobFlags();
 		} else {
 			applyForJob({ jobID });
 			clearJobFlags();

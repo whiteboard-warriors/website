@@ -7,15 +7,15 @@ import { Col, Row, Form } from 'react-bootstrap';
 export default function LoginForm(props) {
 	const { setShow } = props;
 	const authContext = useContext(AuthContext);
-	const { login, authError, clearErrors, isAuthenticated } = authContext;
+	const { login, authError, clearAuthErrors, isAuthenticated } = authContext;
 	const alertContext = useContext(AlertContext);
 	const { setAlert } = alertContext;
 
 	useEffect(() => {
 		if (authError === 'Invalid Credentials') {
 			console.log('error');
-			setAlert("Hmmm, that didn't work please re-enter your username and password or click 'Forgot Password'", 'danger');
-			clearErrors();
+			setAlert("Hmmm, something went wrong. Please re-enter your username and password or click 'Forgot Password'", 'danger');
+			clearAuthErrors();
 		}
 		// eslint-disable-next-line
 	}, [authError, isAuthenticated]);

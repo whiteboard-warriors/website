@@ -43,6 +43,9 @@ const UserSchema = new Schema({
 	linkedInToken: {
 		type: String,
 	},
+	githubUsername: {
+		type: String,
+	},
 	primaryLanguage: {
 		type: String,
 		// required: 'Primary language is Required',
