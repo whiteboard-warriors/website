@@ -17,13 +17,15 @@ const Profile = (props) => {
 		lastName: user.lastName,
 		slackUsername: user.slackUsername,
 		linkedIn: user.linkedIn,
+		githubUsername: user.githubUsername,
 		primaryLanguage: user.primaryLanguage,
 		secondaryLanguage: user.secondaryLanguage,
 		skillLevel: user.skillLevel,
 		jobPosting: user.jobPosting,
 	});
 
-	const { id, firstName, lastName, slackUsername, linkedIn, primaryLanguage, secondaryLanguage, skillLevel, jobPosting } = profile;
+	const { id, firstName, lastName, slackUsername, linkedIn, githubUsername, primaryLanguage, secondaryLanguage, skillLevel, jobPosting } =
+		profile;
 
 	/**
 	 *
@@ -47,6 +49,7 @@ const Profile = (props) => {
 			lastName,
 			slackUsername,
 			linkedIn,
+			githubUsername,
 			primaryLanguage,
 			secondaryLanguage,
 			skillLevel,
@@ -99,7 +102,7 @@ const Profile = (props) => {
 							</Row>
 
 							<Form.Group>
-								<Form.Label>Slack Username</Form.Label>
+								<Form.Label>Whiteboard Warriors Slack Username</Form.Label>
 								<Form.Control
 									type='text'
 									placeholder='Your Whiteboard Warriors Slack user'
@@ -126,6 +129,17 @@ const Profile = (props) => {
 									*Even if you logged in with LinkedIn, <em>we're just not cool enough</em> for them to share this us
 									automatically 🤷‍♂
 								</Form.Text>
+							</Form.Group>
+							<Form.Group>
+								<Form.Label htmlFor='githubUsernameVanityUrl'>Github Username</Form.Label>
+								<Form.Control
+									type='text'
+									placeholder='Your Github username'
+									onChange={onChangeProfile}
+									name='githubUsername'
+									defaultValue={githubUsername}
+									id='githubUsernameVanityUrl'
+								/>
 							</Form.Group>
 
 							<Row className='mt-5'>
