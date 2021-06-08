@@ -6,7 +6,7 @@ import { Col, Form } from 'react-bootstrap';
 export default function RegistrationForm() {
 	const alertContext = useContext(AlertContext);
 	const authContext = useContext(AuthContext);
-	const { register, registrationError, clearErrors } = authContext;
+	const { register, registrationError, clearAuthErrors } = authContext;
 	const { setAlert } = alertContext;
 	const [passwordValid, setPasswordValid] = useState(false);
 	const [validated, setValidated] = useState(false);
@@ -14,7 +14,7 @@ export default function RegistrationForm() {
 	useEffect(() => {
 		if (registrationError) {
 			setAlert('Hmmm, there was an error registering for a new account!', 'danger');
-			clearErrors();
+			clearAuthErrors();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [registrationError]);
@@ -26,9 +26,10 @@ export default function RegistrationForm() {
 		password: '',
 		password2: '',
 		linkedIn: '',
+		githubUsername: '',
 	});
 
-	let { firstName, lastName, email, password, password2, linkedIn } = user;
+	let { firstName, lastName, email, password, password2, linkedIn, githubUsername } = user;
 
 	/**
 	 *
@@ -86,11 +87,12 @@ export default function RegistrationForm() {
 
 		if (valid) {
 			register({
-				firstName: firstName,
-				lastName: lastName,
-				password: password,
-				email: email,
-				linkedIn: linkedIn,
+				firstName,
+				lastName,
+				password,
+				email,
+				linkedIn,
+				githubUsername,
 			});
 		}
 
@@ -154,15 +156,22 @@ export default function RegistrationForm() {
 				</Form.Row>
 				<Form.Row>
 					<Form.Group as={Col} md='12' controlId='linkedIn'>
-						<Form.Label>Linked In profile link</Form.Label>
+						<Form.Label>LinkedIn profile link</Form.Label>
 						<Form.Control
 							type='text'
-							placeholder='Linked In profile link'
+							placeholder='LinkedIn profile link'
 							onChange={onChange}
 							name='linkedIn'
 							pattern='^http(s)?:\/\/(www\.)?linkedin\.com\/in\/.*$'
 							required
 						/>
+						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+					</Form.Group>
+				</Form.Row>
+				<Form.Row>
+					<Form.Group as={Col} md='12' controlId='githubUsername'>
+						<Form.Label>Github username</Form.Label>
+						<Form.Control type='text' placeholder='Github username' onChange={onChange} name='githubUsername' required />
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
