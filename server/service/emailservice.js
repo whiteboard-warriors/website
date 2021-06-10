@@ -27,7 +27,7 @@ const sendWelcomeConfirmation = (userEmail) => {
 /**
  *
  */
-const sendJobApplicationEmail = (applicantName, applicantEmail, linkedIn, employerName, employerEmail) => {
+const sendJobApplicationEmail = (applicantName, applicantEmail, linkedIn, githubUsername, employerName, employerEmail) => {
 	sendEmail(
 		employerEmail,
 		`New Job application from ${applicantName}`,
@@ -37,7 +37,7 @@ const sendJobApplicationEmail = (applicantName, applicantEmail, linkedIn, employ
 		// Please click REPLY if you'd like to contact ${applicantName}. \n\n\n\n
 		// Kind regards, \n\n
 		// Whiteboard Warriors Team`,
-		jobApplicationEmail(employerName, applicantName, linkedIn),
+		jobApplicationEmail(employerName, applicantName, linkedIn, githubUsername),
 		applicantEmail
 	);
 };

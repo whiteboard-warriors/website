@@ -293,7 +293,7 @@ const Profile = (props) => {
 													type='radio'
 													label="I don't want to post jobs"
 													name='jobPosting'
-													id='skillLevelFalse'
+													id='jobPostingFalse'
 													value='no'
 													checked={jobPosting === 'no'}
 												/>

@@ -49,10 +49,10 @@ export default function NavBar(props) {
 	};
 
 	const logoutAndCloseNav = () => {
-		clearAuthErrors();
-		clearLoginFlags();
 		logout();
 		setAlert("You've been successfully logged out.", 'success');
+		clearAuthErrors();
+		clearLoginFlags();
 		closeNav();
 	};
 
