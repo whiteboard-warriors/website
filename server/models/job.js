@@ -32,11 +32,11 @@ const JobSchema = new Schema({
 	},
 	remote: {
 		type: String,
-		default: 'no',
+		default: 'No',
 	},
 	visaSponsorship: {
 		type: String,
-		default: 'no',
+		default: 'No',
 	},
 	hardRequirement1: {
 		type: String,

@@ -15,7 +15,26 @@ import AlertContext from '../../../../context/alert/alertContext';
 
 const JobCard = (props) => {
 	const history = useHistory();
-	const { jobID, company, title, city, state, salary, about, postDate, admin, active } = props;
+	const {
+		jobID,
+		company,
+		title,
+		city,
+		state,
+		salary,
+		about,
+		postDate,
+		admin,
+		active,
+		remote,
+		visaSponsorship,
+		hardRequirement1,
+		hardRequirement2,
+		hardRequirement3,
+		softRequirement1,
+		softRequirement2,
+		softRequirement3,
+	} = props;
 	const jobsContext = useContext(JobsContext);
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
@@ -88,11 +107,62 @@ const JobCard = (props) => {
 						<b>{company}</b> is hiring: <b>{title}</b>
 					</p>
 					<p className='details'>
-						<b>Location:</b> {city}, {state} <b> - Salary:</b> {salary} <b> - Posted: </b> <i>{dateDifference(postDate)}</i>
+						<b>Location:</b> {city}, {state}
+						{remote && (
+							<>
+								{'\u00A0\u00A0\u00A0'} <b> Remote:</b> {remote}
+							</>
+						)}
+						{visaSponsorship && (
+							<>
+								{'\u00A0\u00A0\u00A0'} <b> Visa Sponsorship:</b> {visaSponsorship}
+							</>
+						)}
+					</p>
+					<p className='details'>
+						<b> Salary:</b> {salary}
+						{'\u00A0\u00A0\u00A0'} <b> Posted: </b> <i>{dateDifference(postDate)}</i>
 					</p>
 					<p className='about'>
 						<i>“{about}”</i>
 					</p>
+					{hardRequirement1 && (
+						<>
+							<p>
+								<b>Hard Requirements</b>
+							</p>
+							<div className='requirement-list'>
+								<p className='flag-hard-requirement'>
+									<span>{hardRequirement1}</span>
+								</p>
+								<p className='flag-hard-requirement'>
+									<span>{hardRequirement2}</span>
+								</p>
+								<p className='flag-hard-requirement '>
+									<span>{hardRequirement3}</span>
+								</p>
+							</div>
+						</>
+					)}
+
+					{softRequirement2 && (
+						<>
+							<p className='mt-4'>
+								<b>Soft Requirements</b>
+							</p>
+							<div className='requirement-list'>
+								<p className='flag-soft-requirement'>
+									<span>{softRequirement1}</span>
+								</p>
+								<p className='flag-soft-requirement'>
+									<span>{softRequirement2}</span>
+								</p>
+								<p className='flag-soft-requirement'>
+									<span>{softRequirement3}</span>
+								</p>
+							</div>
+						</>
+					)}
 				</div>
 				<div className='job-card-buttons'>
 					{admin && (
@@ -145,8 +215,10 @@ JobCard.defaultProps = {
 	salary: '80K to 100K',
 	about: 'We are looking for a junior Engineer, passionate about learning and growing',
 	postDate: '2 days',
-	admin: true,
+	admin: 'true',
 	active: false,
+	remote: 'No',
+	visaSponsorship: 'No',
 };
 
 export default JobCard;

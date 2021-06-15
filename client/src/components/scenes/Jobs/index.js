@@ -57,7 +57,7 @@ const Jobs = () => {
 							<div className='text-center'>
 								<Spinner className='my-5' />
 							</div>
-						) : jobs.length !== 0 ? (
+						) : validJobs.length !== 0 ? (
 							validJobs.map((job) => {
 								return (
 									<JobCard
@@ -69,6 +69,14 @@ const Jobs = () => {
 										state={job.state}
 										salary={job.salary}
 										about={job.about}
+										remote={job.remote}
+										visaSponsorship={job.visaSponsorship}
+										hardRequirement1={job.hardRequirement1}
+										hardRequirement2={job.hardRequirement2}
+										hardRequirement3={job.hardRequirement3}
+										softRequirement1={job.softRequirement1}
+										softRequirement2={job.softRequirement2}
+										softRequirement3={job.softRequirement3}
 										postDate={job.postDate}
 										admin={false}
 									/>

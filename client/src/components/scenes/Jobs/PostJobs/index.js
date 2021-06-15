@@ -157,8 +157,8 @@ const PostJobs = (props) => {
 									label='Yes'
 									name='remote'
 									id='remoteTrue'
-									value='yes'
-									checked={remote === 'yes'}
+									value='Yes'
+									checked={remote === 'Yes'}
 								/>
 								<Form.Check
 									onChange={onChange}
@@ -166,8 +166,8 @@ const PostJobs = (props) => {
 									label='No'
 									name='remote'
 									id='remoteFalse'
-									value='no'
-									checked={remote === 'no'}
+									value='No'
+									checked={remote === 'No'}
 								/>
 							</Form.Group>
 						</Col>
@@ -184,8 +184,8 @@ const PostJobs = (props) => {
 									label='Yes'
 									name='visaSponsorship'
 									id='visaSponsorshipTrue'
-									value='yes'
-									checked={visaSponsorship === 'yes'}
+									value='Yes'
+									checked={visaSponsorship === 'Yes'}
 								/>
 								<Form.Check
 									onChange={onChange}
@@ -193,8 +193,8 @@ const PostJobs = (props) => {
 									label='No'
 									name='visaSponsorship'
 									id='visaSponsorshipFalse'
-									value='no'
-									checked={visaSponsorship === 'no'}
+									value='No'
+									checked={visaSponsorship === 'No'}
 								/>
 							</Form.Group>
 						</Col>

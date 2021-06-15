@@ -37,6 +37,30 @@
 	}
 }
 
+.requirement-list {
+	p {
+		list-style: none;
+		display: block;
+	}
+}
+.flag-hard-requirement {
+	span {
+		background-color: lighten($color: $purple, $amount: 20);
+	}
+}
+.flag-soft-requirement {
+	span {
+		background-color: lighten($color: $success, $amount: 40);
+	}
+}
+.flag-hard-requirement,
+.flag-soft-requirement {
+	span {
+		padding: 0 0.5rem;
+		border-radius: 1rem;
+	}
+}
+
 // Tablets
 @media only screen and (min-width: 731px) {
 	.job-card-container {
@@ -50,6 +74,12 @@
 	}
 	.job-status-container {
 		justify-content: flex-start;
+	}
+	.requirement-list {
+		p {
+			display: inline;
+			margin-right: 1rem;
+		}
 	}
 }
 // @media only screen and (min-width: 1024px) {
