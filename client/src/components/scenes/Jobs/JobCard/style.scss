@@ -45,12 +45,12 @@
 }
 .flag-hard-requirement {
 	span {
-		background-color: lighten($color: $purple, $amount: 20);
+		background-color: lighten($color: $success, $amount: 40);
 	}
 }
 .flag-soft-requirement {
 	span {
-		background-color: lighten($color: $success, $amount: 40);
+		background-color: lighten($color: $secondary, $amount: 20);
 	}
 }
 .flag-hard-requirement,
