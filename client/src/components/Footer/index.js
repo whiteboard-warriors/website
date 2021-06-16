@@ -28,29 +28,17 @@ const Footer = () => {
 								<h5>Follow us</h5>
 								<ul>
 									<li>
-										<a
-											href='https://www.facebook.com/whiteboardwarriors'
-											target='_blank'
-											rel='noopener noreferrer'
-										>
+										<a href='https://www.facebook.com/whiteboardwarriors' target='_blank' rel='noopener noreferrer'>
 											<i className='fab fa-facebook-f fa-2x footer-social-icon'></i>
 										</a>
 									</li>
 									<li>
-										<a
-											href='https://www.instagram.com/whiteboardwarriors/'
-											target='_blank'
-											rel='noopener noreferrer'
-										>
+										<a href='https://www.instagram.com/whiteboardwarriors/' target='_blank' rel='noopener noreferrer'>
 											<i className='fab fa-instagram fa-2x footer-social-icon'></i>
 										</a>
 									</li>
 									<li>
-										<a
-											href='https://www.twitter.com/wbwarriorscode'
-											target='_blank'
-											rel='noopener noreferrer'
-										>
+										<a href='https://www.twitter.com/wbwarriorscode' target='_blank' rel='noopener noreferrer'>
 											<i className='fab fa-twitter fa-2x footer-social-icon'></i>
 										</a>
 									</li>
@@ -66,17 +54,16 @@ const Footer = () => {
 										<Link to='/about'>About</Link>
 									</li>
 									<li>
-										<a href='https://github.com/whiteboard-warriors/war-time/graphs/contributors'>
-											Contributors
-										</a>
+										<a href='https://github.com/whiteboard-warriors/war-time/graphs/contributors'>Contributors</a>
 									</li>
 									<li>
 										<Link to='/nonprofit'>Non Profit</Link>
 									</li>
 									<li>
-										<Link to='/testimonials'>
-											Testimonials
-										</Link>
+										<Link to='/testimonials'>Testimonials</Link>
+									</li>
+									<li>
+										<Link to='/privacy-policy'>Privacy Policy</Link>
 									</li>
 								</ul>
 							</div>
@@ -95,9 +82,7 @@ const Footer = () => {
 						</Col>
 					</Row>
 				</Container>
-				<section className='footer-bottom text-center'>
-					&copy; {year} Whiteboard Warriors.
-				</section>
+				<section className='footer-bottom text-center'>&copy; {year} Whiteboard Warriors.</section>
 			</footer>
 		</Fragment>
 	);
