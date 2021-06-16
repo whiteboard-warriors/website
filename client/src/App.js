@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import JobsState from './context/jobs/JobsState';
-// bootstrap
+
 // pages
 import Landing from './components/scenes/Landing/index';
 import About from './components/scenes/About/index';
@@ -22,6 +22,7 @@ import PostJobs from './components/scenes/Jobs/PostJobs';
 import PageNotFound from './components/scenes/PageNotFound';
 import ForgotPassword from './components/scenes/ForgotPassword';
 import ResetPassword from './components/scenes/ResetPassword';
+import PrivacyPolicy from './components/scenes/PrivacyPolicy';
 
 // components
 import NavBar from './components/NavBar';
@@ -68,6 +69,7 @@ export default function App() {
 										<Route exact path='/testimonials' component={withTracker(Testimonials)} />
 										<Route exact path='/nonprofit' component={withTracker(NonProfit)} />
 										<Route exact path='/501c3' component={withTracker(NonProfit)} />
+										<Route exact path='/privacy-policy' component={withTracker(PrivacyPolicy)} />
 										<Route exact path='/authenticate' component={Authenticate} />
 										<Route exact path='/forgot-password' component={ForgotPassword} />
 										<Route exact path='/reset-password' component={ResetPassword} />
