@@ -1,5 +1,4 @@
 const express = require('express');
-const passport = require('../config/passport');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../models');
@@ -7,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const crypto = require('crypto');
 const emailService = require('../service/emailservice');
+const passport = require('passport');
 // @route   POST api/auth
 // @desc - Login
 router.post('/login', async function (req, res) {
@@ -66,10 +66,9 @@ router.post(
 		check('lastName', 'Please add your last name.').not().isEmpty(),
 
 		check('email', 'Please include a valid email').isEmail(),
-		check(
-			'password',
-			'Please enter a password with 6 or more characters'
-		).isLength({ min: 6 }),
+		check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
+		check('linkedIn', 'Please a valid LinkedIn link').isLength({ min: 25 }),
+		check('githubUsername', 'Please add your Github username.').not().isEmpty(),
 	],
 
 	async (req, res) => {
@@ -78,19 +77,22 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		let { firstName, lastName, email, password } = req.body;
+		let { firstName, lastName, email, password, linkedIn, githubUsername } = req.body;
 
 		try {
 			let user = await db.User.findOne({ email });
 
 			if (user) {
-				return res.status(400).json({ msg: 'Registration Error' });
+				console.log(user);
+				return res.status(400).json({ msg: 'This email has already been registered. Please login or signup with a different email' });
 			}
 			user = new db.User({
 				firstName,
 				lastName,
 				email,
 				password,
+				linkedIn,
+				githubUsername,
 			});
 			// console.log('routes/auth.js - user to be saved >>> ', user);
 
@@ -98,10 +100,10 @@ router.post(
 
 			const newUser = await db.User.findOne({ email });
 			// console.log('auth.js 128 - newUser >> ', newUser);
-
+			console.log(newUser);
 			const payload = {
 				id: newUser.id,
-				name: newUser.firstName,
+				name: `${newUser.firstName} ${newUser.lastName}`,
 			};
 			jwt.sign(
 				payload,
@@ -119,7 +121,7 @@ router.post(
 				}
 			);
 
-			// emailService.sendWelcomeConfirmation(email);
+			emailService.sendWelcomeConfirmation(email);
 			res.status(200).send('User Saved');
 			// res.redirect(307, 'api/auth/login'); // api login
 		} catch (err) {
@@ -138,23 +140,28 @@ router.post('/forgot-password-init', async (req, res) => {
 	try {
 		const user = await db.User.findOne({ email: email });
 
+		if (!user) {
+			return res.status(401).json({
+				msg: "This email hasn't been registered under a user yet. Please try another email.",
+			});
+		}
+
 		if (user !== undefined) {
 			// generate a token and save it to the users record
 			const buf = crypto.randomBytes(20);
 			let updatedUser = {};
 			updatedUser.token = buf.toString('hex');
 
-			await db.User.findByIdAndUpdate(
-				{ _id: user._id },
-				{ $set: updatedUser }
-			);
+			await db.User.findByIdAndUpdate({ _id: user._id }, { $set: updatedUser });
 
 			emailService.sendPasswordResetEmail(user.email, updatedUser.token);
 		}
 		res.send(200);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, something went wrong. Please try again later.',
+		});
 	}
 });
 
@@ -178,6 +185,19 @@ router.post('/forgot-password-complete', async (req, res) => {
 		console.error(err.message);
 		res.status(500).send('Server Error');
 	}
+});
+
+/**
+ *
+ */
+router.get('/linkedin', passport.authenticate('linkedin'));
+
+/**
+ * Callback from LinkedIn SSO
+ */
+router.get('/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), function (req, res) {
+	// Successful authentication, redirect home.
+	res.redirect('/');
 });
 
 module.exports = router;

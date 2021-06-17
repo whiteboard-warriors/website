@@ -1,0 +1,19 @@
+@import '../../../../App.scss';
+.admin-buttons-container {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-evenly;
+}
+
+// Tablets
+@media only screen and (min-width: 731px) {
+	.admin-buttons-container {
+		flex-direction: row-reverse;
+		justify-content: flex-start;
+	}
+}
+@media only screen and (min-width: 1024px) {
+}
+// Desktop
+@media only screen and (min-width: 1366px) {
+}

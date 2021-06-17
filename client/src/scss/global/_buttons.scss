@@ -1,6 +1,6 @@
 @import './variables';
 .btn {
-	border-radius: 25px;
+	border-radius: 50px;
 	margin: 5px 0px;
 }
 
@@ -69,6 +69,21 @@
 	&:focus {
 		background-color: darken($warning, 10) !important;
 		border-color: darken($warning, 10) !important;
+		box-shadow: none !important;
+		color: white;
+	}
+}
+.btn-linkedIn {
+	background-color: $linkedIn !important;
+	border-color: $linkedIn !important;
+	color: white;
+
+	&:hover,
+	&:active,
+	&:target,
+	&:focus {
+		background-color: darken($linkedIn, 10) !important;
+		border-color: darken($linkedIn, 10) !important;
 		box-shadow: none !important;
 		color: white;
 	}

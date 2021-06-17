@@ -1,1 +1,15 @@
 @import '../../../../App.scss';
+
+.my-jobs-title {
+	h4 {
+		font-size: 1.3rem !important;
+	}
+}
+// Tablets
+@media only screen and (min-width: 768px) {
+	.my-jobs-title {
+		h4 {
+			font-size: 2rem !important;
+		}
+	}
+}

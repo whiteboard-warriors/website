@@ -30,6 +30,38 @@ const JobSchema = new Schema({
 		type: String,
 		default: 'true',
 	},
+	remote: {
+		type: String,
+		default: 'No',
+	},
+	visaSponsorship: {
+		type: String,
+		default: 'No',
+	},
+	hardRequirement1: {
+		type: String,
+		maxLength: 40,
+	},
+	hardRequirement2: {
+		type: String,
+		maxLength: 40,
+	},
+	hardRequirement3: {
+		type: String,
+		maxLength: 40,
+	},
+	softRequirement1: {
+		type: String,
+		maxLength: 40,
+	},
+	softRequirement2: {
+		type: String,
+		maxLength: 40,
+	},
+	softRequirement3: {
+		type: String,
+		maxLength: 40,
+	},
 	postDate: {
 		type: Date,
 		required: true,

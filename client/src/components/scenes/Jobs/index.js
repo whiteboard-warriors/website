@@ -1,29 +1,44 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './style.scss';
 
 // Components
 import JobCard from './JobCard';
+import JobActions from './JobActions';
 import Spinner from '../../Spinner';
 // Bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
 // State
 import JobsContext from '../../../context/jobs/jobsContext';
+import AuthContext from '../../../context/auth/authContext';
+import AlertContext from '../../../context/alert/alertContext';
 //Util
 import getDaysAgoData from '../../../utils/getDaysAgoData';
 
 const Jobs = () => {
 	const jobsContext = useContext(JobsContext);
-	const { loading, jobs, getJobs } = jobsContext;
+	const authContext = useContext(AuthContext);
+	const alertContext = useContext(AlertContext);
+	const { loading, jobs, getJobs, applyingSuccess, error, clearJobError, clearJobFlags } = jobsContext;
+	const { user } = authContext;
+	const { setAlert } = alertContext;
 
 	let sortedJobs = getDaysAgoData(jobs, 30);
+	let validJobs = sortedJobs.filter((item) => item.active === 'true');
 
 	// sortedJobs = [];
 
 	useEffect(() => {
 		getJobs();
+		if (applyingSuccess) {
+			setAlert('Thanks! Your job application was submitted successfully', 'success');
+			clearJobFlags();
+		}
+		if (error) {
+			setAlert(error, 'danger');
+			clearJobError();
+		}
 		//eslint-disable-next-line
-	}, []);
+	}, [applyingSuccess]);
 
 	if (jobs === []) {
 		sortedJobs = false;
@@ -33,29 +48,17 @@ const Jobs = () => {
 		<Fragment>
 			<Container>
 				<div className='text-center'>
-					<h2 className='mt-5 mb-3'>Awesome Entry Level Jobs</h2>
+					<h2 className='my-5'>Awesome Entry Level Jobs</h2>
 				</div>
-				<Row>
-					<Col
-						// lg={{ span: 2, offset: 8 }}
-						className='admin-buttons-container'
-					>
-						<Link
-							to='/jobs/post'
-							className='btn btn-primary btn-md '
-						>
-							<b>Create a job post</b>
-						</Link>
-					</Col>
-				</Row>
+				<JobActions user={user} />
 				<Row className='mt-3 job-post-container'>
 					<Col lg={{ span: 8, offset: 2 }}>
 						{loading ? (
 							<div className='text-center'>
 								<Spinner className='my-5' />
 							</div>
-						) : jobs.length !== 0 ? (
-							sortedJobs.map((job) => {
+						) : validJobs.length !== 0 ? (
+							validJobs.map((job) => {
 								return (
 									<JobCard
 										key={job._id}
@@ -66,6 +69,14 @@ const Jobs = () => {
 										state={job.state}
 										salary={job.salary}
 										about={job.about}
+										remote={job.remote}
+										visaSponsorship={job.visaSponsorship}
+										hardRequirement1={job.hardRequirement1}
+										hardRequirement2={job.hardRequirement2}
+										hardRequirement3={job.hardRequirement3}
+										softRequirement1={job.softRequirement1}
+										softRequirement2={job.softRequirement2}
+										softRequirement3={job.softRequirement3}
 										postDate={job.postDate}
 										admin={false}
 									/>
@@ -73,10 +84,7 @@ const Jobs = () => {
 							})
 						) : (
 							<div className='text-center px-1'>
-								<h4 className='jobs-notification'>
-									I'm sorry, no jobs have been posted in the
-									last 30 days.
-								</h4>
+								<h4 className='jobs-notification'>I'm sorry, no jobs have been posted in the last 30 days.</h4>
 							</div>
 						)}
 					</Col>

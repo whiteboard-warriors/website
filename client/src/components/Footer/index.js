@@ -33,7 +33,7 @@ const Footer = () => {
 											target='_blank'
 											rel='noopener noreferrer'
 										>
-											<i className='fab fa-facebook-f fa-2x'></i>
+											<i className='fab fa-facebook-f fa-2x footer-social-icon'></i>
 										</a>
 									</li>
 									<li>
@@ -42,7 +42,7 @@ const Footer = () => {
 											target='_blank'
 											rel='noopener noreferrer'
 										>
-											<i className='fab fa-instagram fa-2x'></i>
+											<i className='fab fa-instagram fa-2x footer-social-icon'></i>
 										</a>
 									</li>
 									<li>
@@ -51,7 +51,7 @@ const Footer = () => {
 											target='_blank'
 											rel='noopener noreferrer'
 										>
-											<i className='fab fa-twitter fa-2x'></i>
+											<i className='fab fa-twitter fa-2x footer-social-icon'></i>
 										</a>
 									</li>
 								</ul>
