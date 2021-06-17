@@ -4,7 +4,7 @@ import { Container, Row, Col, Image } from 'react-bootstrap/';
 import wwLogo from '../../../img/logo/ww_logo.svg';
 import './style.scss';
 
-const index = () => {
+const PrivacyPolicy = () => {
 	return (
 		<Fragment>
 			<h1 className='mt5r mb3r text-center'>Privacy Policy</h1>
@@ -48,4 +48,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default PrivacyPolicy;
