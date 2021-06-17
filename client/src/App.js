@@ -23,6 +23,7 @@ import PageNotFound from './components/scenes/PageNotFound';
 import ForgotPassword from './components/scenes/ForgotPassword';
 import ResetPassword from './components/scenes/ResetPassword';
 import PrivacyPolicy from './components/scenes/PrivacyPolicy';
+import AboutContent from './components/scenes/AboutContent';
 
 // components
 import NavBar from './components/NavBar';
@@ -70,6 +71,7 @@ export default function App() {
 										<Route exact path='/nonprofit' component={withTracker(NonProfit)} />
 										<Route exact path='/501c3' component={withTracker(NonProfit)} />
 										<Route exact path='/privacy-policy' component={withTracker(PrivacyPolicy)} />
+										<Route exact path='/about-content' component={withTracker(AboutContent)} />
 										<Route exact path='/authenticate' component={Authenticate} />
 										<Route exact path='/forgot-password' component={ForgotPassword} />
 										<Route exact path='/reset-password' component={ResetPassword} />
