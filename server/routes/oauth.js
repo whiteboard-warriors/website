@@ -31,7 +31,7 @@ router.get('/linkedin/callback', function (req, res, next) {
 		// Sign token
 		jwt.sign(
 			payload,
-			'secret',
+			process.env.SECRET || 'secret',
 			{
 				expiresIn: 31556926, // 1 year in seconds
 			},

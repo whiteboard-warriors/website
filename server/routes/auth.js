@@ -7,6 +7,7 @@ const { check, validationResult } = require('express-validator');
 const crypto = require('crypto');
 const emailService = require('../service/emailservice');
 const passport = require('passport');
+
 // @route   POST api/auth
 // @desc - Login
 router.post('/login', async function (req, res) {
@@ -30,7 +31,7 @@ router.post('/login', async function (req, res) {
 			// Sign token
 			jwt.sign(
 				payload,
-				'secret',
+				process.env.SECRET || 'secret',
 				{
 					expiresIn: 31556926, // 1 year in seconds
 				},
@@ -107,13 +108,12 @@ router.post(
 			};
 			jwt.sign(
 				payload,
-				'secret',
+				process.env.SECRET || 'secret',
 				{
 					expiresIn: 31556926, // 1 year in seconds
 				},
 				(err, token) => {
 					if (err) throw err;
-					console.log('auth.js 141 token >> ', token);
 					res.json({
 						success: true,
 						token: 'Bearer ' + token,
