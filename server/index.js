@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
 	session({
-		secret: 'whiteboardwarriors',
+		secret: process.env.SECRET,
 		resave: true,
 		saveUninitialized: true,
 		// cookie: { secure: true }
