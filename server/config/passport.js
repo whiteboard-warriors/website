@@ -4,10 +4,10 @@ var db = require('../models');
 const utilService = require('../service/utilservice');
 const LINKEDIN_KEY = process.env.LINKEDIN_KEY || '';
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET || '';
-
+const SECRET = process.env.SECRET || 'secret';
 const opts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	secretOrKey: process.env.SECRET || 'secret',
+	secretOrKey: SECRET,
 };
 
 module.exports = (passport) => {

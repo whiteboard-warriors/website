@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-
+const SECRET = process.env.SECRET || 'secret';
 /**
  *
  */
@@ -31,7 +31,7 @@ router.get('/linkedin/callback', function (req, res, next) {
 		// Sign token
 		jwt.sign(
 			payload,
-			process.env.SECRET || 'secret',
+			SECRET,
 			{
 				expiresIn: 31556926, // 1 year in seconds
 			},
