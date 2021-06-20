@@ -18,18 +18,20 @@ before_deploy:
 deploy:
     - provider: script
       skip_cleanup: true
-      script:
-          openssl aes-256-cbc -K $encrypted_13c03eac0538_key -iv $encrypted_13c03eac0538_iv -in .env-production.enc -out .env-production -d && mv .env-production .env && rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR
+      script: openssl aes-256-cbc -K $encrypted_13d3112ed959_key -iv $encrypted_13d3112ed959_iv
+          -in .env-production.enc -out .env-production -d && mv .env-production .env &&
+          rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR
           $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
       on:
           branches: master
-    # website staging, use '/' on end of $TRAVIS_BUILD_DIR to copy contents
     - provider: script
       skip_cleanup: true
-      script: openssl aes-256-cbc -K $encrypted_13c03eac0538_key -iv $encrypted_13c03eac0538_iv -in .env-staging.enc -out .env-staging -d && mv .env-staging .env && rsync -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
+      script: openssl aes-256-cbc -K $encrypted_13c03eac0538_key -iv $encrypted_13c03eac0538_iv
+          -in .env-staging.enc -out .env-staging -d && mv .env-staging .env && rsync
+          -r --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/
+          $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
       on:
           branches: staging
-
 before_install:
     - openssl aes-256-cbc -K $encrypted_081d3a392e1a_key -iv $encrypted_081d3a392e1a_iv
       -in deploy-key.pem.enc -out deploy-key.pem -d
@@ -37,5 +39,9 @@ before_install:
     - chmod 600 deploy-key.pem
     - ssh-add deploy-key.pem
 after_success:
-    - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website && forever start -a --uid 'website' server/index.js"
-    - test $TRAVIS_BRANCH = "staging" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website-staging && forever start -a --uid 'website-staging' server/index.js"
+    - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o
+      StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website && forever
+      start -a --uid 'website' server/index.js"
+    - test $TRAVIS_BRANCH = "staging" && test $TRAVIS_PULL_REQUEST = "false" && ssh -o
+      StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd htdocs/website-staging &&
+      forever start -a --uid 'website-staging' server/index.js"
