@@ -1,19 +1,18 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
+  "short_name": "Whiteboard Warriors",
+  "name": "Whiteboard Warriors",
+  "icons": [{
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "https://d1s9b4l66r9hjr.cloudfront.net/images/whiteboardwarriors-logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "https://d1s9b4l66r9hjr.cloudfront.net/images/whiteboardwarriors-logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -2,13 +2,13 @@ const { Strategy, ExtractJwt } = require('passport-jwt');
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 var db = require('../models');
 const utilService = require('../service/utilservice');
-const secret = process.env.SECRET || 'secret';
 const LINKEDIN_KEY = process.env.LINKEDIN_KEY || '';
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET || '';
+const SECRET = process.env.SECRET || 'secret';
 
 const opts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	secretOrKey: secret,
+	secretOrKey: SECRET,
 };
 
 module.exports = (passport) => {
