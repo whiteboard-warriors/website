@@ -12,7 +12,9 @@ router.get('/', async (req, res) => {
 		res.json(user);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
@@ -26,7 +28,9 @@ router.get('/:id', async (req, res) => {
 		res.json(user);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
@@ -52,6 +56,29 @@ router.put('/:id', async (req, res) => {
 				msg: 'You are not authorized to perform this action.',
 			});
 		}
+		let user = await db.User.find({
+			_id: req.params.id,
+		});
+		if (email) {
+			console.log(email);
+			if (user[0].email === email) {
+				return res.status(400).json({
+					msg: "You're already using this email.",
+				});
+			}
+			let emailTaken = await db.User.find({
+				email: email,
+			});
+			// if (Object.keys(emailTaken).length > 1) {
+			if (emailTaken[0]) {
+				// if (emailTaken[0].email === email) {
+				return res.status(401).json({
+					msg: 'Someone is already using this email.',
+				});
+				// }
+			}
+		}
+
 		const updatedUser = {};
 		if (email) updatedUser.email = email;
 		if (firstName) updatedUser.firstName = firstName;
@@ -67,14 +94,16 @@ router.put('/:id', async (req, res) => {
 
 		await db.User.findByIdAndUpdate({ _id: req.params.id }, { $set: updatedUser });
 
-		let user = await db.User.find({
+		user = await db.User.find({
 			_id: req.params.id,
 		});
 
 		res.status(204).json(user);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
@@ -82,40 +111,48 @@ router.put('/:id', async (req, res) => {
 // @route   PUT /api/users
 // @desc - Update user's password
 router.put('/update-password/:id', async (req, res, next) => {
-	const { email } = req.body;
+	if (req.user.id !== req.params.id) {
+		return res.status(401).json({
+			msg: 'You are not authorized to perform this action.',
+		});
+	}
+	const { password } = req.body;
 
 	try {
-		crypto.randomBytes(20, function (err, buf) {
-			let token = buf.toString('hex');
-			done(err, token);
-		});
+		const user = await db.User.findOne({ _id: req.params.id });
+		user.password = password;
+		user.save();
+		res.send('Password updated.');
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
 // @route   DELETE /api/users
 // @desc - Delete User
-router.put('/delete/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
 	try {
-		if (req.user._id !== req.params.id) {
+		console.log(req.user);
+		if (req.user.id !== req.params.id) {
 			return res.status(401).json({
 				msg: 'You are not authorized to perform this action.',
 			});
 		}
-		await db.User.findByIdAndUpdate(
-			{ _id: req.params.id },
-			{
-				$set: {
-					active: false,
-				},
-			}
-		);
-		res.status(200).send('Your account has been deleted.');
+		await db.Job.deleteMany({ createdBy: req.params.id });
+
+		await db.User.deleteOne({ _id: req.params.id });
+
+		res.status(200).json({
+			msg: 'The profile and data has been deleted.',
+		});
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
