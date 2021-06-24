@@ -14,7 +14,7 @@ import './style.scss';
 const Landing = () => {
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
-	const { user, loginSuccess, clearLoginFlags } = authContext;
+	const { user, loginSuccess, clearLoginFlags, deleteProfileSuccess } = authContext;
 	const { setAlert } = alertContext;
 
 	useEffect(() => {
@@ -23,9 +23,17 @@ const Landing = () => {
 			setAlert(`Welcome, ${user.firstName}!`, 'success');
 			clearLoginFlags();
 		}
+		if (deleteProfileSuccess) {
+			setAlert(
+				`We're sorry to see you go. Your profile and all of your data has been deleted and never shared with anyone. Feel free to come back at any time!`,
+				'primary',
+				8000
+			);
+			clearLoginFlags();
+		}
 
 		// eslint-disable-next-line
-	}, [loginSuccess]);
+	}, [loginSuccess, deleteProfileSuccess]);
 
 	return (
 		<Fragment>
