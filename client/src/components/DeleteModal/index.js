@@ -4,21 +4,8 @@ import './style.scss';
 
 import Button from 'react-bootstrap/Button';
 
-// import AlertContext from '../../context/alert/alertContext';
-
 const DeleteModal = (props) => {
-	// const alertContext = useContext(AlertContext);
-	// const { setAlert } = alertContext;
-	const {
-		id,
-		title = 'Title',
-		// type = 'Item Type',
-		message = 'message about what you are deleting. ',
-		company = 'Company',
-		action,
-		showModal,
-		setShowModal,
-	} = props;
+	const { id, title, message = 'message about what you are deleting. ', company, action, showModal, setShowModal } = props;
 
 	const modalRef = useRef();
 
@@ -59,9 +46,11 @@ const DeleteModal = (props) => {
 							<div className='text-center'>
 								<p className='lead'>{message}</p>
 							</div>
-							<h4>
-								{title} at {company}
-							</h4>
+							{title && (
+								<h4>
+									{title} at {company}
+								</h4>
+							)}
 							<div className='text-center'>
 								<Button
 									variant='secondary'
@@ -84,7 +73,7 @@ const DeleteModal = (props) => {
 										});
 									}}
 								>
-									Deactivate
+									{title ? 'Deactivate' : 'Delete'}
 								</Button>
 							</div>
 						</div>
