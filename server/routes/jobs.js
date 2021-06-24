@@ -15,7 +15,9 @@ router.get('/:id', async (req, res) => {
 		res.json(job);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
@@ -37,7 +39,9 @@ router.get('/created-by/user/', async (req, res) => {
 		res.json(jobs);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
@@ -92,7 +96,9 @@ router.post('/', async (req, res) => {
 		res.send('Your job was created!');
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
@@ -144,10 +150,14 @@ router.put('/:id', async (req, res) => {
 		if (postDate) job.postDate = new Date();
 
 		await db.Job.findOneAndUpdate({ _id: req.params.id }, { $set: job });
-		res.send('Your job was updated!');
+		res.json({
+			msg: 'Job has been updated',
+		});
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
@@ -179,7 +189,9 @@ router.post('/apply-for-job', async (req, res) => {
 		res.send('Your job application was submitted successfully');
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
