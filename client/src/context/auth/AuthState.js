@@ -228,7 +228,7 @@ const AuthState = (props) => {
 	 *
 	 * @param {*} formData
 	 */
-	const updatePassword = async (formData) => {
+	const updateUserPassword = async (formData) => {
 		try {
 			const res = await HTTP.put('/api/users/update-password/' + formData.id, formData);
 
@@ -299,7 +299,7 @@ const AuthState = (props) => {
 				clearAuthErrors,
 				forgotPassword,
 				forgotPasswordComplete,
-				updatePassword,
+				updateUserPassword,
 				clearSuccess,
 				setToken,
 				clearLoginFlags,
