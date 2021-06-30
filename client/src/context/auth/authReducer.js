@@ -114,8 +114,9 @@ export default (state, action) => {
 				token: null,
 				isAuthenticated: false,
 				loading: false,
-				user: null,
+				user: {},
 				deleteProfileSuccess: true,
+				authError: null,
 			};
 		case LOGIN_FAIL:
 		case UPDATE_PASSWORD_FAIL:
@@ -140,6 +141,7 @@ export default (state, action) => {
 				...state,
 				updateProfileSuccess: false,
 				updateEmailSuccess: false,
+				updatePasswordSuccess: false,
 				authError: null,
 			};
 		case CLEAR_LOGIN_FLAGS:
