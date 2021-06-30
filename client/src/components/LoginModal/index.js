@@ -24,7 +24,7 @@ export default function LoginModal(props) {
 							<LoginForm setShow={setShow}></LoginForm>
 						</Tab>
 						<Tab className='p-4' eventKey='register' title='Register'>
-							<RegistrationForm></RegistrationForm>
+							<RegistrationForm setShow={setShow}></RegistrationForm>
 						</Tab>
 					</Tabs>
 				</Modal.Body>
@@ -33,13 +33,7 @@ export default function LoginModal(props) {
 					<Button variant='secondary' onClick={() => setShow(false)}>
 						Close
 					</Button>
-					<Button
-						onClick={() => setShow(false)}
-						variant='primary'
-						type='submit'
-						form={key === 'log-in' ? 'loginForm' : 'registrationForm'}
-						className='ml-2'
-					>
+					<Button variant='primary' type='submit' form={key === 'log-in' ? 'loginForm' : 'registrationForm'} className='ml-2'>
 						{key === 'log-in' ? 'Login' : 'Register'}
 					</Button>
 				</Modal.Footer>
