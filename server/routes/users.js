@@ -120,6 +120,7 @@ router.put('/update-password/:id', async (req, res, next) => {
 
 	try {
 		const user = await db.User.findOne({ _id: req.params.id });
+		user.email = user.email;
 		user.password = password;
 		user.save();
 		res.send('Password updated.');
