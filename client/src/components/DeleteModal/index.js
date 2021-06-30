@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import './style.scss';
 
 import Button from 'react-bootstrap/Button';
 
 const DeleteModal = (props) => {
-	const { id, title, message = 'message about what you are deleting. ', company, action, showModal, setShowModal } = props;
+	const { id, type, title, message = 'message about what you are deleting. ', company, action, showModal, setShowModal } = props;
 
 	const modalRef = useRef();
 
@@ -61,8 +62,7 @@ const DeleteModal = (props) => {
 								>
 									Cancel
 								</Button>
-
-								<Button
+								{/* <Button
 									variant='danger'
 									size='lg'
 									onClick={(e) => {
@@ -74,7 +74,36 @@ const DeleteModal = (props) => {
 									}}
 								>
 									{title ? 'Deactivate' : 'Delete'}
-								</Button>
+								</Button> */}
+								{type === 'DELETE_PROFILE' ? (
+									<Link
+										className='btn btn-lg btn-danger'
+										to='/'
+										onClick={(e) => {
+											e.preventDefault();
+											action({
+												_id: id,
+												active: 'false',
+											});
+										}}
+									>
+										Delete Profile
+									</Link>
+								) : (
+									<Button
+										variant='danger'
+										size='lg'
+										onClick={(e) => {
+											e.preventDefault();
+											action({
+												_id: id,
+												active: 'false',
+											});
+										}}
+									>
+										{title ? 'Deactivate' : 'Delete'}
+									</Button>
+								)}
 							</div>
 						</div>
 					</animated.div>
