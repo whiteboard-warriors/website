@@ -14,14 +14,15 @@ import './style.scss';
 const Landing = () => {
 	const authContext = useContext(AuthContext);
 	const alertContext = useContext(AlertContext);
-	const { user, loginSuccess, clearLoginFlags } = authContext;
+	const { user, loginSuccess, clearLoginFlags, clearSuccess } = authContext;
 	const { setAlert } = alertContext;
 
 	useEffect(() => {
 		if (loginSuccess && user) {
 			console.log(user.firstName, ' is logged in.');
-			setAlert(`Welcome, ${user.firstName}!`, 'success');
+			setAlert(`Welcome, ${user.firstName}!`, 'success', 2000);
 			clearLoginFlags();
+			clearSuccess();
 		}
 
 		// eslint-disable-next-line

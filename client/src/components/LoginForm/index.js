@@ -13,8 +13,11 @@ export default function LoginForm(props) {
 
 	useEffect(() => {
 		if (authError === 'Invalid Credentials') {
-			console.log('error');
-			setAlert("Hmmm, something went wrong. Please re-enter your username and password or click 'Forgot Password'", 'danger');
+			setAlert(
+				"Hmmm, something went wrong. Please re-enter your username and password or click 'Forgot Password'. If you don't have an account yet, login and select the 'Register' tab.",
+				'info',
+				8000
+			);
 			clearAuthErrors();
 		}
 		// eslint-disable-next-line
@@ -45,6 +48,7 @@ export default function LoginForm(props) {
 			email,
 			password,
 		});
+		setShow(false);
 	};
 
 	let location = window.location.href;

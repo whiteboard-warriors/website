@@ -132,34 +132,46 @@ const JobCard = (props) => {
 								<b>Hard Requirements</b>
 							</p>
 							<div className='requirement-list'>
-								<p className='flag-hard-requirement'>
-									<span>{hardRequirement1}</span>
-								</p>
-								<p className='flag-hard-requirement'>
-									<span>{hardRequirement2}</span>
-								</p>
-								<p className='flag-hard-requirement '>
-									<span>{hardRequirement3}</span>
-								</p>
+								{hardRequirement1 && (
+									<p className='flag-hard-requirement'>
+										<span>{hardRequirement1}</span>
+									</p>
+								)}
+								{hardRequirement2 && (
+									<p className='flag-hard-requirement'>
+										<span>{hardRequirement2}</span>
+									</p>
+								)}
+								{hardRequirement3 && (
+									<p className='flag-hard-requirement '>
+										<span>{hardRequirement3}</span>
+									</p>
+								)}
 							</div>
 						</>
 					)}
 
-					{softRequirement2 && (
+					{softRequirement1 && (
 						<>
 							<p className='mt-4'>
 								<b>Soft Requirements</b>
 							</p>
 							<div className='requirement-list'>
-								<p className='flag-soft-requirement'>
-									<span>{softRequirement1}</span>
-								</p>
-								<p className='flag-soft-requirement'>
-									<span>{softRequirement2}</span>
-								</p>
-								<p className='flag-soft-requirement'>
-									<span>{softRequirement3}</span>
-								</p>
+								{softRequirement1 && (
+									<p className='flag-soft-requirement'>
+										<span>{softRequirement1}</span>
+									</p>
+								)}
+								{softRequirement2 && (
+									<p className='flag-soft-requirement'>
+										<span>{softRequirement2}</span>
+									</p>
+								)}
+								{softRequirement3 && (
+									<p className='flag-soft-requirement'>
+										<span>{softRequirement3}</span>
+									</p>
+								)}
 							</div>
 						</>
 					)}

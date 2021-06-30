@@ -24,7 +24,6 @@ export default function NavBar(props) {
 
 	useEffect(() => {
 		if (registrationSuccess) {
-			setAlert('Great Success! Welcome!', 'success');
 			setShow(false);
 			clearAuthErrors();
 			clearLoginFlags();
@@ -50,7 +49,7 @@ export default function NavBar(props) {
 
 	const logoutAndCloseNav = () => {
 		logout();
-		setAlert("You've been successfully logged out.", 'success');
+		setAlert("You've been successfully logged out.", 'success', 3000);
 		clearAuthErrors();
 		clearLoginFlags();
 		closeNav();
@@ -91,7 +90,7 @@ export default function NavBar(props) {
 			) : (
 				<Link onClick={displayModal} className='nav-link' to='/'>
 					{/* <i className='navbar-icon fas fa-sign-in-alt'></i> */}
-					Login
+					Login / Register
 				</Link>
 			)}
 		</Fragment>

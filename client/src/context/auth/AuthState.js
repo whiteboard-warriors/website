@@ -15,13 +15,17 @@ import {
 	CLEAR_ERRORS,
 	UPDATE_PROFILE_SUCCESS,
 	UPDATE_PROFILE_FAIL,
+	DELETE_PROFILE_SUCCESS,
+	DELETE_PROFILE_FAIL,
+	UPDATE_EMAIL_SUCCESS,
+	UPDATE_EMAIL_FAIL,
+	UPDATE_PASSWORD_SUCCESS,
+	UPDATE_PASSWORD_FAIL,
 	FORGOT_PASSWORD_SUCCESS,
 	FORGOT_RESET_SUCCESS,
 	FORGOT_RESET_FAIL,
 	CLEAR_SUCCESS,
 	CLEAR_LOGIN_FLAGS,
-	// RESET_PASSWORD_SUCCESS,
-	// RESET_PASSWORD_FAIL,
 } from '../types';
 
 /**
@@ -40,7 +44,10 @@ const AuthState = (props) => {
 		forgotResetSuccess: false,
 		forgotRequestSuccess: false,
 		updateProfileSuccess: false,
+		updateEmailSuccess: false,
+		updatePasswordSuccess: false,
 		loginSuccess: false,
+		deleteProfileSuccess: false,
 	};
 
 	const [state, dispatch] = useReducer(authReducer, initialState);
@@ -111,6 +118,47 @@ const AuthState = (props) => {
 			});
 		}
 	};
+	/**
+	 * Update User Profile
+	 * @param {*} formData
+	 */
+	const updateUserEmail = async (formData) => {
+		try {
+			const res = await HTTP.put('/api/users/' + formData.id, formData);
+
+			dispatch({
+				type: UPDATE_EMAIL_SUCCESS,
+				payload: res.data,
+			});
+
+			loadUser();
+		} catch (err) {
+			console.log('update user email - error');
+			dispatch({
+				type: UPDATE_EMAIL_FAIL,
+				payload: err.response.data.msg,
+			});
+		}
+	};
+	/**
+	 * Delete profile and all user data
+	 * @param {*} id
+	 */
+	const deleteUserProfile = async (formData) => {
+		try {
+			const res = await HTTP.remove('/api/users/delete/' + formData._id);
+
+			dispatch({
+				type: DELETE_PROFILE_SUCCESS,
+				payload: res.data,
+			});
+		} catch (err) {
+			dispatch({
+				type: DELETE_PROFILE_FAIL,
+				payload: err.response.data.msg,
+			});
+		}
+	};
 
 	/**
 	 * Login User
@@ -150,7 +198,7 @@ const AuthState = (props) => {
 			console.error(err.response.data.msg);
 			dispatch({
 				type: FORGOT_RESET_FAIL,
-				payload: { error: err.response.data.msg },
+				payload: err.response.data.msg,
 			});
 		}
 	};
@@ -171,7 +219,28 @@ const AuthState = (props) => {
 			console.error(err);
 			dispatch({
 				type: FORGOT_RESET_FAIL,
-				payload: { error: err.response.data.msg },
+				payload: err.response.data.msg,
+			});
+		}
+	};
+
+	/**
+	 *
+	 * @param {*} formData
+	 */
+	const updateUserPassword = async (formData) => {
+		try {
+			const res = await HTTP.put('/api/users/update-password/' + formData.id, formData);
+
+			dispatch({
+				type: UPDATE_PASSWORD_SUCCESS,
+				payload: res.body,
+			});
+		} catch (err) {
+			console.error(err.response.data.msg);
+			dispatch({
+				type: UPDATE_PASSWORD_FAIL,
+				payload: err.response.data.msg,
 			});
 		}
 	};
@@ -214,17 +283,23 @@ const AuthState = (props) => {
 				forgotResetSuccess: state.forgotResetSuccess,
 				forgotRequestSuccess: state.forgotRequestSuccess,
 				updateProfileSuccess: state.updateProfileSuccess,
+				updateEmailSuccess: state.updateEmailSuccess,
+				deleteProfileSuccess: state.deleteProfileSuccess,
+				updatePasswordSuccess: state.updatePasswordSuccess,
 				registrationError: state.registrationError,
 				registrationSuccess: state.registrationSuccess,
 				loginSuccess: state.loginSuccess,
 				register,
 				loadUser,
 				updateUserProfile,
+				updateUserEmail,
+				deleteUserProfile,
 				login,
 				logout,
 				clearAuthErrors,
 				forgotPassword,
 				forgotPasswordComplete,
+				updateUserPassword,
 				clearSuccess,
 				setToken,
 				clearLoginFlags,

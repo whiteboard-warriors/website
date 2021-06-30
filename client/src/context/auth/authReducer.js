@@ -9,9 +9,15 @@ import {
 	CLEAR_ERRORS,
 	UPDATE_PROFILE_SUCCESS,
 	UPDATE_PROFILE_FAIL,
+	DELETE_PROFILE_SUCCESS,
+	DELETE_PROFILE_FAIL,
 	FORGOT_PASSWORD_SUCCESS,
 	FORGOT_RESET_SUCCESS,
 	FORGOT_RESET_FAIL,
+	UPDATE_PASSWORD_SUCCESS,
+	UPDATE_PASSWORD_FAIL,
+	UPDATE_EMAIL_SUCCESS,
+	UPDATE_EMAIL_FAIL,
 	CLEAR_SUCCESS,
 	CLEAR_LOGIN_FLAGS,
 } from '../types';
@@ -58,11 +64,7 @@ export default (state, action) => {
 				authError: action.payload,
 				isAuthenticated: false,
 			};
-		case LOGIN_FAIL:
-			return {
-				...state,
-				authError: action.payload,
-			};
+
 		case LOGOUT:
 			localStorage.removeItem('isAuthenticated');
 			localStorage.removeItem('user');
@@ -91,8 +93,41 @@ export default (state, action) => {
 				user: action.payload,
 				updateProfileSuccess: true,
 			};
+		case UPDATE_EMAIL_SUCCESS:
+			localStorage.setItem('user', JSON.stringify(action.payload));
+			return {
+				...state,
+				user: action.payload,
+				updateEmailSuccess: true,
+			};
+		case UPDATE_PASSWORD_SUCCESS:
+			return {
+				...state,
+				updatePasswordSuccess: true,
+			};
+		case DELETE_PROFILE_SUCCESS:
+			localStorage.removeItem('isAuthenticated');
+			localStorage.removeItem('user');
+			localStorage.removeItem('token');
+			return {
+				...state,
+				token: null,
+				isAuthenticated: false,
+				loading: false,
+				user: {},
+				deleteProfileSuccess: true,
+				authError: null,
+			};
+		case LOGIN_FAIL:
+		case UPDATE_PASSWORD_FAIL:
+		case UPDATE_EMAIL_FAIL:
 		case UPDATE_PROFILE_FAIL:
-			return state;
+		case DELETE_PROFILE_FAIL:
+			return {
+				...state,
+				authError: action.payload,
+			};
+
 		case FORGOT_PASSWORD_SUCCESS:
 			localStorage.removeItem('isAuthenticated');
 			localStorage.removeItem('user');
@@ -100,9 +135,15 @@ export default (state, action) => {
 		case FORGOT_RESET_SUCCESS:
 			return { ...state, authError: null, forgotResetSuccess: true };
 		case FORGOT_RESET_FAIL:
-			return { ...state, authError: action.payload.error };
+			return { ...state, authError: action.payload };
 		case CLEAR_SUCCESS:
-			return { ...state, updateProfileSuccess: false };
+			return {
+				...state,
+				updateProfileSuccess: false,
+				updateEmailSuccess: false,
+				updatePasswordSuccess: false,
+				authError: null,
+			};
 		case CLEAR_LOGIN_FLAGS:
 			return {
 				...state,
@@ -110,6 +151,11 @@ export default (state, action) => {
 				loading: false,
 				forgotRequestSuccess: false,
 				forgotResetSuccess: false,
+				updatePasswordSuccess: false,
+				deleteProfileSuccess: false,
+				updateProfileSuccess: false,
+				updateEmailSuccess: false,
+				authError: null,
 			};
 		default:
 			return state;
