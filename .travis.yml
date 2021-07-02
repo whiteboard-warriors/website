@@ -17,7 +17,7 @@ before_script:
 before_deploy:
 deploy:
     - provider: script
-      cleanup: true
+      skip_cleanup: true
       script: scripts/deploy_staging.sh
       on:
           branch: staging
