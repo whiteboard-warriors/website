@@ -11,5 +11,5 @@ cd $TRAVIS_BUILD_DIR/client && ls
 echo $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
 echo "Copying to server..."
 # remember "/" after $TRAVIS_BUILD_DIR so don't get /website 
-rsync -av --delete-after -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
+rsync -a --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
 echo "Done running copy..."
