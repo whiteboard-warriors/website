@@ -10,5 +10,6 @@ echo "Deploy path staging: " $DEPLOY_PATH_STAGING
 cd $TRAVIS_BUILD_DIR/client && ls
 echo $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
 echo "Copying to server..."
-rsync -av --progress --delete-after -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
+# remember "/" after $TRAVIS_BUILD_DIR so don't get /website 
+rsync -av --progress --delete-after -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
 echo "Done running copy..."
