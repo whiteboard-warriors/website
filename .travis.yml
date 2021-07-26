@@ -22,7 +22,7 @@ deploy:
       on:
           branch: staging
     - provider: script
-      cleanup: true
+      skip_cleanup: true
       script: scripts/deploy_production.sh
       on:
           branch: master

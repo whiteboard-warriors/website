@@ -5,10 +5,7 @@ echo "Placing env file..."
 mv .env-staging .env
 echo "Client directory contents: "
 cd client && ls
-echo $TRAVIS_BUILD_DIR 
-echo "Deploy path staging: " $DEPLOY_PATH_STAGING
 cd $TRAVIS_BUILD_DIR/client && ls
-echo $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
 echo "Copying to server..."
 # remember "/" after $TRAVIS_BUILD_DIR so don't get /website 
 rsync -a --delete-after --quiet -e "ssh -o StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH_STAGING
