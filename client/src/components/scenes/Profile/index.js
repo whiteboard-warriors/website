@@ -1,44 +1,133 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import './style.scss';
 import { Form, Row, Col, Button, Container } from 'react-bootstrap';
+import DeleteModal from '../../DeleteModal';
 import AuthContext from '../../../context/auth/authContext';
 import AlertContext from '../../../context/alert/alertContext';
 import placeholder from './placeholder.jpeg';
 
-const Profile = (props) => {
+const Profile = () => {
+	const history = useHistory();
 	const alertContext = useContext(AlertContext);
 	const authContext = useContext(AuthContext);
 	const { setAlert } = alertContext;
-	const { user, updateUserProfile, updateProfileSuccess, clearSuccess } = authContext;
+	const {
+		user,
+		updateUserProfile,
+		updateProfileSuccess,
+		updatePasswordSuccess,
+		updateUserEmail,
+		updateUserPassword,
+		updateEmailSuccess,
+		deleteProfileSuccess,
+		clearSuccess,
+		authError,
+		clearLoginFlags,
+		deleteUserProfile,
+		logout,
+	} = authContext;
+	/**
+	 *
+	 */
+
+	useEffect(() => {
+		if (deleteProfileSuccess) {
+			history.push('/');
+			setAlert(
+				`We're sorry to see you go. Your profile and all of your data has been deleted and never shared with anyone. Feel free to come back at any time!`,
+				'info',
+				7000
+			);
+
+			clearLoginFlags();
+		}
+		if (updateProfileSuccess) {
+			setAlert('Your profile has been updated.', 'success', 2000);
+			clearSuccess();
+		}
+		if (updateEmailSuccess) {
+			setAlert('Your email has been updated. Remember to login with your updated email next time.', 'success', 4500);
+			clearSuccess();
+		}
+		if (updatePasswordSuccess) {
+			setAlert('Your password has been updated. Remember to login with your updated password next time.', 'success', 4500);
+			clearSuccess();
+		}
+
+		if (authError) {
+			setAlert(authError, 'danger', 4000);
+			history.push('/profile');
+			clearLoginFlags();
+		}
+		// eslint-disable-next-line
+	}, [updateProfileSuccess, updateEmailSuccess, updatePasswordSuccess, deleteProfileSuccess, authError, history, user]);
 
 	const [profile, setProfile] = useState({
-		id: user._id,
-		firstName: user.firstName,
-		lastName: user.lastName,
-		slackUsername: user.slackUsername,
-		linkedIn: user.linkedIn,
-		githubUsername: user.githubUsername,
-		primaryLanguage: user.primaryLanguage,
-		secondaryLanguage: user.secondaryLanguage,
-		skillLevel: user.skillLevel,
-		jobPosting: user.jobPosting,
+		id: user._id || '',
+		firstName: user.firstName || '',
+		lastName: user.lastName || '',
+		slackUsername: user.slackUsername || '',
+		linkedIn: user.linkedIn || '',
+		githubUsername: user.githubUsername || '',
+		primaryLanguage: user.primaryLanguage || '',
+		secondaryLanguage: user.secondaryLanguage || '',
+		skillLevel: user.skillLevel || '',
+		jobPosting: user.jobPosting || '',
 	});
+	const [showModal, setShowModal] = useState(false);
+	const [userEmail, setUserEmail] = useState({
+		email: '',
+	});
+	const { email } = userEmail;
+	const [userPassword, setUserPassword] = useState({
+		password: '',
+		password2: '',
+	});
+	const { password, password2 } = userPassword;
+	const [passwordValid, setPasswordValid] = useState(false);
+	const [validated, setValidated] = useState(false);
+	const [emailValid, setEmailValid] = useState(false);
 
 	const { id, firstName, lastName, slackUsername, linkedIn, githubUsername, primaryLanguage, secondaryLanguage, skillLevel, jobPosting } =
 		profile;
 
-	/**
-	 *
-	 */
-	useEffect(() => {
-		if (updateProfileSuccess) {
-			setAlert('Your profile has been updated.', 'success');
-			clearSuccess();
-		}
-	}, [updateProfileSuccess, setAlert, clearSuccess]);
+	const openModal = () => {
+		setShowModal((prev) => {
+			return !prev;
+		});
+	};
 
 	const onChangeProfile = (e) => {
 		setProfile({ ...profile, [e.target.name]: e.target.value });
+	};
+	const onChangeEmail = (e) => {
+		setUserEmail({ ...userEmail, [e.target.name]: e.target.value });
+		const form = e.currentTarget.form;
+		const emailInput = form.elements['email'];
+		if (emailInput.checkValidity()) {
+			emailInput.checkValidity();
+			emailInput.reportValidity();
+			setEmailValid(true);
+		}
+	};
+	const onChangePassword = (e) => {
+		setUserPassword({ ...userPassword, [e.target.name]: e.target.value });
+		if (validated) {
+			if (e.target.name === 'password' || e.target.name === 'password2') {
+				const form = e.currentTarget.form;
+				const passwordInput = form.elements['password'];
+				const passwordConfirmInput = form.elements['password2'];
+				if (!passwordInput.checkValidity()) {
+					passwordInput.setCustomValidity('');
+					passwordInput.reportValidity();
+				}
+				if (!passwordConfirmInput.checkValidity()) {
+					passwordConfirmInput.setCustomValidity('');
+					passwordConfirmInput.reportValidity();
+				}
+			}
+		}
 	};
 
 	const saveProfile = (e) => {
@@ -55,6 +144,74 @@ const Profile = (props) => {
 			skillLevel,
 			jobPosting,
 		});
+	};
+	const updateEmail = (e) => {
+		e.preventDefault();
+		const form = e.currentTarget;
+		const emailInput = form.elements['email'];
+		// console.log('emailInput: ', emailInput.value);
+		// console.log('check validity', form.checkValidity());
+		// form.checkValidity();
+		// form.reportValidity();
+		let valid = true;
+		if (emailInput.checkValidity() === false) {
+			e.stopPropagation();
+		} else {
+			if (!emailInput.checkValidity()) {
+				emailInput.setCustomValidity('Email format not valid. Please enter a valid email');
+				emailInput.reportValidity();
+				valid = false;
+			} else if (emailValid) {
+				emailInput.setCustomValidity('');
+				emailInput.reportValidity();
+				setEmailValid(true);
+				valid = true;
+			}
+		}
+		if (valid) {
+			updateUserEmail({
+				id,
+				email,
+			});
+		}
+
+		setEmailValid(true);
+	};
+
+	const updatePassword = (e) => {
+		e.preventDefault();
+		const form = e.currentTarget;
+		let valid = true;
+		if (form.checkValidity() === false) {
+			e.stopPropagation();
+			valid = false; // might not be needed
+		} else {
+			const passwordInput = form.elements['password'];
+			const passwordConfirmInput = form.elements['password2'];
+			if (password !== password2) {
+				console.log(e.currentTarget);
+				passwordInput.setCustomValidity("Passwords don't match");
+				passwordInput.reportValidity();
+				passwordConfirmInput.setCustomValidity("Passwords don't match");
+				passwordConfirmInput.reportValidity();
+				valid = false;
+			} else if (validated) {
+				passwordInput.setCustomValidity('');
+				passwordInput.reportValidity();
+				passwordConfirmInput.setCustomValidity('');
+				passwordConfirmInput.reportValidity();
+				setPasswordValid(true);
+			}
+		}
+
+		if (valid) {
+			updateUserPassword({
+				id,
+				password,
+			});
+		}
+
+		setValidated(true);
 	};
 
 	return (
@@ -311,11 +468,27 @@ const Profile = (props) => {
 
 						<hr className='my-4' />
 						<h4 className='my-4'>Change Password</h4>
-						<Form className='form-custom-margin'>
+						<Form noValidate validated={passwordValid} className='form-custom-margin' onSubmit={updatePassword}>
 							<Form.Group>
-								<Form.Control type='password' placeholder='Password' id='password' />
+								<Form.Control
+									type='password'
+									isValid={passwordValid}
+									placeholder='Password'
+									onChange={onChangePassword}
+									name='password'
+									value={password}
+									required
+								/>
 
-								<Form.Control type='password' placeholder='Confirm Password' />
+								<Form.Control
+									type='password'
+									isValid={passwordValid}
+									placeholder='Confirm Password'
+									onChange={onChangePassword}
+									name='password2'
+									value={password2}
+									required
+								/>
 							</Form.Group>
 							<Button variant='primary' type='submit'>
 								Reset
@@ -323,17 +496,39 @@ const Profile = (props) => {
 						</Form>
 						<hr className='my-4' />
 						<h4>Change E-Mail</h4>
-						<Form className='form-custom-margin'>
+						<Form noValidate validated={emailValid} className='form-custom-margin' onSubmit={updateEmail}>
 							<Form.Group>
-								<Form.Control type='email' placeholder='Enter email' />
+								<Form.Control
+									name='email'
+									type='email'
+									placeholder='Enter new email'
+									onChange={onChangeEmail}
+									pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+									value={email}
+									required
+								/>
 							</Form.Group>
 							<Button variant='primary' type='submit'>
 								Update
 							</Button>
 						</Form>
+						<hr className='my-4' />
+						<h4>Danger Zone</h4>
+						<p className='mt2r btn btn-danger btn-md' onClick={openModal}>
+							<b>Delete profile and personal data</b>
+						</p>
 					</Col>
 				</Row>
 			</Container>
+			<DeleteModal
+				showModal={showModal}
+				setShowModal={setShowModal}
+				id={user._id}
+				action={deleteUserProfile} //
+				message={'Are you sure you want to delete your profile and data? This action cannot be reversed.'}
+				type={'DELETE_PROFILE'}
+				logout={logout}
+			/>
 		</Fragment>
 	);
 };

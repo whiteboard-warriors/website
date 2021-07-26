@@ -1,24 +1,12 @@
 import React, { useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import './style.scss';
 
 import Button from 'react-bootstrap/Button';
 
-// import AlertContext from '../../context/alert/alertContext';
-
 const DeleteModal = (props) => {
-	// const alertContext = useContext(AlertContext);
-	// const { setAlert } = alertContext;
-	const {
-		id,
-		title = 'Title',
-		// type = 'Item Type',
-		message = 'message about what you are deleting. ',
-		company = 'Company',
-		action,
-		showModal,
-		setShowModal,
-	} = props;
+	const { id, type, title, message = 'message about what you are deleting. ', company, action, showModal, setShowModal } = props;
 
 	const modalRef = useRef();
 
@@ -59,9 +47,11 @@ const DeleteModal = (props) => {
 							<div className='text-center'>
 								<p className='lead'>{message}</p>
 							</div>
-							<h4>
-								{title} at {company}
-							</h4>
+							{title && (
+								<h4>
+									{title} at {company}
+								</h4>
+							)}
 							<div className='text-center'>
 								<Button
 									variant='secondary'
@@ -72,8 +62,7 @@ const DeleteModal = (props) => {
 								>
 									Cancel
 								</Button>
-
-								<Button
+								{/* <Button
 									variant='danger'
 									size='lg'
 									onClick={(e) => {
@@ -84,8 +73,37 @@ const DeleteModal = (props) => {
 										});
 									}}
 								>
-									Deactivate
-								</Button>
+									{title ? 'Deactivate' : 'Delete'}
+								</Button> */}
+								{type === 'DELETE_PROFILE' ? (
+									<Link
+										className='btn btn-lg btn-danger'
+										to='/'
+										onClick={(e) => {
+											e.preventDefault();
+											action({
+												_id: id,
+												active: 'false',
+											});
+										}}
+									>
+										Delete Profile
+									</Link>
+								) : (
+									<Button
+										variant='danger'
+										size='lg'
+										onClick={(e) => {
+											e.preventDefault();
+											action({
+												_id: id,
+												active: 'false',
+											});
+										}}
+									>
+										{title ? 'Deactivate' : 'Delete'}
+									</Button>
+								)}
 							</div>
 						</div>
 					</animated.div>

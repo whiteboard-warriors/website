@@ -11,7 +11,9 @@ router.get('/', async (req, res) => {
 		res.json(jobs);
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 

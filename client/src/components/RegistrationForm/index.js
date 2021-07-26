@@ -3,13 +3,14 @@ import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
 import { Col, Form } from 'react-bootstrap';
 
-export default function RegistrationForm() {
+export default function RegistrationForm(props) {
 	const alertContext = useContext(AlertContext);
 	const authContext = useContext(AuthContext);
 	const { register, registrationError, clearAuthErrors } = authContext;
 	const { setAlert } = alertContext;
 	const [passwordValid, setPasswordValid] = useState(false);
 	const [validated, setValidated] = useState(false);
+	const { setShow } = props;
 
 	useEffect(() => {
 		if (registrationError) {
@@ -94,6 +95,7 @@ export default function RegistrationForm() {
 				linkedIn,
 				githubUsername,
 			});
+			setShow(false);
 		}
 
 		setValidated(true);

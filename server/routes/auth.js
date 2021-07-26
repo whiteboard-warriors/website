@@ -44,6 +44,7 @@ router.post('/login', async function (req, res) {
 				}
 			);
 			console.log(user.firstName, ' is now logged in.');
+			console.log('id: ' + user._id);
 		} else {
 			return res.status(400).json({
 				msg: 'Invalid Credentials',
@@ -123,11 +124,15 @@ router.post(
 			);
 
 			emailService.sendWelcomeConfirmation(email);
-			res.status(200).send('User Saved');
+			res.status(200).json({
+				msg: 'User saved',
+			});
 			// res.redirect(307, 'api/auth/login'); // api login
 		} catch (err) {
 			console.error(err.message);
-			res.status(500).send('Server Error');
+			res.status(500).json({
+				msg: 'Oops, there was a server error. Please try again.',
+			});
 		}
 	}
 );
@@ -180,11 +185,15 @@ router.post('/forgot-password-complete', async (req, res) => {
 			user.password = password;
 			user.token = null;
 			await user.save();
-			res.status(200).send('Your password has been updated.');
+			res.status(200).json({
+				msg: 'Your password has been updated.',
+			});
 		}
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).send('Server Error');
+		res.status(500).json({
+			msg: 'Oops, there was a server error. Please try again.',
+		});
 	}
 });
 
